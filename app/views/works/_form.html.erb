@@ -1,0 +1,32 @@
+<%= form_with(model: work) do |form| %>
+  <% if work.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(work.errors.count, "error") %> prohibited this work from being saved:</h2>
+
+      <ul>
+        <% work.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :ISBN, style: "display: block" %>
+    <%= form.text_field :ISBN %>
+  </div>
+
+  <div>
+    <%= form.label :date_published, style: "display: block" %>
+    <%= form.date_field :date_published %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
