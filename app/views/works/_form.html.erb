@@ -28,8 +28,8 @@
 
   <h1> Author info </h1>
 
-  <%= form.fields_for :author do |authors_form| %>
-    <%= render partial: 'authors/form', locals: {author: author, form: authors_form} %>
+  <%= form.fields_for :voice do |voice_form| %>
+    <%= render partial: 'voices/form', locals: {work: work, author: author, form: voice_form} %>
   <% end %>
 
 

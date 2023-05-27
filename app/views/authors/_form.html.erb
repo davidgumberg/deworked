@@ -1,28 +1,28 @@
-  <% if author.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(author.errors.count, "error") %> prohibited this author from being saved:</h2>
-
-      <ul>
-        <% author.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-
-    <%= form.label :last_name%>
-    <%= form.text_field :last_name %>
-
-  <div>
-    <%= form.label :birth, style: "display: block" %>
-    <%= form.date_field :birth %>
+<% if author.errors.any? %>
+  <div style="color: red">
+    <h2><%= pluralize(author.errors.count, "error") %> prohibited this author from being saved:</h2>
+    <ul>
+      <% author.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
   </div>
+<% end %>
 
-  <div>
-    <%= form.label :death, style: "display: block" %>
-    <%= form.date_field :death %>
-  </div>
+<div>
+  <%= form.label :first_name %>
+  <%= form.text_field :first_name %>
+
+  <%= form.label :last_name%>
+  <%= form.text_field :last_name %>
+</div>
+
+<div>
+  <%= form.label :birth, style: "display: block" %>
+  <%= form.date_field :birth %>
+</div>
+
+<div>
+  <%= form.label :death, style: "display: block" %>
+  <%= form.date_field :death %>
+</div>

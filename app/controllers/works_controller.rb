@@ -14,6 +14,7 @@ class WorksController < ApplicationController
   def new
     @work = Work.new
     @author = Author.new
+    @voice = Voice.new
   end
 
   # GET /works/1/edit
