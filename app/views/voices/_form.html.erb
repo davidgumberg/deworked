@@ -1,17 +1,6 @@
-<% if voice.errors.any? %>
-  <div style="color: red">
-    <h2><%= pluralize(voice.errors.count, "error") %> prohibited this author from being saved:</h2>
-    <ul>
-      <% voice.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <%= form.label :style %>
-<%= form.select :style, options_for_select([['Primary', 0], ['Authorial', 1], ['Editorial', 2], ['Translatorial', 4]]) %>
+<%= form.select :style, options_for_select([['Primary', :primary], ['Authorial', :authorial], ['Editorial', :editorial], ['Translatorial', 4]]) %>
 
 <%= form.fields_for :author do |authors_form| %>
-  <%= render partial: 'authors/form', locals: {author: author, form: authors_form} %>
+  <%= render partial: 'authors/form', locals: {form: authors_form} %>
 <% end %>

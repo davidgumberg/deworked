@@ -13,8 +13,7 @@ class WorksController < ApplicationController
   # GET /works/new
   def new
     @work = Work.new
-    @author = Author.new
-    @voice = Voice.new
+    @work.voices.build.build_author
   end
 
   # GET /works/1/edit
@@ -67,7 +66,6 @@ class WorksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def work_params
-      params.require(:work).permit(:title, :ISBN, :date_published,
-                                   authors_attributes: [:first_name, :last_name, :birth, :death])
+      params.require(:work).permit(:title, :ISBN, :date_published, voices_attributes: [:style, author_attributes: [:first_name, :last_name, :birth, :death]])
     end
 end

@@ -1,5 +1,5 @@
 class Voice < ApplicationRecord
-  enum :style, { primary: 0, authorial: 1, editorial: 2, translatorial: 3 }
+  enum style: %i[author editor translator]
 
   belongs_to :author
   validates_presence_of :author
@@ -8,4 +8,11 @@ class Voice < ApplicationRecord
   validates_presence_of :work
 
   accepts_nested_attributes_for :author
+
+  def authors_attributes=(authors_attributes)
+    authors_attributes.each do |author_attribute|
+      author = Author.find_or_create_by(author_attribute)
+      authors << author
+    end
+  end
 end

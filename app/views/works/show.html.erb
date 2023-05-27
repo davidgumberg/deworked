@@ -2,9 +2,13 @@
 
 <%= render @work %>
 
-<div>
-  <%= link_to "Edit this work", edit_work_path(@work) %> |
-  <%= link_to "Back to works", works_path %>
+<% Voice.where(work_id: @work.id).each do |voice| %>
+  <p><%= voice.style.titleize %></p>
+  <%= render Author.find(voice.author.id) %>
+<% end %>
 
+<div>
+  <%= link_to "Edit this work", edit_work_path(@work) %>
+  <%= link_to "Back to works", works_path %>
   <%= button_to "Destroy this work", @work, method: :delete %>
 </div>
