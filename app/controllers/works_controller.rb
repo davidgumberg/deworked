@@ -66,6 +66,7 @@ class WorksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def work_params
-      params.require(:work).permit(:title, :ISBN, :date_published)
+      params.require(:work).permit(:title, :ISBN, :date_published,
+                                   authors_attributes: [:first_name, :last_name, :birth, :death])
     end
 end

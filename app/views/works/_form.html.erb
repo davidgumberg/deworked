@@ -26,6 +26,13 @@
     <%= form.date_field :date_published %>
   </div>
 
+  <h1> Author info </h1>
+
+  <%= form.fields_for :author do |authors_form| %>
+    <%= render partial: 'authors/form', locals: {author: author, form: authors_form} %>
+  <% end %>
+
+
   <div>
     <%= form.submit %>
   </div>
