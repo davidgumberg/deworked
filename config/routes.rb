@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :works do
+    collection do
+      get 'new/ext', to: 'works#ext', constraints: { isbn: /\d{10}(\d{3})?/ }
+    end
     resources :voices
     resources :authors
   end

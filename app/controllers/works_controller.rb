@@ -10,6 +10,10 @@ class WorksController < ApplicationController
   def show
   end
 
+  def ext
+    @work = Work.new_from_isbn(params[:isbn])
+  end
+
   # GET /works/new
   def new
     @work = Work.new
@@ -27,6 +31,7 @@ class WorksController < ApplicationController
     respond_to do |format|
       if @work.save
         format.html { redirect_to work_url(@work), notice: "Work was successfully created." }
+        format.turbo_stream 
         format.json { render :show, status: :created, location: @work }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -53,8 +58,9 @@ class WorksController < ApplicationController
     @work.destroy
 
     respond_to do |format|
-      format.html { redirect_to works_url, notice: "Work was successfully destroyed." }
-      format.json { head :no_content }
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(@work) }
+      format.html         { redirect_to works_url, notice: "Work was successfully destroyed." }
+      format.json         { head :no_content }
     end
   end
 
@@ -66,6 +72,7 @@ class WorksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def work_params
-      params.require(:work).permit(:title, :ISBN, :date_published, voices_attributes: [:style, author_attributes: [:first_name, :last_name, :birth, :death]])
+      params.require(:work).permit(:title, :ISBN, :date_published, :cover_url,
+                    voices_attributes: [:id, :style, author_attributes: [:id, :name, :birth, :death]])
     end
 end

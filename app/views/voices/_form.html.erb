@@ -1,5 +1,5 @@
-<%= form.label :style %>
-<%= form.select :style, options_for_select([['Primary', :primary], ['Authorial', :authorial], ['Editorial', :editorial], ['Translatorial', 4]]) %>
+<%= form.label :style, "Role" %>
+<%= form.select :style, options_for_select([['Author', :author], ['Editor', :editor], ['Translator', :translator]]) %>
 
 <%= form.fields_for :author do |authors_form| %>
   <%= render partial: 'authors/form', locals: {form: authors_form} %>

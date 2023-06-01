@@ -1,7 +1,8 @@
+<header>
 <p style="color: green"><%= notice %></p>
-
 <h1>Works</h1>
-
+</header>
+<main>
 <div id="works">
   <% @works.each do |work| %>
     <%= render work %>
@@ -10,5 +11,6 @@
     </p>
   <% end %>
 </div>
+</main>
 
 <%= link_to "New work", new_work_path %>

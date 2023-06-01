@@ -1,9 +1,10 @@
-<h1>New work</h1>
+<header>
+  <nav>
+    <%= link_to "Home", root_path, data: {turbo_frame: "_top"} %>
+  </nav>
+  <h1>New work</h1>
+</header>
 
-<%= render 'form', work: @work %>
-
-<br>
-
-<div>
-  <%= link_to "Back to works", works_path %>
-</div>
+<main>
+  <%= render 'form', work: @work %>
+</main>

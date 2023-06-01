@@ -26,12 +26,16 @@
     <%= form.date_field :date_published %>
   </div>
 
+  <div>
+    <%= form.label :cover_url, style: "display: block" %>
+    <%= form.text_field :cover_url %>
+  </div>
+
   <h1> Author info </h1>
 
   <%= form.fields_for :voices do |voice_form| %>
     <%= render partial: 'voices/form', locals: {form: voice_form} %>
   <% end %>
-
 
   <div>
     <%= form.submit %>

@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_17_132648) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_30_160432) do
   create_table "authors", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "name"
     t.datetime "birth"
     t.datetime "death"
     t.datetime "created_at", null: false
@@ -36,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_132648) do
     t.datetime "date_published"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cover_url"
   end
 
   add_foreign_key "voices", "authors"

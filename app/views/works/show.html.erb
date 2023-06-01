@@ -1,14 +1,18 @@
 <p style="color: green"><%= notice %></p>
+<h1> Work Information </h1>
 
-<%= render @work %>
+<%= turbo_frame_tag @work do %>
+  <%= render @work %>
 
-<% Voice.where(work_id: @work.id).each do |voice| %>
-  <p><%= voice.style.titleize %></p>
-  <%= render Author.find(voice.author.id) %>
+  <% Voice.where(work_id: @work.id).each do |voice| %>
+    <p><%= voice.style.titleize %></p>
+    <%= render Author.find(voice.author.id) %>
+  <% end %>
+
+  <div>
+    <%= link_to "Edit this work", edit_work_path(@work) %>
+    <%= button_to "Destroy this work", @work, method: :delete,
+                                              data: { turbo_frame: "_top" } %>
+    <%= link_to "Back to works", works_path, data: { turbo_frame: "_top" } %>
+  </div>
 <% end %>
-
-<div>
-  <%= link_to "Edit this work", edit_work_path(@work) %>
-  <%= link_to "Back to works", works_path %>
-  <%= button_to "Destroy this work", @work, method: :delete %>
-</div>

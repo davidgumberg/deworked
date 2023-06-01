@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/davidgumberg/fetchworks.git
+  revision: 25e89ad88cb4629606bc97f58918e8819b4e1bd8
+  branch: master
+  specs:
+    fetchworks (0.1.0)
+      open-uri
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -127,6 +135,10 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.0-x86_64-linux)
       racc (~> 1.4)
+    open-uri (0.3.0)
+      stringio
+      time
+      uri
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -180,7 +192,10 @@ GEM
     sqlite3 (1.6.3-x86_64-linux)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    stringio (3.0.6)
     thor (1.2.2)
+    time (0.2.2)
+      date
     timeout (0.3.2)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -188,6 +203,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    uri (0.12.1)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -212,6 +228,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  fetchworks!
   importmap-rails
   jbuilder
   puma (~> 5.0)
