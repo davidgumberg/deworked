@@ -31,11 +31,17 @@
     <%= form.text_field :cover_url %>
   </div>
 
-  <h1> Author info </h1>
+  <h1> Authors </h1>
 
+  <turbo-frame id="<%= form.field_id(:voices) %>">
   <%= form.fields_for :voices do |voice_form| %>
+    <h3> Add a new author </h3>
     <%= render partial: 'voices/form', locals: {form: voice_form} %>
   <% end %>
+
+  <%= form.submit "Add author", formmethod: "post", 
+                                formaction: add_author_works_path(id: form.object),
+                                data: { turbo_frame: form.field_id(:voices) } %>
 
   <div>
     <%= form.submit %>
