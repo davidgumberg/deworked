@@ -6,5 +6,16 @@
 </header>
 
 <main>
+
+<h2> Import from ISBN? </h2>
+<div>
+  <%= form_with url: "new/ext", method: :get do |form| %>
+    <%= form.label :isbn, style: "display: block" %>  
+    <%= form.text_field :isbn %>
+    <%= form.submit  %>
+  <% end %>
+</div>
+
+<h2> Manual book import </h2>
   <%= render 'form', work: @work %>
 </main>

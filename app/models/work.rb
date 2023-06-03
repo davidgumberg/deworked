@@ -24,6 +24,6 @@ class Work < ApplicationRecord
 
     Work.new(title: ext_data.title, ISBN: isbn,
              date_published: date,
-             cover_url: ext_data.cover["large"])
+             cover_url: ext_data.cover['large'])
   end
 end
