@@ -1,4 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @work %>
-<%= button_to "Save this work?", {action: "create" }, params: @params %>
+<%= turbo_frame_tag "ext_work_frame" do %>
+  <%= render @work %>
+  <% @params.each do |param| %>
+    <%= p param %>
+  <% end %>
+  <%= button_to "Save this work?", action: "create", params: @params %>
+<% end %>

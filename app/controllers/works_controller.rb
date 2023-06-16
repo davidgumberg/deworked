@@ -12,8 +12,7 @@ class WorksController < ApplicationController
 
   def ext
     @work = Work.new_from_isbn(params[:isbn])
-    @params = { work: @work, ISBN: @work.ISBN, title: @work.title,
-                cover_url: @work.cover_url, date_published: @work.date_published }
+    @params = { 'work': @work }
   end
 
   # GET /works/new
@@ -33,7 +32,7 @@ class WorksController < ApplicationController
     respond_to do |format|
       if @work.save
         format.html { redirect_to work_url(@work), notice: "Work was successfully created." }
-        format.turbo_stream 
+        format.turbo_stream
         format.json { render :show, status: :created, location: @work }
       else
         format.html { render :new, status: :unprocessable_entity }
