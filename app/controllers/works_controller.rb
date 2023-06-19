@@ -12,7 +12,7 @@ class WorksController < ApplicationController
 
   def ext
     @work = Work.new_from_isbn(params[:isbn])
-    @params = { 'work': @work }
+    @params = {work: @work}
   end
 
   # GET /works/new

@@ -4,6 +4,10 @@ class Author < ApplicationRecord
 
   validates_presence_of :name
 
+  scope :containing, (lambda do |query|
+    where("name LIKE ?", "%#{sanitize_sql_like(query)}%")
+  end)
+
   def birth_string
     if self[:birth].present?
       self[:birth].strftime('%m/%d/%Y')

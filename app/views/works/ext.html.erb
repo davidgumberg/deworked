@@ -2,8 +2,8 @@
 
 <%= turbo_frame_tag "ext_work_frame" do %>
   <%= render @work %>
-  <% @params.each do |param| %>
-    <%= p param %>
-  <% end %>
-  <%= button_to "Save this work?", action: "create", params: @params %>
+  <%= p @work.class %>
+  <%= button_to "Save this work?",
+      {action: "create"},
+      {params: {work: @work.attributes}} %>
 <% end %>

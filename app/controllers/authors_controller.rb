@@ -4,7 +4,11 @@ class AuthorsController < ApplicationController
   end
 
   def show
-    @author = Author.find(params: :id)
+    @author = Author.find(params[:id])
+  end
+
+  def search
+    @authors = Author.containing(params[:query])
   end
 
   def new

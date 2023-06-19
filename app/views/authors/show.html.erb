@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+<h1> Work Information </h1>
+
+<%= turbo_frame_tag @author do %>
+  <%= render @author %>
+
+  <div>
+    <%= link_to "Edit this author", edit_author_path(@author) %>
+    <%= button_to "Destroy this author", @author, method: :delete,
+                                              data: { turbo_frame: "_top" } %>
+    <%= link_to "Back to authors", authors_path, data: { turbo_frame: "_top" } %>
+  </div>
+<% end %>

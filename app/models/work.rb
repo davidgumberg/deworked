@@ -2,7 +2,7 @@ require 'date'
 require 'fetchworks'
 
 class Work < ApplicationRecord
-  has_many :voices, :dependent => :delete_all
+  has_many :voices, dependent: :delete_all
   has_many :authors, through: :voices
 
   validates_presence_of :title

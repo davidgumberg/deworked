@@ -1,0 +1,11 @@
+<%= turbo_stream.update "search_authors_results" do %>
+    <% @authors.each do |author| %>
+      <button type="button" id="<%= dom_id(author) %>" role="option" class="combobox_options"
+          data-action="click->author_fields#select"
+          data-author_fields-name-param="<%= author.name %>"
+          data-author_fields-birth-param="<%= author.birth %>"
+          data-author_fields-death-param="<%= author.death %>">
+          <%= highlight(author.name, params[:query]) %>
+      </button>
+    <% end %>
+<% end %>

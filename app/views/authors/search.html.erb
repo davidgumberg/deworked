@@ -1,0 +1,18 @@
+<header>
+  <p style="color: green"><%= notice %></p>
+</header>
+<main>
+  <%= turbo_frame_tag params.fetch(:turbo_frame, "search_authors_results") do %>
+    <ul role="listbox" data-combobox-target="list">
+      <% @authors.each do |author| %>
+        <li>
+          <%= link_to highlight(author.name, params[:query]), author,
+              id: dom_id(author, :search_authors_results), role: "option",
+              class: "combobox_options" %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</main>
+
+<%= link_to "New author", new_author_path %>
