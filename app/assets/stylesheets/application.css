@@ -75,19 +75,20 @@ form #author_search_field ul li {
 #author_search_field:focus-within .typeahead{
     opacity: 1;
     transform: scale(1, 1);
-    transition: transform 350ms cubic-bezier(0.030, 1.155, 0.820, 1.020), opacity 280ms ease-out;
+    transition: transform 2350ms cubic-bezier(0.030, 1.155, 0.820, 1.020), opacity 280ms ease-out;
 }
 
 .typeahead{
+    display: block;
     opacity: 0;
     transform: scale(0.8, 0) rotateX(90deg);
     transform-origin: top;
-    transition: transform 350ms cubic-bezier(0.030, 1.155, 0.820, 1.020), opacity 280ms ease-out;
+    transition: transform 2350ms cubic-bezier(0.030, 1.155, 0.820, 1.020), opacity 280ms ease-out;
 }
 
 /* AFAICT there is no way to group pseudoclasses and selectors, so this is duplicate from above */
 #author_search_query:invalid ~ .typeahead{
     opacity: 0;
     transform: scale(0.8, 0) rotateX(90deg);
-    transition: transform 350ms cubic-bezier(0.030, 1.155, 0.820, 1.020), opacity 280ms ease-out;
+    transition: transform 2350ms cubic-bezier(0.030, 1.155, 0.820, 1.020), opacity 280ms ease-out;
 }

@@ -3,6 +3,8 @@ class Author < ApplicationRecord
   has_many :books, through: :voices
 
   validates_presence_of :name
+  # validates :birth, comparison: { less_than_or_equal_to: Time.now }
+  # validates :death, comparison: { less_than_or_equal_to: Time.now }
 
   scope :containing, (lambda do |query|
     where("name LIKE ?", "%#{sanitize_sql_like(query)}%")
