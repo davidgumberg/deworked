@@ -1,10 +1,12 @@
 class Author < ApplicationRecord
+  include DateValidators
+
   has_many :voices
   has_many :books, through: :voices
 
   validates_presence_of :name
-  # validates :birth, comparison: { less_than_or_equal_to: Time.now }
-  # validates :death, comparison: { less_than_or_equal_to: Time.now }
+  validates :birth, allow_blank: true, 'date_validators/is_not_future': true,
+                                       'date_validators/is_before': { value: :death }
 
   scope :containing, (lambda do |query|
     where("name LIKE ?", "%#{sanitize_sql_like(query)}%")
