@@ -33,10 +33,11 @@
 
   <h1> Authors </h1>
 
-  <turbo-frame id="<%= form.field_id(:voices) %>">
-  <%= form.fields_for :voices do |voice_form| %>
-    <h3> Add a new author </h3>
-    <%= render partial: 'voices/form', locals: {form: voice_form} %>
+  <%= turbo_frame_tag form.field_id(:voices) do %>
+    <%= form.fields_for :voices do |voice_form| %>
+      <h3> Add a new author </h3>
+      <%= render partial: 'voices/form', locals: {form: voice_form} %>
+    <% end %>
   <% end %>
 
   <%= form.submit "Add author", formmethod: "post", 

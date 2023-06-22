@@ -6,20 +6,20 @@
 </header>
 
 <main>
-<%= turbo_frame_tag "works_form" do %>
+  <%= turbo_frame_tag "works_form" do %>
 
-  <%= turbo_frame_tag "ext_work_frame" do %>
-    <h2> Import from ISBN? </h2>
-    <div>
-      <%= form_with url: "new/ext", method: :get do |form| %>
-        <%= form.label :isbn, style: "display: block" %>  
-        <%= form.text_field :isbn %>
-        <%= form.submit  %>
-      <% end %>
-    </div>
+    <%= turbo_frame_tag "ext_work_frame" do %>
+      <h2> Import from ISBN? </h2>
+      <div>
+        <%= form_with url: "new/ext", method: :get do |form| %>
+          <%= form.label :isbn, style: "display: block" %>  
+          <%= form.text_field :isbn %>
+          <%= form.submit  %>
+        <% end %>
+      </div>
+    <% end %>
+
+      <h2> Manual book import </h2>
+      <%= render 'form', work: @work %>
   <% end %>
-
-    <h2> Manual book import </h2>
-    <%= render 'form', work: @work %>
-<% end %>
 </main>

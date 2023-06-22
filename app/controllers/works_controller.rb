@@ -12,12 +12,14 @@ class WorksController < ApplicationController
 
   def ext
     @work = Work.new_from_isbn(params[:isbn])
-    @params = {work: @work}
+    @params = { work: @work }
   end
 
   # GET /works/new
   def new
     @work = Work.new
+    # Building an author ensures that the form renders at least one voice
+    # form with a blank author
     @work.voices.build.build_author
   end
 

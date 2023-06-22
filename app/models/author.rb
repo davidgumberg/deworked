@@ -5,8 +5,10 @@ class Author < ApplicationRecord
   has_many :books, through: :voices
 
   validates_presence_of :name
-  validates :birth, allow_blank: true, 'date_validators/is_not_future': true,
-                                       'date_validators/is_before': { value: :death }
+
+  validates :birth, allow_blank: true, 'date_validators/is_not_future': true
+
+  validates_with AuthorValidator
 
   scope :containing, (lambda do |query|
     where("name LIKE ?", "%#{sanitize_sql_like(query)}%")

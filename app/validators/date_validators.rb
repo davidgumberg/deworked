@@ -10,7 +10,6 @@ module DateValidators
   # Equivalent to comparison operator, but checks for nil value first
   class IsBeforeValidator < ActiveModel::EachValidator
     def validate_each(record, attribute, value)
-      debugger
       return if options[:value].blank? || value <= options[:value]
 
       record.errors.add attribute, (options[:message] || "must be before #{options[:value]}")
