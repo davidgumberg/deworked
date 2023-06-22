@@ -8,7 +8,7 @@ class Author < ApplicationRecord
 
   validates :birth, allow_blank: true, 'date_validators/is_not_future': true
 
-  validates_with AuthorValidator
+  # validates_with AuthorValidator
 
   scope :containing, (lambda do |query|
     where("name LIKE ?", "%#{sanitize_sql_like(query)}%")
