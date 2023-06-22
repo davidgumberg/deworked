@@ -1,0 +1,13 @@
+<h1>Editing author</h1>
+
+<%= turbo_frame_tag @author do %>
+  <%= form_with model: @author do |form| %>
+    <%= render "form", form: form %>
+    <%= form.submit "Save Edit" %>
+    <br>
+    <div>
+      <%= link_to "Cancel", @author %> |
+      <%= link_to "Back to authors", authors_path, data: {turbo_frame: "_top"} %>
+    </div>
+  <% end %>
+<% end %>
