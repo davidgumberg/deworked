@@ -17,7 +17,9 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create work" do
     assert_difference("Work.count") do
-      post works_url, params: { work: { ISBN: @work.ISBN, date_published: @work.date_published, title: @work.title } }
+      post works_url, params: { work: { ISBN: @work.ISBN, title: @work.title,
+                                        original_publication: @work.original_publication,
+                                        edition_publication: @work.edition_publication } }
     end
 
     assert_redirected_to work_url(Work.last)
@@ -34,7 +36,9 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update work" do
-    patch work_url(@work), params: { work: { ISBN: @work.ISBN, date_published: @work.date_published, title: @work.title } }
+    patch work_url(@work), params: { work: { ISBN: @work.ISBN, title: @work.title,
+                                             original_publication: @work.original_publication,
+                                             edition_publication: @work.edition_publication } }
     assert_redirected_to work_url(@work)
   end
 

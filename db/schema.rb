@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_30_160432) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_22_182252) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.datetime "birth"
@@ -22,20 +22,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_160432) do
   create_table "voices", force: :cascade do |t|
     t.integer "author_id", null: false
     t.integer "work_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "style"
     t.index ["author_id"], name: "index_voices_on_author_id"
     t.index ["work_id"], name: "index_voices_on_work_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "works", force: :cascade do |t|
     t.string "title"
     t.string "ISBN"
-    t.datetime "date_published"
+    t.string "cover_url"
+    t.date "original_publication"
+    t.date "edition_publication"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "cover_url"
   end
 
   add_foreign_key "voices", "authors"

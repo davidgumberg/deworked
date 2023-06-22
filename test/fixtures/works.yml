@@ -3,9 +3,11 @@
 one:
   title: MyString
   ISBN: MyString
-  date_published: 2023-05-17 08:48:39
+  edition_publication: 2023-05-17 08:48:39
+  original_publication: 2023-05-17 08:48:39
 
 two:
   title: MyString
   ISBN: MyString
-  date_published: 2023-05-17 08:48:39
+  edition_publication: 2023-05-17 08:48:39
+  original_publication: 2023-05-17 08:48:39

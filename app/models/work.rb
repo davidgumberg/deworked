@@ -23,7 +23,7 @@ class Work < ApplicationRecord
                         date_array.fetch(2, 1))
 
     Work.new(title: ext_data.title, ISBN: isbn,
-             date_published: date,
+             edition_publication: date,
              cover_url: ext_data.cover['large'])
   end
 end

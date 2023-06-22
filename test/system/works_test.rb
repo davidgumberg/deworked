@@ -15,7 +15,8 @@ class WorksTest < ApplicationSystemTestCase
     click_on "New work"
 
     fill_in "Isbn", with: @work.ISBN
-    fill_in "Date published", with: @work.date_published
+    fill_in "Original Publication", with: @work.original_publication
+    fill_in "Edition Publication", with: @work.edition_publication
     fill_in "Title", with: @work.title
     click_on "Create Work"
 
@@ -28,7 +29,8 @@ class WorksTest < ApplicationSystemTestCase
     click_on "Edit this work", match: :first
 
     fill_in "Isbn", with: @work.ISBN
-    fill_in "Date published", with: @work.date_published
+    fill_in "Original Publication", with: @work.original_publication
+    fill_in "Edition Publication", with: @work.edition_publication
     fill_in "Title", with: @work.title
     click_on "Update Work"
 
