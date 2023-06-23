@@ -1,5 +1,14 @@
- <div class="author-card bg-gray-500 m-4 p-10 rounded-[50%]" id="<%= dom_id author %>">
-  <strong><%= author.name %></strong><%= ": #{style.titleize}" if defined?(style) %>
-  <p> Birth: <%= author.birth_string %> </p>
-  <p> Death: <%= author.death_string %> </p>
+ <div class="flex flex-col justify-end border-4 w-1/2 border-[groove] border-yellow-500 items-stretch overflow-hidden bg-gray-500 m-auto  aspect-[2/3] rounded-[50%]" id="<%= dom_id author %>">
+   <% if author.image.representable? %>
+     <%= image_tag author.image.representation(resize_to_limit: [450, 450]), class: "grow-[3] rounded-b-none" %>
+  <% end %>
+  <div class="flex flex-col items-center font-serif text-sm pt-0 pb-6 rounded-b-[inherit] grow">
+    <strong><%= author.name %></strong>
+    <% if author.birth.present? %>
+      <p> Born: <%= author.birth_string %> </p>
+    <% end %>
+    <% if author.death.present? %>
+      <p> Died: <%= author.death_string %> </p>
+    <% end %>
+  </div>
 </div>

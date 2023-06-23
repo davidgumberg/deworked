@@ -4,7 +4,7 @@ class Author < ApplicationRecord
   has_many :voices, inverse_of: :author
   has_many :books, through: :voices
 
-  has_many_attached :images
+  has_one_attached :image
 
   validates_presence_of :name
 

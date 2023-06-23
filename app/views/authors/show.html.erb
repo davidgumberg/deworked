@@ -4,16 +4,10 @@
 <%= turbo_frame_tag @author do %>
   <%= render @author %>
 
-  <ul>
-    <% @author.images.each do |image| %>
-      <% if image.representable? %>
-        <li>
-          <%= image_tag image.representation(resize_to_limit: [200, 200]) %>
-        </li>
-      <% end %>
-    <% end %>
-  </ul>
-
+  <% if @author.image.representable? %>
+    <%= image_tag @author.image.representation(resize_to_limit: [320, 320]) %>
+  <% end %>
+ 
   <div>
     <%= link_to "Edit this author", edit_author_path(@author) %>
     <%= button_to "Destroy this author", @author, method: :delete,
