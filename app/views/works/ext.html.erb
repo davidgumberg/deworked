@@ -2,8 +2,7 @@
 
 <%= turbo_frame_tag "ext_work_frame" do %>
   <%= render @work %>
-  <%= p @work.class %>
   <%= button_to "Save this work?",
       {action: "create"},
-      {params: {work: @work.attributes}} %>
+      {params: { work: @ext_params}} %>
 <% end %>

@@ -4,10 +4,6 @@
 <%= turbo_frame_tag @work do %>
   <%= render @work %>
 
-  <% Voice.where(work_id: @work.id).each do |voice| %>
-    <p><%= voice.style.titleize %></p>
-    <%= render Author.find(voice.author.id) %>
-  <% end %>
 
   <div>
     <%= link_to "Edit this work", edit_work_path(@work) %>

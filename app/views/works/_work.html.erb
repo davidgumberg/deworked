@@ -26,4 +26,7 @@
     <%= work.original_publication %>
   </p>
 
+  <% Voice.where(work_id: work.id).each do |voice| %>
+    <%= render partial: Author.find(voice.author.id), locals: { style: voice.style } %>
+  <% end %>
 </div>

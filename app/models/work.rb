@@ -1,7 +1,10 @@
 require 'fetchworks'
+require 'timeliness'
+
+# Timeliness formats initialized in config/initializer/timeliness.rb
 
 class Work < ApplicationRecord
-  has_many :voices, dependent: :delete_all
+  has_many :voices, inverse_of: :work, dependent: :delete_all
   has_many :authors, through: :voices
 
   validates_presence_of :title
@@ -27,33 +30,17 @@ class Work < ApplicationRecord
 
     date = date_from_ol_str(ext_data.dig('publish_date'))
 
-    params = { title: ext_data.dig('title'), ISBN: ext_data.try('isbn'),
+    params = { title: ext_data.dig('title'), ISBN: ext_data.dig('isbn'),
                edition_publication: date,
-               cover_url: ext_data.try('cover').fetch('large', nil) }
+               cover_url: ext_data.dig('cover', 'large'),
+               voices_attributes: voices }
 
-    Work.new params
+    params
   end
 
   private
     # E.g. '2010-11-12 or 2010-11'
     def self.date_from_ol_str(string)
-      return nil unless string.present?
-
-      array = string.split(/-|\s/).map do |value|
-        next value.to_i unless (value.to_i == 0)
-
-        if Date::MONTHNAMES.index(value)
-          next(Date::MONTHNAMES.index(value))
-        elsif Date::ABBR_MONTHNAMES.index(value)
-          next(Date::ABBR_MONTHNAMES.index(value))
-        end
-
-        nil
-      end
-
-      debugger
-
-      Date.new(array.fetch(0, 1), array.fetch(1, 1),
-               array.fetch(2, 1))
+      Timeliness.parse(string)&.to_date
     end
 end

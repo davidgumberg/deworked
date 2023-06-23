@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.2"
 
+gem 'timeliness'
+
 gem 'fetchworks', :github => 'davidgumberg/fetchworks', :branch => 'master'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

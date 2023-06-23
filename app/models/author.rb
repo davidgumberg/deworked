@@ -1,7 +1,7 @@
 class Author < ApplicationRecord
   include DateValidators
 
-  has_many :voices
+  has_many :voices, inverse_of: :author
   has_many :books, through: :voices
 
   validates_presence_of :name

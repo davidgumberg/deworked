@@ -196,6 +196,7 @@ GEM
     thor (1.2.2)
     time (0.2.2)
       date
+    timeliness (0.4.5)
     timeout (0.3.2)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -237,6 +238,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  timeliness
   turbo-rails
   tzinfo-data
   web-console
