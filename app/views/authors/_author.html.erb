@@ -1,4 +1,4 @@
- <div id="<%= dom_id author %>">
+ <div class="author-card bg-gray-500 m-4 p-10 rounded-[50%]" id="<%= dom_id author %>">
   <strong><%= author.name %></strong><%= ": #{style.titleize}" if defined?(style) %>
   <p> Birth: <%= author.birth_string %> </p>
   <p> Death: <%= author.death_string %> </p>

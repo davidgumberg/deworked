@@ -4,6 +4,8 @@ class Author < ApplicationRecord
   has_many :voices, inverse_of: :author
   has_many :books, through: :voices
 
+  has_many_attached :images
+
   validates_presence_of :name
 
   validates :birth, allow_blank: true, 'date_validators/is_not_future': true

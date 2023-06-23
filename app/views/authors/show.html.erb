@@ -1,8 +1,18 @@
 <p style="color: green"><%= notice %></p>
-<h1> Work Information </h1>
+<h1> Author Information </h1>
 
 <%= turbo_frame_tag @author do %>
   <%= render @author %>
+
+  <ul>
+    <% @author.images.each do |image| %>
+      <% if image.representable? %>
+        <li>
+          <%= image_tag image.representation(resize_to_limit: [200, 200]) %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
 
   <div>
     <%= link_to "Edit this author", edit_author_path(@author) %>

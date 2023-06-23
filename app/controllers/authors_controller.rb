@@ -12,6 +12,26 @@ class AuthorsController < ApplicationController
   def edit
   end
 
+  def search
+    @authors = Author.containing(params[:query])
+  end
+
+  def new
+    @author = Author.new
+  end
+
+  def create
+    @author = Author.new(author_params)
+
+    respond_to do |format|
+      if @author.save
+        format.html { redirect_to @author, notice: "Author was successfully created." } 
+        format.turbo_stream
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
+    end
+  end
   # PATCH/PUT /authors/1
   def update
     respond_to do |format|
@@ -33,13 +53,6 @@ class AuthorsController < ApplicationController
     end
   end
 
-  def search
-    @authors = Author.containing(params[:query])
-  end
-
-  def new
-    @author = Author.new
-  end
 
   private
 
@@ -49,6 +62,6 @@ class AuthorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def author_params
-      params.require(:author).permit(:name, :birth, :death)
+      params.require(:author).permit(:name, :birth, :death, images: [])
     end
 end

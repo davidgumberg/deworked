@@ -1,9 +1,14 @@
 <h1>New work</h1>
 
-<%= render 'new', author: @author %>
+<%= turbo_frame_tag "new_author_form" do %>
 
-<br>
+  <%= form_with model: @author do |form| %>
+    <%= render 'form', author: @author, form: form %>
+    <%= form.submit %>
+  <% end %>
 
-<div>
-  <%= link_to "Back to authors", authors_path%>
-</div>
+  <div>
+    <%= link_to "Back to authors", authors_path, data:{ turbo_frame: "_top" } %>
+  </div>
+
+<% end %>
