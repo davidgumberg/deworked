@@ -1,6 +1,6 @@
- <div class="flex flex-col justify-end border-4 w-1/2 border-[groove] border-yellow-500 items-stretch overflow-hidden bg-gray-500 m-auto  aspect-[2/3] rounded-[50%]" id="<%= dom_id author %>">
+ <div class="author-card justify-end border-4 w-1/2 items-stretch aspect-[2/3] rounded-[50%]" id="<%= dom_id author %>">
    <% if author.image.representable? %>
-     <%= image_tag author.image.representation(resize_to_limit: [450, 450]), class: "grow-[3] rounded-b-none" %>
+     <%= image_tag author.image.representation(resize_to_limit: [450, 450]), class: "author-card-avatar grow-[3]" %>
   <% end %>
   <div class="flex flex-col items-center font-serif text-sm pt-0 pb-6 rounded-b-[inherit] grow">
     <strong><%= author.name %></strong>

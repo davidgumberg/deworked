@@ -72,23 +72,83 @@ form #author_search_field ul li {
     background: #B0B0D0 
 }
 
-#author_search_field:focus-within .typeahead{
-    opacity: 1;
-    transform: scale(1, 1);
-    transition: transform 2350ms cubic-bezier(0.030, 1.155, 0.820, 1.020), opacity 280ms ease-out;
-}
-
 .typeahead{
     display: block;
     opacity: 0;
     transform: scale(0.8, 0) rotateX(90deg);
     transform-origin: top;
-    transition: transform 2350ms cubic-bezier(0.030, 1.155, 0.820, 1.020), opacity 280ms ease-out;
+    transition: transform 350ms cubic-bezier(0.030, 1.155, 0.820, 1.020), opacity 280ms ease-out;
+}
+
+#author_search_field:focus-within .typeahead{
+    opacity: 1;
+    transform: scale(1, 1);
+    transition: transform 350ms cubic-bezier(0.030, 1.155, 0.820, 1.020), opacity 280ms ease-out;
 }
 
 /* AFAICT there is no way to group pseudoclasses and selectors, so this is duplicate from above */
 #author_search_query:invalid ~ .typeahead{
     opacity: 0;
     transform: scale(0.8, 0) rotateX(90deg);
-    transition: transform 2350ms cubic-bezier(0.030, 1.155, 0.820, 1.020), opacity 280ms ease-out;
+    transition: transform 350ms cubic-bezier(0.030, 1.155, 0.820, 1.020), opacity 280ms ease-out;
+}
+
+.author-card {
+    display:flex;
+    flex-direction: column;
+    overflow: clip;
+    margin: auto;
+    perspective: 6in;
+    /*
+    box-shadow: -3px 1px 6px 7px rgba(255,255,255,0.7), 5px 5px 6px 7px rgba(94,104,121,0.5);
+    */
+ 
+    transform-origin: center;
+
+    background-image: url(/assets/texture0.jpg);
+    background-size: 50% 5%;
+    background-repeat: round;
+    border-image-source: url(/assets/texture1.jpg/);
+    border-image-repeat: stretch;
+    border-image-width: 9x;
+    border-image-slice: calc(50 / 184 * 100%) calc(80 / 284 * 100%);
+}
+
+
+.author-card:hover {
+    animation-name: y-axis-shimmer;
+    animation-duration: 15s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.author-card-avatar {
+    object-fit: cover;
+    opacity:0.9;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0px 1px 7px 4px rgba(19, 19, 23, 0.5);
+
+    animation-name: avatar-sympathetic-shimmer;
+    animation-duration: 30s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.author-card:hover .author-card-avatar{
+}
+
+
+@keyframes y-axis-shimmer {
+    0%    {transform: rotateY(0deg); }
+    33%   {transform: rotateY(8deg) skewX(2deg); }
+    66%  {transform: rotateY(-8deg) skewX(-2deg); }
+    100% {transform: rotateY(0deg); }
+}
+
+@keyframes avatar-sympathetic-shimmer {
+    0%    { transform: scale(1.0);}
+    33%   { transform: scale(1.005); }
+    66%   { transform: scale(0.995);}
+    100%  { transform: scale(1.0);}
 }
