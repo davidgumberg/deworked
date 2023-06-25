@@ -15,6 +15,31 @@
  */
 
 
+button {
+	background-color: rgb(200, 200, 200);
+	padding: 10px;
+	border:3px  solid;
+    border-radius: 2em;
+	border-color: rgb(0, 0, 0);
+}
+
+a {
+	background-color: rgb(200, 200, 200);
+	padding: 10px;
+	border:3px  solid;
+    border-radius: 2em;
+	border-color: rgb(0, 0, 0);
+}
+
+input {
+	background-color: rgb(200, 200, 200);
+	padding: 10px;
+	border:3px  solid;
+    border-radius: 2em;
+	border-color: rgb(0, 0, 0);
+}
+
+
 ul {
     list-style-type: none;
 }
