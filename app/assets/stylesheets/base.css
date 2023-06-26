@@ -36,10 +36,6 @@ h1 {
     font-size: 64pt;
 }
 
-a {
-    text-decoration: underline;
-}
-
 input {
 	background-color: rgb(200, 200, 200);
 	padding: 10px;

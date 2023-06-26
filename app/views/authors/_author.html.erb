@@ -1,14 +1,15 @@
- <div class="author-card justify-end border-4 aspect-[1/2] rounded-[50%]" id="<%= dom_id author %>">
-   <% if author.image.representable? %>
-     <%= image_tag author.image.representation(resize_to_limit: [450, 450]), class: "author-card-avatar grow-[3]" %>
-  <% end %>
-  <div class="flex flex-col items-center font-serif text-sm pt-0 pb-6 rounded-b-[inherit] grow">
-    <strong><%= author.name %></strong>
-    <% if author.birth.present? %>
-      <p> Born: <%= author.birth_string %> </p>
+ <a href="<%= url_for(author) %>">
+   <div class="author-card justify-end border-4 items-stretch rounded-[50%]" id="<%= dom_id author %>">
+     <% if author.image.representable? %>
+       <%= image_tag author.image.representation(resize_to_limit: [450, 450]), class: "author-card-avatar grow-[3]" %>
     <% end %>
-    <% if author.death.present? %>
-      <p> Died: <%= author.death_string %> </p>
-    <% end %>
+    <div class="author-card-plaque flex flex-col items-center font-serif text-sm pt-0 pb-6 rounded-b-[inherit] grow">
+      <strong><%= author.name %></strong>
+      <% if author.birth.present? %>
+        <p> Born: <%= author.birth_string %> </p>
+      <% end %>
+      <% if author.death.present? %>
+        <p> Died: <%= author.death_string %> </p>
+      <% end %>
+    </div>
   </div>
-</div>

@@ -95,13 +95,13 @@ form#search_authors {
     overflow: clip;
     margin: auto;
     perspective: 6in;
-    width: 10em;
+    width: 11em;
+	height: 18em;
     
     box-shadow: -3px 1px 6px 7px rgba(255,255,255,0.7), 5px 5px 6px 7px rgba(94,104,121,0.5);
-    
-    transform-origin: center;
 
-    background-image: url(/assets/texture0.jpg);
+    transform-origin: center;
+    background-image: url(/assets/texture3.png);
     background-size: 50% 50%;
     background-repeat: round;
     /*
@@ -117,6 +117,10 @@ form#search_authors {
     animation-duration: 15s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+}
+
+.author-card-plaque {
+	color: rgb(220, 210, 160)
 }
 
 .author-card-avatar {
