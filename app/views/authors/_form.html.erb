@@ -1,29 +1,28 @@
-  <div data-controller="author_fields">
-    <div id="author_search_field" data-controller="combobox">
-      <%= form.label :name %>
-      <%= form.text_field :name, {'required': true,
-                                  'id': 'author_search_query',
-                                  'pattern': '.*\w+.*',
-                                  'autocomplete': 'off',
-                                  'data-author_fields-target': 'nameField',
-                                  'data-action': 'input->author_fields#autocomplete focus->combobox#start focusout->combobox#stop',
-                                  'data-combobox-target': 'input'} %>
-      <!-- <div id="search_authors_results" class="typeahead"></div> !-->
-      <ul id="search_authors_results" class="typeahead" role="listbox" data-combobox-target="list"></ul>
+<div data-controller="author_fields">
+  <div class="author_search_field" data-controller="combobox">
+    <%= form.label :name %>
+    <%= form.text_field :name, {'required': true,
+                                'class': 'author_search_query',
+                                'pattern': '.*\w+.*',
+                                'autocomplete': 'off',
+                                'data-author_fields-target': 'nameField',
+                                'data-action': 'input->author_fields#autocomplete focus->combobox#start focusout->combobox#stop',
+                                'data-combobox-target': 'input'} %>
+    <ul class="search_authors_results typeahead" role="listbox" data-combobox-target="list"></ul>
 
-    </div>
-
-    <div>
-      <%= form.label :birth, style: "display: block" %>
-      <%= form.date_field :birth, {'data-author_fields-target': 'birthField'} %>
-    </div>
-
-    <div>
-      <%= form.label :death, style: "display: block" %>
-      <%= form.date_field :death, {'data-author_fields-target': 'deathField'}%>
-    </div>
-    <div>
-      <%= form.label :image, style: "display: block" %>
-      <%= form.file_field :image %>
-    </div>
   </div>
+
+  <div>
+    <%= form.label :birth, style: "display: block" %>
+    <%= form.date_field :birth, {'data-author_fields-target': 'birthField'} %>
+  </div>
+
+  <div>
+    <%= form.label :death, style: "display: block" %>
+    <%= form.date_field :death, {'data-author_fields-target': 'deathField'}%>
+  </div>
+  <div>
+    <%= form.label :image, style: "display: block" %>
+    <%= form.file_field :image %>
+  </div>
+</div>

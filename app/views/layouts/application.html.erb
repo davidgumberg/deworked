@@ -12,8 +12,23 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex flex-col justify-start items-center">
+    <header> 
+      <h1>Bookstore</h1>
+      <nav>
+        <ul>
+          <li><%= link_to_unless_current "Works", works_path %></li>
+          <li><%= link_to_unless_current "Authors", authors_path %></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container mx-auto mt-28 px-5 justify-start items-center">
       <%= yield %>
     </main>
+    <footer>
+      <ul class="flex flex-row">
+        <li>Thanks for visiting!</li>
+        <li>Contact us via carefully crafted google search queries!</li>
+      </ul>
+    </footer>
   </body>
 </html>

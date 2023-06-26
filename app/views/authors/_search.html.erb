@@ -1,0 +1,20 @@
+# If standalone search form, prefixed by:  
+# form_with url: search_authors_path method: :get
+
+<% if form&.blank? || !form.is_a?(FormBuilder) %>
+  <% raise FormHelperException %>
+<% end %>
+
+<div class="author_search_field" data-controller="combobox">
+  <%= form.label :name %>
+  <%= form.text_field :name, {'required': true,
+                            'id': 'author_search_query',
+                            'pattern': '.*\w+.*',
+                            'autocomplete': 'off',
+                            'data-author_fields-target': 'nameField',
+                            'data-action': 'input->author_fields#autocomplete focus->combobox#start focusout->combobox#stop',
+                            'data-combobox-target': 'input'} %>
+  <ul class="search_authors_results typeahead"  role="listbox" data-combobox-target="list"></ul>
+
+</div>
+
