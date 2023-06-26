@@ -93,10 +93,10 @@ form#search_authors {
     display:flex;
     flex-direction: column;
     overflow: clip;
-    margin: auto;
+    margin: 1em;
     perspective: 6in;
-    width: 11em;
-	height: 18em;
+    width: 16em;
+	height: 27em;
     
     box-shadow: -3px 1px 6px 7px rgba(255,255,255,0.7), 5px 5px 6px 7px rgba(94,104,121,0.5);
 
@@ -120,10 +120,19 @@ form#search_authors {
 }
 
 .author-card-plaque {
-	color: rgb(220, 210, 160)
+	flex-basis: 1;
+	flex-grow: 1;
+	width: 11em;
+	font-weight: 800;
+	font-family: 'Vollkorn';
+	text-align: center;
+	color: rgb(220, 210, 160);
+	padding: .5em 1em 1.2em;
 }
 
 .author-card-avatar {
+	flex-basis: 2;
+	flex-grow: 10;
     object-fit: cover;
     opacity:0.9;
     border-bottom-left-radius: 0;
