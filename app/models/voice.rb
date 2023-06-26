@@ -16,6 +16,6 @@ class Voice < ApplicationRecord
   end
 
   def author_attributes=(hash)
-    self.author = Author.find_or_create_by(hash)
+    self.author = Author.find_or_initialize_by(hash)
   end
 end

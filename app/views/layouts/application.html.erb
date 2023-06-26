@@ -15,13 +15,13 @@
     <header> 
       <h1>Bookstore</h1>
       <nav>
-        <ul>
+        <ul class="flex flex-row">
           <li><%= link_to_unless_current "Works", works_path %></li>
           <li><%= link_to_unless_current "Authors", authors_path %></li>
         </ul>
       </nav>
     </header>
-    <main class="container mx-auto mt-28 px-5 justify-start items-center">
+    <main>
       <%= yield %>
     </main>
     <footer>

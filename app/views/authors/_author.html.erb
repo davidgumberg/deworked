@@ -1,4 +1,4 @@
- <div class="author-card justify-end border-4 w-1/2 items-stretch aspect-[2/3] rounded-[50%]" id="<%= dom_id author %>">
+ <div class="author-card justify-end border-4 aspect-[1/2] rounded-[50%]" id="<%= dom_id author %>">
    <% if author.image.representable? %>
      <%= image_tag author.image.representation(resize_to_limit: [450, 450]), class: "author-card-avatar grow-[3]" %>
   <% end %>

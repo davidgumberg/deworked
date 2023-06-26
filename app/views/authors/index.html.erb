@@ -1,26 +1,25 @@
-<header>
-  <p style="color: green"><%= notice %></p>
-  <h1>Works</h1>
-  <div data-controller="combobox">
-    <form action="<%= search_authors_path(turbo_frame: "search_authors_results") %>"
-    data-turbo-frame="search_authors_results" data-controller="author_fields"
-    data-action="invalid->author_fields#hideValidationMessage:capture input->author_fields#submit"
-    id="search_authors">
-      <label for="search_query">Search:</label>
-      <div class="header_search_field" id="author_search_field">
-        <input id="author_search_query" name="query" type="search"
-               pattern=".*\w+.*" required autocomplete="off"
-               data-combobox-target="input"
-               data-action="focus->combobox#start focusout->combobox#stop">
-        <%= turbo_frame_tag "search_authors_results", target: "_top",
-                            class: "typeahead" %>
-      <input data-author_fields-target="submit" type="submit" value="Search">
-      </div>
-    </form>
-  </div>
-</header>
-<main>
-<div id="authors">
+<p style="color: green"><%= notice %></p>
+<h1>Authors</h1>
+
+<div data-controller="combobox">
+  <form action="<%= search_authors_path(turbo_frame: "search_authors_results") %>"
+  data-turbo-frame="search_authors_results" data-controller="author_fields"
+  data-action="invalid->author_fields#hideValidationMessage:capture input->author_fields#submit"
+  id="search_authors">
+    <label for="search_query">Search:</label>
+    <div class="header_search_field" id="author_search_field">
+      <input id="author_search_query" name="query" type="search"
+             pattern=".*\w+.*" required autocomplete="off"
+             data-combobox-target="input"
+             data-action="focus->combobox#start focusout->combobox#stop">
+      <%= turbo_frame_tag "search_authors_results", target: "_top",
+                          class: "typeahead" %>
+    <input data-author_fields-target="submit" type="submit" value="Search">
+    </div>
+  </form>
+</div>
+
+<div class="flex flex-row flex-wrap ">
   <% @authors.each do |author| %>
     <%= render author %>
     <p>
@@ -28,6 +27,5 @@
     </p>
   <% end %>
 </div>
-</main>
 
 <%= link_to "New author", new_author_path %>
