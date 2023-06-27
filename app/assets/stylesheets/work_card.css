@@ -1,0 +1,27 @@
+.work-card {
+	display: grid;
+	grid-template-columns: "1fr 1fr 1fr";
+	grid-template-areas: "cover details authors";
+	background-color: rgba(100, 100, 100, 0.7);
+	border-radius: 1em;
+	padding: 1em;
+	width: 80em;
+	height: 30em;
+}
+
+.work-card-cover {
+	margin: 1em;
+	overflow:hidden;
+}
+
+.work-card-cover img {
+	height: 100%;
+}
+
+.work-card-details {
+	grid-area: details;
+}
+
+.work-card-authors {
+	grid-area: authors;
+}

@@ -1,12 +1,10 @@
-<a href="<%= url_for work %>">
-  <div id="<%= dom_id work %>">
-    <% if work.cover_url %>
-      <div>
-        <img src="<%= work.cover_url %>" />
-      </div>
-    <% end %>
-    <div>
+<div class="work-card" id="<%= dom_id work %>">
+  <% if work.cover_url %>
+    <div class="work-card-cover">
+      <img src="<%= work.cover_url %>" />
     </div>
+  <% end %>
+  <div class="work-card-details">
     <p>
       <strong>Title:</strong>
       <%= work.title %>
@@ -26,9 +24,11 @@
       <strong>Date of Original Publication:</strong>
       <%= work.original_publication %>
     </p>
+  </div>
 
+  <div class="work-card-authors">
     <% Voice.where(work_id: work.id).each do |voice| %>
       <%= render partial: Author.find(voice.author.id), locals: { style: voice.style } %>
     <% end %>
   </div>
-</a>
+</div>
