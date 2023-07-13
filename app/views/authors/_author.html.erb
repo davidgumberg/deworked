@@ -6,7 +6,7 @@
     <div class="author-card-plaque flex flex-col items-center font-serif text-sm rounded-b-[inherit] grow">
       <strong><%= author.name %></strong>
       <% if author.birth.present? %>
-        <p> Born: <%= author.birth_string %> </p>
+        <p> Born: <%= date_string_safe(author.birth) %> </p>
       <% end %>
       <% if author.death.present? %>
         <p> Died: <%= author.death_string %> </p>
