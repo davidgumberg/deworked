@@ -14,11 +14,13 @@
 
   <div>
     <%= form.label :birth, style: "display: block" %>
-    <%= form.date_field :birth, {'data-author_fields-target': 'birthField'} %>
+    <%= render partial: 'shared/datepicker', locals: {form: form, symbol: :birth} %>
+    <%# TODO: add back `data-author_fields-target` %>
   </div>
 <div>
     <%= form.label :death, style: "display: block" %>
-    <%= form.date_field :death, {'data-author_fields-target': 'deathField'}%>
+    <%= render partial: 'shared/datepicker', locals: {form: form, symbol: :death} %>
+    <%# TODO: add back `data-author_fields-target` %>
   </div>
   <div>
     <%= form.label :image, style: "display: block" %>

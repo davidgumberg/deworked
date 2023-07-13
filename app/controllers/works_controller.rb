@@ -29,13 +29,7 @@ class WorksController < ApplicationController
 
   # POST /works or /works.json
   def create
-    print "\n\n\n"
-    p "params: #{work_params}"
-    print "\n\n\n"
     @work = Work.new(work_params)
-    p "work: #{@work}"
-    print "\n\n\n"
-
 
     respond_to do |format|
       if @work.save
