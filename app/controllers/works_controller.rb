@@ -29,7 +29,13 @@ class WorksController < ApplicationController
 
   # POST /works or /works.json
   def create
+    print "\n\n\n"
+    p "params: #{work_params}"
+    print "\n\n\n"
     @work = Work.new(work_params)
+    p "work: #{@work}"
+    print "\n\n\n"
+
 
     respond_to do |format|
       if @work.save
@@ -82,11 +88,16 @@ class WorksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def work_params
-      params.require(:work).permit(:title, :ISBN, :original_publication,
-                                   :edition_publication, :cover_url,
-                                   voices_attributes:
-                                    [:id, :style,
-                                     author_attributes: [ :id, :name, :birth, :death, :image ]
-                                    ])
+      params.require(:work).permit(
+        :title, :ISBN,
+        :edition_publication, :cover_url,
+        original_publication: [ :day, :month, :year ],
+        voices_attributes: [
+          :id, :style,
+          author_attributes: [
+            :id, :name, :birth, :death, :image
+          ]
+        ]
+      )
     end
 end

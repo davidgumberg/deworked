@@ -38,6 +38,26 @@ class Work < ApplicationRecord
     params
   end
 
+  def original_publication=(val)
+    if val.is_a?(Date)
+      super(val)
+    end
+
+    if val.is_a?(Array) && val.first.is_a?(Hash)
+      hash = val.first
+    elsif val.is_a?(HashWithIndifferentAccess)
+      hash = val
+    else
+      p "Something went wrong with value for original_publication"
+      p "Val.class.name #{val.class.name}"
+      super(val)
+    end
+
+    hash = hash.transform_values(&:to_i)
+
+    super(Date.new(hash.dig(:year), hash.fetch(:month, 1), hash.fetch(:day, 1)))
+  end
+
   private
     # E.g. '2010-11-12 or 2010-11'
     def self.date_from_ol_str(string)
