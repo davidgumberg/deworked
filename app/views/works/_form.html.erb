@@ -32,15 +32,15 @@
       <div>
         <div>
           <%= fields.label :year %>
-          <%= fields.text_field :year, value: work.original_publication.year %>
+          <%= fields.text_field :year, value: work.original_publication&.year %>
         </div>
         <div>
           <%= fields.label :month %>
-          <%= fields.text_field :month, value: work.original_publication.month %>
+          <%= fields.text_field :month, value: work.original_publication&.month %>
         </div>
         <div>
           <%= fields.label :day %>
-          <%= fields.text_field :day, value: work.original_publication.day %>
+          <%= fields.text_field :day, value: work.original_publication&.day %>
         </div>
       </div>
     <% end %>
