@@ -3,22 +3,9 @@
 <% end %>
 <h1>Authors</h1>
 
-<div data-controller="combobox">
-  <form action="<%= search_authors_path(turbo_frame: "search_authors_results") %>"
-  data-turbo-frame="search_authors_results" data-controller="author_fields"
-  data-action="invalid->author_fields#hideValidationMessage:capture input->author_fields#submit">
-    <label for="search_query">Search:</label>
-    <div class="header_search_field" id="author_search_field">
-      <input id="author_search_query" name="query" type="search"
-             pattern=".*\w+.*" required autocomplete="off"
-             data-combobox-target="input"
-             data-action="focus->combobox#start focusout->combobox#stop">
-      <%= turbo_frame_tag "search_authors_results", target: "_top",
-                          class: "typeahead" %>
-    <input data-author_fields-target="submit" type="submit" value="Search">
-    </div>
-  </form>
-</div>
+<%= form_with url: search_authors_path, method: :get do |form| %>
+  <%= render partial: 'search', locals: {form: form} %>
+<% end %>
 
 <div class="flex flex-row flex-wrap ">
   <% @authors.each do |author| %>

@@ -1,6 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-import { post } from "@rails/request.js"
-import { debounce } from 'stimulus-use'
+import { get } from "@rails/request.js"
 
 // Connects to data-controller="author-fields"
 export default class extends Controller {
@@ -8,7 +7,7 @@ export default class extends Controller {
 
   autocomplete() {
     if(this.hasNameFieldTarget) { 
-      post("/authors/search", {
+      get("/authors/search", {
         headers: {"Turbo-Frame": "search_authors_results"},
         query: {"query": this.nameFieldTarget.value},
         responseKind: 'turbo-stream'

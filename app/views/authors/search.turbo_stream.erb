@@ -1,11 +1,12 @@
-<%= turbo_stream.update "search_authors_results" do %>
-    <% @authors.each do |author| %>
-      <button type="button" id="<%= dom_id(author) %>" role="option" class="combobox_options"
+<%= turbo_stream.update request.headers["Turbo-Frame"] do %>
+    
+    <% @authors.each do |matching_author| %>
+      <button type="button" id="<%= dom_id(matching_author) %>" role="option" class="combobox_options"
           data-action="click->author_fields#select"
-          data-author_fields-name-param="<%= author.name %>"
-          data-author_fields-birth-param="<%= author.birth %>"
-          data-author_fields-death-param="<%= author.death %>">
-          <%= highlight(author.name, params[:query]) %>
+          data-author_fields-name-param="<%= matching_author.name %>"
+          data-author_fields-birth-param="<%= matching_author.birth %>"
+          data-author_fields-death-param="<%= matching_author.death %>">
+          <%= highlight(matching_author.name, params[:query]) %>
       </button>
     <% end %>
 <% end %>
