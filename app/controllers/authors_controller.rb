@@ -6,7 +6,6 @@ class AuthorsController < ApplicationController
   end
 
   def show
-    @author = Author.find(params[:id])
   end
 
   def edit
@@ -28,18 +27,26 @@ class AuthorsController < ApplicationController
       if @author.save
         format.html { redirect_to @author, notice: "Author was successfully created." } 
         format.turbo_stream
+        format.json { render :show, status: :created, location: @author }
       else
         format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @author.errors, status: :unprocessable_entity }
       end
     end
   end
+
   # PATCH/PUT /authors/1
   def update
     respond_to do |format|
       if @author.update(author_params)
-        format.html { redirect_to author_url(@author), notice: "Author was successfully updated." }
+        format.html { redirect_to
+                        author_url(@author),
+                        notice: "Author was successfully updated."
+                    }
+        format.json { render :show, status: :ok, location: @author }
       else
         format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @author.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -51,6 +58,7 @@ class AuthorsController < ApplicationController
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.remove(@author) }
       format.html         { redirect_to authors_url, notice: "Author was successfully destroyed." }
+      format.json { head :no_content }
     end
   end
 
