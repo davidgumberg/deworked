@@ -13,6 +13,7 @@ class AuthorsController < ApplicationController
   end
 
   def search
+    
     @authors = Author.containing(params[:query])
   end
 

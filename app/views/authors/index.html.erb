@@ -4,7 +4,7 @@
 <h1>Authors</h1>
 
 <%= form_with url: search_authors_path, method: :get do |form| %>
-  <%= render partial: 'search', locals: {form: form} %>
+  <%= render partial: 'search', locals: {form: form, unique_id: 'index-search'} %>
 <% end %>
 
 <div class="flex flex-row flex-wrap ">

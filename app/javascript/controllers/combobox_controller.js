@@ -3,7 +3,7 @@ import Combobox from "https://cdn.skypack.dev/@github/combobox-nav"
 
 // Connects to data-controller="combobox"
 export default class extends Controller {
-  static get targets() { return [ "input", "list"] }
+  static targets = [ "input", "list" ]
 
   listTargetConnected() {
     this.start()
