@@ -6,7 +6,7 @@
 
 
   <div>
-    <%= link_to "Edit this work", edit_work_path(@work) %>
+    <%= link_to "Edit this work", edit_work_path(@work), data: {turbo_action: 'advance'} %>
     <%= button_to "Destroy this work", @work, method: :delete,
                                               data: { turbo_frame: "_top" } %>
     <%= link_to "Back to works", works_path, data: { turbo_frame: "_top" } %>
