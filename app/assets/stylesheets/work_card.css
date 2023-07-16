@@ -1,7 +1,7 @@
 .work-card {
 	display: flex;
     justify-content: space-around;
-	background-color: rgba(100, 100, 100, 0.7);
+	background-color: rgba(37, 71, 117, 0.7);
 	border-radius: 1em;
 	padding: 2em;
 	width: 65em;

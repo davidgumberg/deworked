@@ -72,12 +72,9 @@ class AuthorsController < ApplicationController
     def author_params
       author_params = params.require(:author).permit(
         :name, :image,
-        birth: [ :year, :month, :day ],
-        death: [ :year, :month, :day ],
+        :birth_year, :birth_month, :birth_day,
+        :death_year, :death_month, :death_day
       )
-      debugger
-      author_params[:birth] = helpers.date_unsplitter author_params[:birth].to_h
-      author_params[:death] = helpers.date_unsplitter author_params[:death].to_h
-      author_params
     end
+
 end

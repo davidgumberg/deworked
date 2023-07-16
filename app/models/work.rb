@@ -10,12 +10,53 @@ class Work < ApplicationRecord
   accepts_nested_attributes_for :voices, reject_if: :all_blank,
                                          allow_destroy: true
 
-  def original_publication=(date)
-    super(date_unsplitter(date))
+  def original_publication
+    if original_publication_year == nil
+      return nil
+    else
+      Date.new(original_publication_year, 
+               original_publication_month || 1,
+               original_publication_day || 1)
+    end
   end
 
-  def edition_publication=(date)
-    super(date_unsplitter(date))
+
+  def edition_publication
+    if edition_publication_year == nil
+      return nil
+    else
+      Date.new(edition_publication_year, 
+               edition_publication_month || 1,
+               edition_publication_day || 1)
+    end
+  end
+
+  def original_publication=(value)
+    if value.is_a? Date
+      date = value
+    elsif value.is_a? String
+      date = Date.parse(value)
+    else
+      raise StandardError
+    end
+
+    self.original_publication_year = date.year
+    self.original_publication_month = date.month
+    self.original_publication_day = date.day
+  end
+
+  def edition_publication=(value)
+    if value.is_a? Date
+      date = value
+    elsif value.is_a? String
+      date = Date.parse(value)
+    else
+      raise StandardError
+    end
+
+    self.edition_publication_year = date.year
+    self.edition_publication_month = date.month
+    self.edition_publication_day = date.day
   end
 
   def self.new_from_isbn(isbn)
@@ -36,7 +77,8 @@ class Work < ApplicationRecord
 
     date = date_from_ol_str(ext_data.dig('publish_date'))
 
-    params = { title: ext_data.dig('title'), ISBN: ext_data.dig('isbn'),
+
+    params = { title: ext_data.dig('title'), ISBN: isbn,
                edition_publication: date,
                cover_url: ext_data.dig('cover', 'large'),
                voices_attributes: voices }

@@ -24,13 +24,13 @@
   <div>
     <%= form.label :edition_publication, style: "display: block" %>
     <%= render partial: 'shared/datepicker',
-               locals: { form: form, symbol: :edition_publication } %>
+               locals: { form: form, datename: :edition_publication } %>
   </div>
 
   <div>
     <%= form.label :original_publication %>
     <%= render partial: 'shared/datepicker',
-               locals: { form: form, symbol: :original_publication } %>
+               locals: { form: form, datename: :original_publication } %>
   </div>
 
   <div>

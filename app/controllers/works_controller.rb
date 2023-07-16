@@ -84,8 +84,8 @@ class WorksController < ApplicationController
     def work_params
       params.require(:work).permit(
         :title, :ISBN, :cover_url,
-        edition_publication:  [ :year, :month, :day ],
-        original_publication: [ :year, :month, :day ],
+        :edition_publication_year, :edition_publication_month, :edition_publication_day,
+        :original_publication_year, :original_publication_month, :original_publication_day,
         voices_attributes: [
           :id, :style,
           author_attributes: [

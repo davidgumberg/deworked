@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_13_192016) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_16_021842) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -41,10 +41,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_13_192016) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
-    t.date "birth"
-    t.date "death"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "birth_year", limit: 3
+    t.integer "birth_month", limit: 1
+    t.integer "birth_day", limit: 1
+    t.integer "death_year", limit: 3
+    t.integer "death_month", limit: 1
+    t.integer "death_day", limit: 1
   end
 
   create_table "voices", force: :cascade do |t|
@@ -61,10 +65,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_13_192016) do
     t.string "title"
     t.string "ISBN"
     t.string "cover_url"
-    t.date "original_publication"
-    t.date "edition_publication"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "edition_publication_year", limit: 3
+    t.integer "edition_publication_month", limit: 1
+    t.integer "edition_publication_day", limit: 1
+    t.integer "original_publication_year", limit: 3
+    t.integer "original_publication_month", limit: 1
+    t.integer "original_publication_day", limit: 1
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

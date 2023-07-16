@@ -1,11 +1,9 @@
-<%= form.fields_for symbol do |fields| %>
-  <div>
-      <%= fields.label :year %>
-      <%= fields.number_field :year, size: 4, value: form.object[symbol]&.year %>
-      <%= fields.label :month %>
-      <%= fields.number_field :month, size: 2, min: 1, max: 12, value: form.object[symbol]&.month %>
-      <%= fields.label :day %>
-      <%= fields.number_field :day, size: 2, min: 1, max: 31, value: form.object[symbol]&.day %>
-  </div>
-<% end %>
+<div>
+  <%= form.label "#{datename}_year".to_sym, "Year" %>
+  <%= form.number_field "#{datename}_year".to_sym, size: 8 %>
+  <%= form.label "#{datename}_month".to_sym, "Month" %>
+  <%= form.number_field :"#{datename}_month".to_sym, size: 4, min: 1, max: 12 %>
+  <%= form.label "#{datename}_day".to_sym, "Day" %>
+  <%= form.number_field "#{datename}_day".to_sym, size: 4, min: 1, max: 31 %>
+</div>
 
