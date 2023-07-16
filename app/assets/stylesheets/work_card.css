@@ -1,27 +1,30 @@
 .work-card {
-	display: grid;
-	grid-template-columns: "1fr 1fr 1fr";
-	grid-template-areas: "cover details authors";
+	display: flex;
+    justify-content: space-around;
 	background-color: rgba(100, 100, 100, 0.7);
 	border-radius: 1em;
-	padding: 1em;
-	width: 80em;
+	padding: 2em;
+	width: 65em;
 	height: 30em;
 }
 
 .work-card-cover {
-	margin: 1em;
-	overflow:hidden;
+    width: 100%;
+    height: 100%;
+    flex: 3 1 0;
 }
 
-.work-card-cover img {
-	height: 100%;
+.work-card-cover > img {
+    object-fit: cover;
+    border: 1px solid black;
+    width: 80%;
+    height: 100%
 }
 
 .work-card-details {
-	grid-area: details;
+    flex: 3 1 0;
 }
 
 .work-card-authors {
-	grid-area: authors;
+    flex: 3 1 0;
 }

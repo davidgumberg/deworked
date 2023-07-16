@@ -4,15 +4,14 @@
     overflow: clip;
     margin: 1em;
     perspective: 6in;
-    width: 16em;
-	height: 27em;
+    aspect-ratio: 3/5;
+    max-width: 100%;
+    max-height: 100%;
     
     box-shadow: -3px 1px 6px 7px rgba(255,255,255,0.7), 5px 5px 6px 7px rgba(94,104,121,0.5);
 
     transform-origin: center;
-    background-image: url(/assets/texture3.png);
-    background-size: 50% 50%;
-    background-repeat: round;
+    background-image: url(/assets/texture6.jpg);
     /*
     border-image-source: url(/assets/texture1.jpg/);
     border-image-repeat: stretch;
@@ -21,28 +20,29 @@
     */
 }
 
+/*
 .author-card:hover {
     animation-name: author-card-shimmer;
     animation-duration: 15s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 }
+*/
 
 .author-card-plaque {
 	flex-basis: 1;
 	flex-grow: 1;
 	width: 11em;
-	font-weight: 800;
-	font-family: 'Vollkorn';
+	font-family: 'Vollkorn-Black';
+    color: rgb(0, 0, 0);
 	text-align: center;
-	color: rgb(220, 210, 160);
-	padding: .5em 1em 1.2em;
+	padding: .75em 1.4em 3em;
 }
 
 .author-card-avatar {
 	flex-basis: 2;
 	flex-grow: 10;
-    object-fit: cover;
+    object-fit:cover;
     opacity:0.9;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;

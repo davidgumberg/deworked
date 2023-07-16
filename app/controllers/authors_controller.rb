@@ -39,9 +39,8 @@ class AuthorsController < ApplicationController
   def update
     respond_to do |format|
       if @author.update(author_params)
-        format.html { redirect_to
-                        author_url(@author),
-                        notice: "Author was successfully updated."
+        format.html { redirect_to author_url(@author),
+                                  notice: "Author was successfully updated."
                     }
         format.json { render :show, status: :ok, location: @author }
       else
@@ -71,6 +70,14 @@ class AuthorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def author_params
-      params.require(:author).permit(:name, :birth, :death, :image)
+      author_params = params.require(:author).permit(
+        :name, :image,
+        birth: [ :year, :month, :day ],
+        death: [ :year, :month, :day ],
+      )
+      debugger
+      author_params[:birth] = helpers.date_unsplitter author_params[:birth].to_h
+      author_params[:death] = helpers.date_unsplitter author_params[:death].to_h
+      author_params
     end
 end

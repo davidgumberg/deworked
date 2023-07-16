@@ -8,6 +8,15 @@ class Voice < ApplicationRecord
   validates_presence_of :work
 
   accepts_nested_attributes_for :author
+  
+  def birth=(date)
+    super(date_unsplitter(date))
+  end
+
+  def death=(date)
+    super(date_unsplitter(date))
+  end
+
 
   def voice_attributes=(array)
     array.each do |author|

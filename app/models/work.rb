@@ -10,6 +10,14 @@ class Work < ApplicationRecord
   accepts_nested_attributes_for :voices, reject_if: :all_blank,
                                          allow_destroy: true
 
+  def original_publication=(date)
+    super(date_unsplitter(date))
+  end
+
+  def edition_publication=(date)
+    super(date_unsplitter(date))
+  end
+
   def self.new_from_isbn(isbn)
     ext_work = OpenLibraryBook.new(isbn.strip)
     return nil unless ext_work

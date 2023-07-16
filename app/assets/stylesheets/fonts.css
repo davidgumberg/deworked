@@ -2,3 +2,13 @@
 	font-family: Vollkorn;
 	src: url('assets/Vollkorn.ttf');
 }
+
+@font-face {
+	font-family: Vollkorn-Black;
+	src: url('assets/Vollkorn-Black.ttf');
+}
+
+@font-face {
+    font-family: Raleway-Bold;
+    src: url('assets/Raleway-Bold.ttf');
+}
