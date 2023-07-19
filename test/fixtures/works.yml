@@ -1,13 +1,25 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  ISBN: MyString
-  edition_publication: 2023-05-17 08:48:39
-  original_publication: 2023-05-17 08:48:39
+  title: Adventures of Huckleberry Finn
+  ISBN: 9780141199573
+
+  edition_publication_year:   2014
+  edition_publication_month:  9
+  edition_publication_day:    30
+
+  original_publication_year:  1884
+  original_publication_month: 12
+  original_publication_day:   10
 
 two:
-  title: MyString
-  ISBN: MyString
-  edition_publication: 2023-05-17 08:48:39
-  original_publication: 2023-05-17 08:48:39
+  title: War and Peace
+  ISBN: 9780192833983
+
+  edition_publication_year:   1998
+  edition_publication_month:  3
+  edition_publication_day:    31
+
+  original_publication_year:  1869
+  original_publication_month: 
+  original_publication_day:   

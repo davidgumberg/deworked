@@ -1,11 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  birth: 2023-05-17 08:56:53
-  death: 2023-05-17 08:56:53
+  name: Mark Twain
+  birth_year: 1835
+  birth_month: 11
+  birth_day: 30
+  death_year: 1910
+  death_month: 4
+  death_day: 21
 
 two:
-  name: MyString
-  birth: 2023-05-17 08:56:53
-  death: 2023-05-17 08:56:53
+  name: Leo Tolstoy
+  birth_year: 1828
+  birth_month: 9
+  birth_day: 9
+  death_year: 1910
+  death_month: 11
+  death_day: 20

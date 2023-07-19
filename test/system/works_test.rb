@@ -14,9 +14,15 @@ class WorksTest < ApplicationSystemTestCase
     visit works_url
     click_on "New work"
 
-    fill_in "Isbn", with: @work.ISBN
-    fill_in "Original Publication", with: @work.original_publication
-    fill_in "Edition Publication", with: @work.edition_publication
+    fill_in "work[ISBN]", with: @work.ISBN
+    fill_in "work[edition_publication_year]", with: @work.edition_publication_year
+    fill_in "work[edition_publication_month]", with: @work.edition_publication_month
+    fill_in "work[edition_publication_day]", with: @work.edition_publication_day
+
+    fill_in "work[original_publication_year]", with: @work.original_publication_year
+    fill_in "work[original_publication_month]", with: @work.original_publication_month
+    fill_in "work[original_publication_day]", with: @work.original_publication_day
+
     fill_in "Title", with: @work.title
     click_on "Create Work"
 
@@ -28,9 +34,15 @@ class WorksTest < ApplicationSystemTestCase
     visit work_url(@work)
     click_on "Edit this work", match: :first
 
-    fill_in "Isbn", with: @work.ISBN
-    fill_in "Original Publication", with: @work.original_publication
-    fill_in "Edition Publication", with: @work.edition_publication
+    fill_in "work[ISBN]", with: @work.ISBN
+    fill_in "work[edition_publication_year]", with: @work.edition_publication_year
+    fill_in "work[edition_publication_month]", with: @work.edition_publication_month
+    fill_in "work[edition_publication_day]", with: @work.edition_publication_day
+
+    fill_in "work[original_publication_year]", with: @work.original_publication_year
+    fill_in "work[original_publication_month]", with: @work.original_publication_month
+    fill_in "work[original_publication_day]", with: @work.original_publication_day
+
     fill_in "Title", with: @work.title
     click_on "Update Work"
 

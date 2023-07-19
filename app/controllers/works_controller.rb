@@ -90,8 +90,8 @@ class WorksController < ApplicationController
           :id, :style,
           author_attributes: [
             :id, :name, :image,
-            birth: [ :year, :month, :day ],
-            death: [ :year, :month, :day ]
+            :birth_year, :birth_month, :birth_day,
+            :death_year, :death_month, :death_day 
           ]
         ]
       )

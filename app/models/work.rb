@@ -20,7 +20,6 @@ class Work < ApplicationRecord
     end
   end
 
-
   def edition_publication
     if edition_publication_year == nil
       return nil
@@ -76,7 +75,6 @@ class Work < ApplicationRecord
     end
 
     date = date_from_ol_str(ext_data.dig('publish_date'))
-
 
     params = { title: ext_data.dig('title'), ISBN: isbn,
                edition_publication: date,
