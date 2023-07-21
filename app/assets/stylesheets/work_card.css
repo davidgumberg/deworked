@@ -6,6 +6,7 @@
 	padding: 2em;
 	width: 65em;
 	height: 30em;
+    margin: .5em 0;
 }
 
 .work-card-cover {
@@ -28,3 +29,19 @@
 .work-card-authors {
     flex: 3 1 0;
 }
+
+.work-nav-btn {
+    display:       block;
+    max-width:     fit-content;
+    padding:       .5em;
+    border-radius: 4px;
+}
+
+.work-nav-btn-show {
+    background-color: #5566BB;
+}
+
+.work-nav-btn-edit {
+    background-color:#776622;
+}
+

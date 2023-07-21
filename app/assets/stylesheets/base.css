@@ -40,6 +40,10 @@ h1 {
     font-size: 64pt;
 }
 
+h2 {
+    font-size: 42pt;
+}
+
 input {
 	background-color: rgb(200, 200, 200);
 	padding: 10px;
@@ -50,9 +54,4 @@ input {
 
 ul {
     list-style-type: none;
-}
-
-li {
-    margin: 1em;
-    padding: 0.5em;
 }

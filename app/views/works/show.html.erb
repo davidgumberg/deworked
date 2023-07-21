@@ -1,9 +1,9 @@
 <p style="color: green"><%= notice %></p>
-<h1> Work Information </h1>
+
+<%= tag.h2 "#{@work.title}" %>
 
 <%= turbo_frame_tag @work do %>
   <%= render @work %>
-
 
   <div>
     <%= link_to "Edit this work", edit_work_path(@work), data: {turbo_action: 'advance'} %>

@@ -1,25 +1,15 @@
-<header>
-  <nav>
-    <%= link_to "Home", root_path, data: {turbo_frame: "_top"} %>
-  </nav>
-  <h1>New work</h1>
-</header>
-
-<main>
-  <%= turbo_frame_tag "works_form" do %>
-
-    <%= turbo_frame_tag "ext_work_frame" do %>
-      <h2> Import from ISBN? </h2>
-      <div>
-        <%= form_with url: new_ext_works_path, method: :get do |form| %>
-          <%= form.label :isbn, style: "display: block" %>  
-          <%= form.text_field :isbn %>
-          <%= form.submit  %>
-        <% end %>
-      </div>
-    <% end %>
-
-      <h2> Manual book import </h2>
-      <%= render 'form', work: @work %>
+<%= turbo_frame_tag "work_new" do %>
+  <%= turbo_frame_tag "ext_work_frame" do %>
+    <h2> Import from ISBN? </h2>
+    <div>
+      <%= form_with url: new_ext_works_path, method: :get do |form| %>
+        <%= form.label :isbn, style: "display: block" %>  
+        <%= form.text_field :isbn %>
+        <%= form.submit  %>
+      <% end %>
+    </div>
   <% end %>
-</main>
+
+  <h2> Manual book import </h2>
+  <%= render 'form', work: @work %>
+<% end %>

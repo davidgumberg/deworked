@@ -14,8 +14,8 @@
   <body>
     <header> 
       <h1>Bookstore</h1>
-      <nav>
-        <ul class="flex flex-row">
+      <nav class="application-header-nav">
+        <ul class="flex flex-row space-x-3">
           <li><%= link_to_unless_current "Works", works_path %></li>
           <li><%= link_to_unless_current "Authors", authors_path %></li>
         </ul>

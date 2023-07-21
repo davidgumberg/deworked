@@ -30,7 +30,8 @@ class Voice < ApplicationRecord
       hash.delete(:death)
     end
 
-    self.author = Author.find_or_initialize_by(hash)
+    self.author = Author.find_or_initialize_by(id: hash[:id])
+    self.author.attributes = hash
   end
 
 end

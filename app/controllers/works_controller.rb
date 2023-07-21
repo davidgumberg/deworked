@@ -34,7 +34,7 @@ class WorksController < ApplicationController
     respond_to do |format|
       if @work.save
         format.html { redirect_to work_url(@work), notice: "Work was successfully created." }
-        format.turbo_stream
+        format.turbo_stream 
         format.json { render :show, status: :created, location: @work }
       else
         format.html { render :new, status: :unprocessable_entity }

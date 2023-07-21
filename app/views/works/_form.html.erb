@@ -1,4 +1,4 @@
-<%= form_with(model: work) do |form| %>
+<%= form_with model: work do |form| %>
   <% if work.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(work.errors.count, "error") %> prohibited this work from being saved:</h2>
