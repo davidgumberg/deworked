@@ -38,10 +38,22 @@
 }
 
 .work-nav-btn-show {
-    background-color: #5566BB;
+    background-color: #6576CB;
+}
+
+.work-nav-btn-show:hover {
+    background-color: #7586DB;
 }
 
 .work-nav-btn-edit {
-    background-color:#776622;
+    background-color: #AAA555;
+}
+
+.work-nav-btn-edit:hover {
+    background-color: #BAB565;
+}
+
+.work-nav-btn-destroy {
+    background-color: #AA4422
 }
 

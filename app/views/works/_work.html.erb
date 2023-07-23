@@ -1,41 +1,44 @@
-<div class="work-card" id="<%= dom_id work %>">
-  <% if work.cover_url %>
-    <div class="work-card-cover">
-      <img src="<%= work.cover_url %>" />
-    </div>
-  <% end %>
-  <div class="work-card-details">
-    <p>
-      <strong>Title:</strong>
-      <%= work.title %>
-    </p>
-
-    <p>
-      <strong>ISBN:</strong>
-      <%= work.ISBN %>
-    </p>
-
-    <p>
-      <strong>Edition Published:</strong>
-      <%= work.edition_publication %>
-    </p>
-
-    <p>
-      <strong>Date of Original Publication:</strong>
-      <%= work.original_publication %>
-    </p>
-  </div>
-
-  <div class="work-card-authors flex">
-    <% Voice.where(work_id: work.id).each do |voice| %>
-      <%= render partial: Author.find(voice.author.id), locals: { style: voice.style } %>
+<%= tag.div class: 'work-container', id: dom_id(work) do %>
+  <div class="work-card">
+    <% if work.cover_url %>
+      <div class="work-card-cover">
+        <img src="<%= work.cover_url %>" />
+      </div>
     <% end %>
-  </div>
-</div>
+    <div class="work-card-details">
+      <p>
+        <strong>Title:</strong>
+        <%= work.title %>
+      </p>
 
-<nav class="work-nav">
-  <ul class="flex flex-row justify-end space-x-3 mb-6">
-    <li><%= link_to "Show this work", work, class: 'work-nav-btn work-nav-btn-show' %></li>
-    <li><%= link_to "Edit this work", edit_work_path(work), class: 'work-nav-btn work-nav-btn-edit' %></li>
-  </ul>
-</nav>
+      <p>
+        <strong>ISBN:</strong>
+        <%= work.ISBN %>
+      </p>
+
+      <p>
+        <strong>Edition Published:</strong>
+        <%= work.edition_publication %>
+      </p>
+
+      <p>
+        <strong>Date of Original Publication:</strong>
+        <%= work.original_publication %>
+      </p>
+    </div>
+
+    <div class="work-card-authors flex">
+      <% Voice.where(work_id: work.id).each do |voice| %>
+        <%= render partial: Author.find(voice.author.id), locals: { style: voice.style } %>
+      <% end %>
+    </div>
+  </div>
+
+  <nav class="work-nav">
+    <ul class="flex flex-row justify-end space-x-3 mb-6">
+      <li><%= link_to "Show this work", work, class: 'work-nav-btn work-nav-btn-show' %></li>
+      <li><%= link_to "Edit this work", edit_work_path(work), class: 'work-nav-btn work-nav-btn-edit' %></li>
+      <li><%= button_to "Destroy this work", work, method: :delete, class: 'work-nav-btn work-nav-btn-destroy' %></li>
+    </ul>
+  </nav>
+<% end %>
