@@ -34,11 +34,13 @@
     </div>
   </div>
 
-  <nav class="work-nav">
-    <ul class="flex flex-row justify-end space-x-3 mb-6">
-      <li><%= link_to "Show this work", work, class: 'work-nav-btn work-nav-btn-show' %></li>
-      <li><%= link_to "Edit this work", edit_work_path(work), class: 'work-nav-btn work-nav-btn-edit' %></li>
-      <li><%= button_to "Destroy this work", work, method: :delete, class: 'work-nav-btn work-nav-btn-destroy' %></li>
-    </ul>
-  </nav>
+  <% unless work.new_record? %>
+    <nav class="work-nav">
+      <ul class="flex flex-row justify-end space-x-3 mb-6">
+        <li><%= link_to "Show this work", work, class: 'work-nav-btn work-nav-btn-show' %></li>
+        <li><%= link_to "Edit this work", edit_work_path(work), class: 'work-nav-btn work-nav-btn-edit' %></li>
+        <li><%= button_to "Destroy this work", work, method: :delete, class: 'work-nav-btn work-nav-btn-destroy' %></li>
+      </ul>
+    </nav>
+  <% end %>
 <% end %>

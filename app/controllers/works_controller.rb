@@ -3,7 +3,7 @@ class WorksController < ApplicationController
 
   # GET /works or /works.json
   def index
-    @works = Work.all
+    @pagy, @works = pagy(Work.all, items: 5)
   end
 
   # GET /works/1 or /works/1.json
