@@ -13,6 +13,8 @@ gem "tailwindcss-rails", "~> 2.0"
 
 gem 'foreman'
 
+gem 'devise'
+
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.6"
 
