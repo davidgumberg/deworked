@@ -5,6 +5,9 @@ class Work < ApplicationRecord
   has_many :voices, inverse_of: :work, dependent: :delete_all
   has_many :authors, through: :voices
 
+  has_many :possessions, inverse_of: :work, dependent: :delete_all
+  has_many :users, through: :possessions
+
   validates_presence_of :title
 
   accepts_nested_attributes_for :voices, reject_if: :all_blank,

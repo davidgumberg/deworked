@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :authors
   end
 
+  resources :possessions
+
   resources :authors do
     collection do
       get 'search', to: 'authors#search'
