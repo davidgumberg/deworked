@@ -1,24 +1,3 @@
-# README
+# (untitled)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is a pre-alpha version of a web application for the cataloguing of works (books, scholarly literature, visual arts) enabling digital access and inventory services.
