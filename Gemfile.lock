@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/davidgumberg/fetchworks.git
-  revision: 25e89ad88cb4629606bc97f58918e8819b4e1bd8
+  revision: ef4fb3268bfb90525d9ce70206f300eb18191815
   branch: master
   specs:
     fetchworks (0.1.0)
