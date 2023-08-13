@@ -1,13 +1,14 @@
  <a href="<%= url_for(author) %>">
- <div class="author-card justify-end border-4 items-center rounded-[50%]" id="<%= dom_id author %>">
-   <% if author.image.representable? %>
-     <%= image_tag author.image.representation(resize_to_limit: [450, 450]), class: "author-card-avatar" %>
-  <% end %>
-  <div class="author-card-plaque flex flex-col items-center font-serif text-sm rounded-b-[inherit] grow">
-    <strong><%= author.name %></strong>
-    <p>Birth: <%= date_string_safe(author.birth) %></p>
-    <% if author.death.present? %>
-      <p>Death: <%= date_string_safe(author.death) %></p>
+   <div class="author-card justify-end border-4 items-center rounded-[50%]" id="<%= dom_id author %>">
+     <% if author.image.representable? %>
+       <%= image_tag author.image.representation(resize_to_limit: [450, 450]), class: "author-card-avatar" %>
     <% end %>
+    <div class="author-card-plaque flex flex-col items-center font-serif text-sm rounded-b-[inherit] grow">
+      <strong><%= author.name %></strong>
+      <p>Birth: <%= date_string_safe(author.birth) %></p>
+      <% if author.death.present? %>
+        <p>Death: <%= date_string_safe(author.death) %></p>
+      <% end %>
+    </div>
   </div>
-</div>
+</a>

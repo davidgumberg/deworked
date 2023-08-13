@@ -38,7 +38,9 @@
     <nav class="work-nav">
       <ul class="flex flex-row justify-end space-x-3 mb-6">
         <% if user_signed_in? %>
-          <li><%= button_to "Add this work to collection", new_possession_path, class: 'work-nav-btn work-nav-btn-add' %></li>
+          <li><%= button_to "Add this work to collection", add_possessions_path,
+                            params: { possession: { work_id: work.id } },
+                            class: 'work-nav-btn work-nav-btn-add' %></li>
         <% end %>
         <li><%= link_to "Show this work", work, class: 'work-nav-btn work-nav-btn-show' %></li>
         <li><%= link_to "Edit this work", edit_work_path(work), class: 'work-nav-btn work-nav-btn-edit' %></li>

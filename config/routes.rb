@@ -1,16 +1,26 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  resources :users do
+    member do
+        resources :possessions
+    end
+  end
+
   resources :works do
     collection do
       get 'new/ext', to: 'works#ext', constraints: { isbn: /\d{10}(\d{3})?/ }
       post 'new/ext', to: 'works#ext', constraints: { isbn: /\d{10}(\d{3})?/ }
       post :add_author
     end
-    resources :voices
-    resources :authors
+    resources :voices, :authors
   end
 
-  resources :possessions
+  resources :possessions do
+    collection do
+      post 'add'
+    end
+  end
 
   resources :authors do
     collection do
