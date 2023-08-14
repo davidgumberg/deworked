@@ -1,0 +1,1 @@
+class Users::BaseController < ApplicationController

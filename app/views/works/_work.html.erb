@@ -28,9 +28,8 @@
     </div>
 
     <div class="work-card-authors flex">
-      <% Voice.where(work_id: work.id).each do |voice| %>
-        <%= render partial: Author.find(voice.author.id), locals: { style: voice.style } %>
-      <% end %>
+      <%= render partial: 'authors/author',
+                 collection: work.authors %>
     </div>
   </div>
 

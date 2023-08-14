@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users do
-    member do
-        resources :possessions
+    scope module: :users, path: '' do
+      resources :possessions
     end
   end
 
