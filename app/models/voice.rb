@@ -7,6 +7,8 @@ class Voice < ApplicationRecord
   belongs_to :work
   validates_presence_of :work
 
+  validates_uniqueness_of :work_id, scope: [:author_id, :style]
+
   accepts_nested_attributes_for :author
   
   def voice_attributes=(array)

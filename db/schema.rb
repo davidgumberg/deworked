@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_24_143724) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_13_235605) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -56,6 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_24_143724) do
     t.integer "work_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "work_id"], name: "index_possessions_on_user_id_and_work_id", unique: true
     t.index ["user_id"], name: "index_possessions_on_user_id"
     t.index ["work_id"], name: "index_possessions_on_work_id"
   end
@@ -78,6 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_24_143724) do
     t.integer "style"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id", "work_id", "style"], name: "index_voices_on_author_id_and_work_id_and_style", unique: true
     t.index ["author_id"], name: "index_voices_on_author_id"
     t.index ["work_id"], name: "index_voices_on_work_id"
   end
