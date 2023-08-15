@@ -37,9 +37,18 @@
     <nav class="work-nav">
       <ul class="flex flex-row justify-end space-x-3 mb-6">
         <% if user_signed_in? %>
-          <li><%= button_to "Add this work to collection", add_possessions_path,
-                            params: { possession: { work_id: work.id } },
-                            class: 'work-nav-btn work-nav-btn-add' %></li>
+          <%= tag.div id: "possession_add_remove_frame" do %>
+
+            <% if possession = current_user.has_work?(work) %>
+              <li><%= button_to "Remove this work from my collection", possession, method: :delete,
+                                class: 'work-nav-btn work-nav-btn-remove' %></li>
+            <% else %>
+              <li><%= button_to "Add this work to my collection", possessions_path, method: :post,
+                                params: { possession: { work_id: work.id } },
+                                class: 'work-nav-btn work-nav-btn-add' %></li>
+            <% end %>
+
+          <% end %>
         <% end %>
         <li><%= link_to "Show this work", work, class: 'work-nav-btn work-nav-btn-show' %></li>
         <li><%= link_to "Edit this work", edit_work_path(work), class: 'work-nav-btn work-nav-btn-edit' %></li>

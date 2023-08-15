@@ -1,15 +1,22 @@
 class PossessionsController < ApplicationController
-  before_action :authenticate_user!, only: [:add]
+  prepend_before_action :authenticate_user!
+  before_action :set_possession, only: [:destroy]
 
-  def add
+  def create
     Possession.create(possession_params)
   end
 
-  def possession_params
-    possession_params = params.require(:possession).permit(
-      :work_id
-    )
-
-    possession_params.merge(user: current_user)
+  def destroy
+    @possession.destroy
   end
+
+  private
+    def set_possession
+      @possession = Possession.find(params[:id])
+    end
+
+    def possession_params
+      possession_params = params.require(:possession).permit(:work_id)
+      possession_params.merge(user: current_user)
+    end
 end

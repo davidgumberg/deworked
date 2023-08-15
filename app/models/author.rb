@@ -1,5 +1,5 @@
 class Author < ApplicationRecord
-  has_many :voices, inverse_of: :author
+  has_many :voices, inverse_of: :author, dependent: :delete_all
   has_many :books, through: :voices
 
   has_one_attached :image

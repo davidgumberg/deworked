@@ -16,11 +16,7 @@ Rails.application.routes.draw do
     resources :voices, :authors
   end
 
-  resources :possessions do
-    collection do
-      post 'add'
-    end
-  end
+  resources :possessions, only: [:create, :destroy]
 
   resources :authors do
     collection do
