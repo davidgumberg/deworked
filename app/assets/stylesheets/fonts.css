@@ -1,14 +1,14 @@
 @font-face {
 	font-family: Vollkorn;
-	src: url('assets/Vollkorn.ttf');
+	src: url('Vollkorn.ttf');
 }
 
 @font-face {
 	font-family: Vollkorn-Black;
-	src: url('assets/Vollkorn-Black.ttf');
+	src: url('Vollkorn-Black.ttf');
 }
 
 @font-face {
     font-family: Raleway-Bold;
-    src: url('assets/Raleway-Bold.ttf');
+    src: url('Raleway-Bold.ttf');
 }

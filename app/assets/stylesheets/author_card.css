@@ -11,7 +11,7 @@
     box-shadow: -3px 1px 6px 7px rgba(215,215,190,0.7), 5px 5px 6px 7px rgba(94,104,121,0.5);
 
     transform-origin: center;
-    background-image: url(/assets/texture6.jpg);
+    background-image: url('texture6.jpg');
     /*
     border-image-source: url(/assets/texture1.jpg/);
     border-image-repeat: stretch;
