@@ -1,4 +1,5 @@
-<%= tag.div class: 'work-container', id: dom_id(work) do %>
+<%= turbo_frame_tag work, class: 'work-container' do %>
+<%# tag.div class: 'work-container', id: dom_id(work) do %>
   <div class="work-card">
     <% if work.cover_url %>
       <div class="work-card-cover">
@@ -37,20 +38,9 @@
     <nav class="work-nav">
       <ul class="flex flex-row justify-end space-x-3 mb-6">
         <% if user_signed_in? %>
-          <%= tag.div id: "possession_add_remove_frame" do %>
-
-            <% if possession = current_user.has_work?(work) %>
-              <li><%= button_to "Remove this work from my collection", possession, method: :delete,
-                                class: 'work-nav-btn work-nav-btn-remove' %></li>
-            <% else %>
-              <li><%= button_to "Add this work to my collection", possessions_path, method: :post,
-                                params: { possession: { work_id: work.id } },
-                                class: 'work-nav-btn work-nav-btn-add' %></li>
-            <% end %>
-
-          <% end %>
+          <li><%= render partial: 'possessions/addremove', locals: { work: work } %>
         <% end %>
-        <li><%= link_to "Show this work", work, class: 'work-nav-btn work-nav-btn-show' %></li>
+        <li><%= link_to "Show this work", work, class: 'work-nav-btn work-nav-btn-show', data: { turbo_frame: '_top' } %></li>
         <li><%= link_to "Edit this work", edit_work_path(work), class: 'work-nav-btn work-nav-btn-edit' %></li>
         <li><%= button_to "Destroy this work", work, method: :delete, class: 'work-nav-btn work-nav-btn-destroy' %></li>
       </ul>

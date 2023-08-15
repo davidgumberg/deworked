@@ -1,0 +1,10 @@
+<%= turbo_frame_tag "#{dom_id(work)}_addremove"  do %>
+  <% if possession = current_user.has_work?(work) %>
+    <%= button_to "Remove this work from my collection", possession, method: :delete,
+                       class: 'work-nav-btn work-nav-btn-remove' %>
+  <% else %>
+    <%= button_to "Add this work to my collection", possessions_path, method: :post,
+                       params: { possession: { work_id: work.id } },
+                       class: 'work-nav-btn work-nav-btn-add' %>
+  <% end %>
+<% end %>

@@ -3,12 +3,21 @@ class PossessionsController < ApplicationController
   before_action :set_possession, only: [:destroy]
 
   def create
-    Possession.create(possession_params)
+    @possession = Possession.create(possession_params)
+    respond_to do |format|
+      format.html {render partial: 'addremove', locals: { work: @possession.work }}
+    end
+
   end
 
   def destroy
+    # Save work before destroying possession
+    work = @possession.work
     @possession.destroy
-  end
+    respond_to do |format|
+      format.html {render partial: 'addremove', locals: { work: work }}
+    end
+  end 
 
   private
     def set_possession
