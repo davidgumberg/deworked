@@ -1,0 +1,3 @@
+- Barcode Scanner
+- Add columns to works
+- Active storage or external url
