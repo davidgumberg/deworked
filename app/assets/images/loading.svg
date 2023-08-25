@@ -1,4 +1,8 @@
 <svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <circle id="circle" fill="transparent" cx="50%" cy="50%" r="20" stroke="#33CC66" />
-  <path d=" M 150 50 A 100 100 0 0 1 137 100" />
+	<linearGradient id="spinner-gradient">
+		<stop offset="0%" stop-opacity="0" stop-color="#33CC66" />
+		<stop offset="100%" stop-opacity="1" stop-color="#33CC66" />
+	</linearGradient>
+  <circle id="circle" cx="50%" cy="50%" r="98"
+ 		  fill="transparent" stroke-width="4" stroke="url(#spinner-gradient)" />
 </svg>

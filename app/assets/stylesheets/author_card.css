@@ -5,10 +5,10 @@
     margin: 1em;
     perspective: 6in;
     aspect-ratio: 3/5;
-    max-width: 100%;
-    max-height: 100%;
+	width: 9em;
+	height: 18.5em;
     
-    box-shadow: -3px 1px 6px 7px rgba(215,215,190,0.7), 5px 5px 6px 7px rgba(94,104,121,0.5);
+    box-shadow: -3px 1px 6px 7px rgba(238,235,255,0.7), 5px 5px 6px 7px rgba(94,104,121,0.6);
 
     transform-origin: center;
     background-image: url('texture6.jpg');
