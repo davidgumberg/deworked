@@ -5,13 +5,15 @@
     margin: 1em;
     perspective: 6in;
     aspect-ratio: 3/5;
-	width: 9em;
-	height: 18.5em;
     
     box-shadow: -3px 1px 6px 7px rgba(238,235,255,0.7), 5px 5px 6px 7px rgba(94,104,121,0.6);
 
     transform-origin: center;
     background-image: url('texture6.jpg');
+	min-width: 0;
+	min-height: 0;
+	max-height: 100%;
+
     /*
     border-image-source: url(/assets/texture1.jpg/);
     border-image-repeat: stretch;
@@ -30,18 +32,17 @@
 */
 
 .author-card-plaque {
-	flex-basis: 1;
-	flex-grow: 1;
+	flex: 1 1 0;
 	width: 11em;
 	font-family: 'Vollkorn-Black';
+	font-size: 10pt;
     color: rgb(0, 0, 0);
 	text-align: center;
 	padding: .75em 1.4em 3em;
 }
 
 .author-card-avatar {
-	flex-basis: 2;
-	flex-grow: 10;
+	flex: 9 1 0;
     object-fit:cover;
     opacity:0.9;
     border-bottom-left-radius: 0;
@@ -55,6 +56,10 @@
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     */
+}
+
+.author-index-card {
+	flex: 1 1 0;
 }
 
 @keyframes author-card-shimmer {

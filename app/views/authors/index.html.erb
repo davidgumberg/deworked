@@ -6,7 +6,9 @@
 
 <div class="flex flex-row flex-wrap ">
   <% @authors.each do |author| %>
-    <%= render author %>
+    <%= tag.div class: 'author-index-card' do %>
+      <%= render author %>
+    <% end %>
   <% end %>
 </div>
 
