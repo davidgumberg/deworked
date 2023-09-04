@@ -14,8 +14,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_13_235605) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_13_235605) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
+    t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
@@ -76,9 +76,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_13_235605) do
   create_table "voices", force: :cascade do |t|
     t.integer "author_id", null: false
     t.integer "work_id", null: false
+    t.integer "style"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "style"
     t.index ["author_id", "work_id", "style"], name: "index_voices_on_author_id_and_work_id_and_style", unique: true
     t.index ["author_id"], name: "index_voices_on_author_id"
     t.index ["work_id"], name: "index_voices_on_work_id"
@@ -87,9 +87,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_13_235605) do
   create_table "works", force: :cascade do |t|
     t.string "title"
     t.string "ISBN"
+    t.string "cover_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "cover_url"
     t.integer "edition_publication_year", limit: 3
     t.integer "edition_publication_month", limit: 1
     t.integer "edition_publication_day", limit: 1
@@ -98,8 +98,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_13_235605) do
     t.integer "original_publication_day", limit: 1
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "possessions", "users"
   add_foreign_key "possessions", "works"
   add_foreign_key "voices", "authors"
