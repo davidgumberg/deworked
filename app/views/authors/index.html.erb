@@ -4,7 +4,7 @@
   <%= render partial: 'search', locals: {form: form, unique_id: 'index-search'} %>
 <% end %>
 
-<div class="flex flex-row flex-wrap ">
+<div class="authors-index">
   <% @authors.each do |author| %>
     <%= tag.div class: 'author-index-card' do %>
       <%= render author %>

@@ -4,4 +4,7 @@ This is a pre-alpha version of a web application for the cataloguing of works (b
 
 ## Usage
 
-- A rails credentials file is required to  
+- You will probably have to generate your own credentials.yml.enc by deleting the one in this repo and running
+` rails credentials:edit `
+
+- Run `bin/dev` to start from Procfile.dev

@@ -1,25 +1,21 @@
 .author-card {
     display:flex;
-    flex-direction: column;
+    flex-flow: column nowrap;
+    align-items: center;
     overflow: clip;
-    margin: 1em;
     perspective: 6in;
     aspect-ratio: 3/5;
+
+    height: 100%;
+    width: 100%;
+
+    border-width: 4px;
+    border-radius: 50%;
     
     box-shadow: -3px 1px 6px 7px rgba(238,235,255,0.7), 5px 5px 6px 7px rgba(94,104,121,0.6);
 
     transform-origin: center;
     background-image: url('texture6.jpg');
-	min-width: 0;
-	min-height: 0;
-	max-height: 100%;
-
-    /*
-    border-image-source: url(/assets/texture1.jpg/);
-    border-image-repeat: stretch;
-    border-image-width: 9x;
-    border-image-slice: calc(50 / 184 * 100%) calc(80 / 284 * 100%);
-    */
 }
 
 /*
@@ -32,7 +28,7 @@
 */
 
 .author-card-plaque {
-	flex: 1 1 0;
+	flex: 1;
 	width: 11em;
 	font-family: 'Vollkorn-Black';
 	font-size: 10pt;
@@ -42,11 +38,8 @@
 }
 
 .author-card-avatar {
-	flex: 9 1 0;
-    object-fit:cover;
-    opacity:0.9;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    object-fit: cover;
+	flex: 9;
     box-shadow: 0px 1px 7px 4px rgba(19, 19, 23, 0.5);
 
 
