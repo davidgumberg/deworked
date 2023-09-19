@@ -7,10 +7,10 @@ class Voice < ApplicationRecord
   belongs_to :work
   validates_presence_of :work
 
-  validates_uniqueness_of :work_id, scope: [:author_id, :style]
+  validates_uniqueness_of :work_id, scope: %i[author_id style]
 
   accepts_nested_attributes_for :author
-  
+
   def voice_attributes=(array)
     array.each do |author|
       voice.build(author)
@@ -32,8 +32,13 @@ class Voice < ApplicationRecord
       hash.delete(:death)
     end
 
-    self.author = Author.find_or_initialize_by(id: hash[:id])
+    self.author = Author.find_or_initialize_by(name: hash[:name],
+                                               birth_year: hash[:birth_year],
+                                               birth_month: hash[:birth_month],
+                                               birth_day: hash[:birth_day],
+                                               death_year: hash[:death_year],
+                                               death_month: hash[:death_month],
+                                               death_day: hash[:death_day])
     self.author.attributes = hash
   end
-
 end

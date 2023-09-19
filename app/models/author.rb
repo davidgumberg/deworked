@@ -11,7 +11,7 @@ class Author < ApplicationRecord
     if birth_year == nil
       return nil
     else
-      Date.new(birth_year, 
+      Date.new(birth_year,
                birth_month || 1,
                birth_day || 1)
     end
@@ -21,7 +21,7 @@ class Author < ApplicationRecord
     if death_year == nil
       return nil
     else
-      Date.new(death_year, 
+      Date.new(death_year,
                death_month || 1,
                death_day || 1)
     end
