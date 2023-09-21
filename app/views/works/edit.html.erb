@@ -1,11 +1,3 @@
 <h1>Editing work</h1>
 
-<%= turbo_frame_tag @work do %>
-  <%= render "form", work: @work %>
-  <br>
-  <div>
-    <%= link_to "Cancel", @work %> |
-    <%= link_to "Back to works", works_path, data: {turbo_frame: "_top"} %>
-  </div>
-<% end %>
-
+<%= render "form_inline", work: @work %>

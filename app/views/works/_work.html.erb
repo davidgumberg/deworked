@@ -1,29 +1,32 @@
 <%= turbo_frame_tag work, class: 'work-container' do %>
 <%# tag.div class: 'work-container', id: dom_id(work) do %>
   <div class="work-card">
-    <% if work.cover_url %>
-      <div class="work-card-cover">
-        <img src="<%= work.cover_url %>" />
-      </div>
+
+    <% work_cover = work.cover_image.present? ? url_for(work.cover_image)
+                                              : image_path('unknowncover.svg') %>
+      <%= tag.div class: 'work-card-cover',
+                  style: "background-image: url('#{work_cover}'), 
+                          url('#{image_path('papyrus.jpg')}');" do %>
     <% end %>
+
     <div class="work-card-details">
       <p class="work-card-details-title">
         <%= work.title %>
       </p>
 
       <p>
-        <strong>ISBN:</strong>
-        <%= work.ISBN %>
+        <strong>Original Publication</strong>
+        <%= work.original_publication %>
       </p>
 
       <p>
-        <strong>Edition Published:</strong>
+        <strong>Edition Publication:</strong>
         <%= work.edition_publication %>
       </p>
 
       <p>
-        <strong>Date of Original Publication:</strong>
-        <%= work.original_publication %>
+        <strong>ISBN:</strong>
+        <%= work.ISBN %>
       </p>
     </div>
 

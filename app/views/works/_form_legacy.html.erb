@@ -1,6 +1,6 @@
 <%= form_with model: work do |form| %>
   <% if work.errors.any? %>
-    <div style="color: red">
+    <div class="text-red-400">
       <h2><%= pluralize(work.errors.count, "error") %> prohibited this work from being saved:</h2>
 
       <ul>
@@ -17,8 +17,9 @@
   </div>
 
   <div>
-    <%= form.label :ISBN, "ISBN", style: "display: block" %>
-    <%= form.text_field :ISBN %>
+    <%= form.label :original_publication %>
+    <%= render partial: 'shared/datepicker',
+               locals: { form: form, datename: :original_publication } %>
   </div>
 
   <div>
@@ -28,9 +29,8 @@
   </div>
 
   <div>
-    <%= form.label :original_publication %>
-    <%= render partial: 'shared/datepicker',
-               locals: { form: form, datename: :original_publication } %>
+    <%= form.label :ISBN, "ISBN", style: "display: block" %>
+    <%= form.text_field :ISBN %>
   </div>
 
   <div>

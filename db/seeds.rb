@@ -3,7 +3,8 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+# movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+
 SEED_WORKS = [
   {
     title: "Adventures of Huckleberry Finn",

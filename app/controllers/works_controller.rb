@@ -3,7 +3,7 @@ class WorksController < ApplicationController
 
   # GET /works or /works.json
   def index
-    @pagy, @works = pagy(Work.all, items: 5)
+    @pagy, @works = pagy(Work.all, items: 100)
   end
 
   # GET /works/1 or /works/1.json
@@ -83,7 +83,7 @@ class WorksController < ApplicationController
     # Only allow a list of trusted parameters through.
     def work_params
       params.require(:work).permit(
-        :title, :ISBN, :cover_url,
+        :title, :ISBN, :cover_url, :cover_image,
         :edition_publication_year, :edition_publication_month, :edition_publication_day,
         :original_publication_year, :original_publication_month, :original_publication_day,
         voices_attributes: [

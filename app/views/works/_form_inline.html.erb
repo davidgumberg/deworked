@@ -1,0 +1,106 @@
+<%= turbo_frame_tag work, class: 'work-container' do %>
+  <% form_with model: work do |form| %>
+    <% if work.errors.any? %>
+      <div class="text-red-400">
+        <h2><%= pluralize(work.errors.count, "error") %> prohibited this work from being saved:</h2>
+        <ul>
+        <% work.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="work-card">
+
+      <% work_cover = work.cover_image.present? ? url_for(work.cover_image)
+                                                : image_path('unknowncover.svg') %>
+      <%= tag.div class: 'work-card-cover',
+                  style: "background-image: url('#{work_cover}'),
+                          url('#{image_path('papyrus.jpg')}');",
+                  data: {'controller': 'work-cover-form'} do %>
+        <%= tag.div class: 'work-inline-form-cover', data: {'controller': 'image-upload'} do %>
+            <%= form.file_field :cover_image, class: 'hidden', direct_upload: true,
+            data: { 'image-upload-target': 'input', 
+                    'work-cover-form-target': 'fileField',
+                    'action':              'change->image-upload#uploadEarly
+                                            direct-upload:error->image-upload#uploadError
+                                            direct-upload:end->image-upload#uploadFinish
+                                            direct-uploads:end->image-upload#uploadFinish'
+                  } %> 
+            <%= tag.span class: 'hidden', data: {'image-upload-target': 'progress'} %>
+            <%= form.text_field :cover_url, class: 'hidden' %>
+          <%= tag.div class: 'work-inline-form-cover-choice-container' do %>
+
+            <%= tag.div class: 'work-inline-form-cover-choice-button', data: { 'controller': 'tooltip',
+                                                                        'tooltip-placement-value': 'top'
+                                                                      } do %>
+              <%= tag.a href: '#', data: { 'work-cover-field-target': 'fileButton',
+                                           'tooltip-target': 'tool',
+                                           'action': 'click->work-cover-form#uploadCover
+                                                      mouseover->tooltip#show
+                                                      mouseout->tooltip#hide'} do %>
+                <img alt="Link to attach a cover image for this work" src="<%= image_path('icons/attachment.svg') %>" />
+              <% end # tag.a %>
+              <%= tag.div role: 'tooltip', class: "work-inline-form-cover-choice-tooltip",
+                          data: { 'tooltip-target': 'tip'} do %>
+                Upload a cover image
+              <% end #.work-inline-form-cover-choice-tooltip %>
+            <% end #.work-inline-form-cover-choice-button %>
+            <%= tag.div class: 'work-inline-form-cover-choice-button', data: { 'controller': 'tooltip',
+                                                                        'tooltip-placement-value': 'top'
+                                                                      } do %>
+              <%= tag.a href: '#', data: { 'action': 'mouseover->tooltip#show
+                                                      mouseout->tooltip#hide',
+                                           'tooltip-target': 'tool' } do %>
+                <img alt="Link to provide a url for the cover image of this work" src="<%= image_path('icons/link.svg') %>" />
+              <% end # tag.a %>
+              <%= tag.div role: 'tooltip', class: "work-inline-form-cover-choice-tooltip",
+                          data: { 'tooltip-target': 'tip'} do %>
+                Link to a cover image on the web
+              <% end #.work-inline-form-cover-choice-tooltip %>
+            <% end #.work-inline-form-cover-choice-button %>
+          <% end #.work-inline-form-cover-choice %>
+        <% end #.work-inline-form-cover %>
+      <% end #.work-card-cover %>
+                         
+      <div class="work-card-details">
+        <div class="work-card-details-title">
+          <%= form.label :title %>
+          <%= form.text_field :title %>
+        </div>
+
+        <div>
+          <%= form.label :original_publication %>
+          <%= render partial: 'shared/datepicker',
+                     locals: { form: form, datename: :original_publication } %>
+        </div>
+
+        <div>
+          <%= form.label :edition_publication, style: "display: block" %>
+          <%= render partial: 'shared/datepicker',
+                     locals: { form: form, datename: :edition_publication } %>
+        </div>
+
+        <div>
+          <%= form.label :isbn %>
+          <%= form.text_field :isbn %>
+        </div>
+      </div>
+
+      <div class="work-card-authors">
+        <%= render partial: 'authors/author',
+                   collection: work.authors %>
+      </div>
+    </div>
+
+    <% unless work.new_record? %>
+      <nav class="work-nav">
+        <ul class="flex flex-row justify-end space-x-3 mb-6">
+          <li><%= form.submit "Save", class: 'work-nav-btn work-nav-btn-edit-save' %></li>
+          <li><%= link_to "Cancel", work, class: 'work-nav-btn work-nav-btn-edit-cancel' %></li>
+        </ul>
+      </nav>
+    <% end %>
+
+  <% end %>
+<% end #turbo_frame_tag%>

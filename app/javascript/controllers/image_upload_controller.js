@@ -11,14 +11,12 @@ export default class extends Controller {
   }
 
   uploadFinish() {
-    console.log('deeeee')
-    document.createElement('p').innerText('Upload complete!')
-    this.progressTarget.replaceWith(document.createElement('p').innerText('Upload complete!'))
   }
 
   uploadEarly() {
+    console.log('UploadEarly entered')
     this.progressTarget.style['opacity'] = 1.0
-        this.progressTarget.setAttribute('aria-hidden', 'false')
+    this.progressTarget.setAttribute('aria-hidden', 'false')
     Array.from(this.inputTarget.files).forEach((file) => {
       const upload = new DirectUpload(file,
                                       this.inputTarget.dataset.directUploadUrl,

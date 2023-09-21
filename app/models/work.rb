@@ -8,6 +8,8 @@ class Work < ApplicationRecord
   has_many :possessions, inverse_of: :work, dependent: :delete_all
   has_many :users, through: :possessions
 
+  has_one_attached :cover_image
+
   validates_presence_of :title
 
   accepts_nested_attributes_for :voices, reject_if: :all_blank,
@@ -17,7 +19,7 @@ class Work < ApplicationRecord
     if original_publication_year == nil
       return nil
     else
-      Date.new(original_publication_year, 
+      Date.new(original_publication_year,
                original_publication_month || 1,
                original_publication_day || 1)
     end
@@ -27,7 +29,7 @@ class Work < ApplicationRecord
     if edition_publication_year == nil
       return nil
     else
-      Date.new(edition_publication_year, 
+      Date.new(edition_publication_year,
                edition_publication_month || 1,
                edition_publication_day || 1)
     end
@@ -59,6 +61,11 @@ class Work < ApplicationRecord
     self.edition_publication_year = date.year
     self.edition_publication_month = date.month
     self.edition_publication_day = date.day
+  end
+
+  def cover_url=(url)
+    # We don't store cover url's, assign a job to grab the image
+    StoreImageJob.perform_now(cover_image, url)
   end
 
   def self.new_from_isbn(isbn)
