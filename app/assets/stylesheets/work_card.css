@@ -4,7 +4,7 @@
     justify-content: space-around;
 	background-color: rgba(37, 71, 117, 0.7);
 	border-radius: 1em;
-	width: 65em;
+    width: 100%;
 	height: 30em;
 	padding: 2em;
     margin: .5em;
@@ -44,14 +44,20 @@
 }
 
 .work-nav-btn {
-    display:       block;
-    max-width:     fit-content;
-    padding:       .5em;
+    display: block;
+    max-width: fit-content;
+    font-weight: bold;
+    padding: .5em;
     border-radius: 4px;
+    border: black 3px solid;
 }
 
 .work-nav-btn-show {
     background-color: #6576CB;
+}
+
+.work-nav-btn-show:hover {
+    background-color: #7586DB;
 }
 
 .work-nav-btn-remove {
@@ -62,9 +68,6 @@
     background-color: #228833;
 }
 
-.work-nav-btn-show:hover {
-    background-color: #7586DB;
-}
 
 .work-nav-btn-edit {
     background-color: #AAA555;
@@ -78,3 +81,22 @@
     background-color: #AA4422
 }
 
+.work-nav-btn-destroy:hover {
+    background-color: #BA5432
+}
+
+.work-nav-btn-edit-save {
+    background-color: #1F7730;
+}
+
+.work-nav-btn-edit-save:hover {
+    background-color: #2F8740;
+}
+
+.work-nav-btn-edit-cancel {
+    background-color: #9F7730;
+}
+
+.work-nav-btn-edit-cancel:hover {
+    background-color: #AF8740;
+}

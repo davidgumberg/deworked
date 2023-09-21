@@ -3,18 +3,14 @@ import { DirectUpload } from "@rails/activestorage"
 
 // Connects to data-controller="image-upload"
 export default class extends Controller {
-  static targets = ['input', 'progress'];
+  static targets = ['input', 'progress', 'preview'];
 
   connect() {
     this.progressTarget.setAttribute('value', '0')
     this.progressTarget.setAttribute('max', '100')
   }
 
-  uploadFinish() {
-  }
-
   uploadEarly() {
-    console.log('UploadEarly entered')
     this.progressTarget.style['opacity'] = 1.0
     this.progressTarget.setAttribute('aria-hidden', 'false')
     Array.from(this.inputTarget.files).forEach((file) => {
@@ -27,7 +23,7 @@ export default class extends Controller {
         if (error) {
           console.log(error)
         } else {
-          // Add an appropriately-named hidden input to the form with a
+          //  Add an appropriately-named hidden input to the form with a
           //  value of blob.signed_id so that the blob ids will be
           //  transmitted in the normal upload flow
           const hiddenField = document.createElement('input')
@@ -35,6 +31,12 @@ export default class extends Controller {
           hiddenField.setAttribute("value", blob.signed_id)
           hiddenField.name = this.inputTarget.name
           this.inputTarget.after(hiddenField)
+
+          if(this.hasPreviewTarget) {
+            const previewURL = URL.createObjectURL(file)
+            this.previewTarget.setAttribute('style',
+                                            `background-image: url(${previewURL})`)
+          }
         }
       })
     })

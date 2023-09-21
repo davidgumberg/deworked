@@ -1,0 +1,10 @@
+.works-index-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: stretch;
+}
+
+.works-index-container .work-container {
+    flex-basis: 100%;
+    max-width: 70em;
+}
