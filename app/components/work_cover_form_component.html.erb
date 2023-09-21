@@ -9,9 +9,7 @@
                           data: { 'image-upload-target': 'input', 
                                   'work-cover-form-target': 'fileField',
                                   'action': 'change->image-upload#uploadEarly
-                                             direct-upload:error->image-upload#uploadError
-                                             direct-upload:end->image-upload#uploadFinish
-                                             direct-uploads:end->image-upload#uploadFinish'
+                                             direct-upload:error->image-upload#uploadError'
                                 } %> 
       <%= tag.span class: 'hidden', data: {'image-upload-target': 'progress'} %>
       <%= @form.text_field :cover_url, class: 'hidden' %>
