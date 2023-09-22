@@ -1,10 +1,13 @@
 <%= tag.a href: url_for(author), data: {turbo_frame: '_top'}  do %>
   <div class="author-card" id="<%= dom_id author %>">
     <% if author.image.representable? %>
-      <%= image_tag author.image.representation(resize_to_limit: [450, 450]), class: "author-card-avatar" %>
+      <% author_avatar_image = image_path(author.image.representation(resize_to_limit: [450, 450])) %>
     <% else %>
-      <%= image_tag "unknowndrinker.svg", class: "bg-white author-card-avatar" %>
+      <% author_avatar_image = image_path("unknowndrinker.svg") %>
     <% end %>
+    <%= tag.div class: 'author-card-avatar bg-white',
+                style: "background-image: url(#{author_avatar_image})" do %>
+    <% end #.author-card-avatar %>
    <div class="author-card-plaque flex flex-col items-center rounded-b-[inherit]">
       <strong><%= author.name %></strong>
       <p>Birth: <%= date_string_safe(author.birth) %></p>

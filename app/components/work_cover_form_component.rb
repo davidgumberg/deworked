@@ -6,8 +6,8 @@ class WorkCoverFormComponent < ViewComponent::Base
     @form = form
   end
 
-  def before_render()
-    @work_cover_url = if @work.cover_image.present?
+  def before_render
+    @work_cover_url = if @work.cover_image.representable?
                         url_for(@work.cover_image)
                       else
                         image_path('unknowncover.svg')

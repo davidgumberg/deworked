@@ -39,8 +39,9 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# Reusable view components
+# Reusable view components with previews"
 gem "view_component"
+gem "lookbook"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
