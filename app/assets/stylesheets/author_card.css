@@ -2,7 +2,11 @@
     display:flex;
     flex-flow: column nowrap;
     align-items: center;
+
+    /* Mobile safari 15.X does not support overflow: clip */
+    overflow: hidden;
     overflow: clip;
+
     perspective: 6in;
     aspect-ratio: 3/5;
 
