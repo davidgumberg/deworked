@@ -3,6 +3,8 @@
                     url('#{image_path('papyrus.jpg')}');",
             data: {'controller': 'work-cover-form image-upload',
                    'image-upload-target': 'preview',
+                   'role': 'presentation',
+                   'alt': ''
                   } do %>
   <%= tag.div class: 'work-inline-form-cover' do %>
       <%= @form.file_field :cover_image, class: 'hidden', direct_upload: true,
@@ -18,13 +20,14 @@
       <%= tag.div class: 'work-inline-form-cover-choice-button',
                   data: { 'controller': 'tooltip',
                           'tooltip-placement-value': 'top'
-                                                        } do %>
+                        } do %>
+
         <%= tag.a href: '#', data: { 'work-cover-field-target': 'fileButton',
                                      'tooltip-target': 'tool',
                                      'action': 'click->work-cover-form#uploadCover
                                                 mouseover->tooltip#show
                                                 mouseout->tooltip#hide'} do %>
-          <img alt="Link to attach a cover image for this work"
+          <img alt="Attach a cover image for the work #{work.title}"
                src="<%= image_path('icons/attachment.svg') %>" />
         <% end # tag.a %>
         <%= tag.div role: 'tooltip', class: "work-inline-form-cover-choice-tooltip",

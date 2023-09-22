@@ -6,8 +6,10 @@
                                               : image_path('unknowncover.svg') %>
       <%= tag.div class: 'work-card-cover',
                   style: "background-image: url('#{work_cover}'), 
-                          url('#{image_path('papyrus.jpg')}');" do %>
-    <% end %>
+                          url('#{image_path('papyrus.jpg')}');",
+                  alt: "",
+                  role: "presentation" do %>
+      <% end %>
 
     <div class="work-card-details">
       <p class="work-card-details-title">

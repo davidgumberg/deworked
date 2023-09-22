@@ -6,7 +6,8 @@
       <% author_avatar_image = image_path("unknowndrinker.svg") %>
     <% end %>
     <%= tag.div class: 'author-card-avatar bg-white',
-                style: "background-image: url(#{author_avatar_image})" do %>
+                style: "background-image: url(#{author_avatar_image})",
+                role: 'image', alt: "Link to #{author.name}'s page" do %>
     <% end #.author-card-avatar %>
    <div class="author-card-plaque flex flex-col items-center rounded-b-[inherit]">
       <strong><%= author.name %></strong>
