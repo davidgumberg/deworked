@@ -1,7 +1,7 @@
 <%= tag.a href: url_for(author), data: {turbo_frame: '_top'}  do %>
   <div class="author-card" id="<%= dom_id author %>">
     <% if author.image.representable? %>
-      <% author_avatar_image = image_path(author.image.representation(resize_to_limit: [450, 450])) %>
+      <% author_avatar_image = polymorphic_url(author.image.representation(resize_to_limit: [450, 450])) %>
     <% else %>
       <% author_avatar_image = image_path("unknowndrinker.svg") %>
     <% end %>
