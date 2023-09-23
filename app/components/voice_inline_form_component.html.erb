@@ -1,0 +1,6 @@
+<%# form.label :style, "Role" %>
+<%# form.select :style, options_for_select([['Author', :author], ['Editor', :editor], ['Translator', :translator]]) %>
+
+<%= @form.fields_for :author do |author_form| %>
+  <%= render AuthorInlineFormComponent.new(author: author_form.object,  form: author_form) %>
+<% end %>

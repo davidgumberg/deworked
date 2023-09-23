@@ -1,4 +1,4 @@
-module DateHelper
+module DatesHelper
   def date_string_safe(date)
     if date&.is_a?(Date)
       date.strftime('%m/%d/%Y')

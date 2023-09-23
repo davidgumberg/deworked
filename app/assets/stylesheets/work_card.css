@@ -44,8 +44,7 @@
     gap: 1.5em;
 }
 
-.work-card-authors > a {
-    max-width: 150px;
+.work-card-authors .author-card {
     flex: 1;
 }
 

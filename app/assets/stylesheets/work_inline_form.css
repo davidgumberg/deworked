@@ -1,3 +1,9 @@
+.work-inline-form input {
+    background-color: rgb(255 240 240 / 0.7);
+    border-radius: 11px;
+    border: none;
+}
+
 .work-inline-form-cover {
     display: flex;
     flex-flow: column nowrap;

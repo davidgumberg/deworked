@@ -1,0 +1,9 @@
+<div class="date-picker-component">
+  <%= @form.label year_attr, "Year" %>
+  <%= @form.number_field year_attr, size: 5 %>
+  <%= @form.label month_attr, "Month" %>
+  <%= @form.number_field month_attr, size: 3, min: 1, max: 12 %>
+  <%= @form.label day_attr, "Day" %>
+  <%= @form.number_field day_attr, size: 3, min: 1, max: 31 %>
+</div>
+

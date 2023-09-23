@@ -26,6 +26,10 @@ main {
     grid-area: main;
 }
 
+input {
+    font-size: inherit;
+}
+
 footer {
     grid-area: footer;
     justify-self: stretch;

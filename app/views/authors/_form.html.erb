@@ -17,7 +17,7 @@
     <%= render partial: 'shared/datepicker', locals: {form: form, datename: :birth} %>
     <%# TODO: add back `data-author_fields-target` %>
   </div>
-<div>
+  <div>
     <%= form.label :death, style: "display: block" %>
     <%= render partial: 'shared/datepicker', locals: {form: form, datename: :death} %>
     <%# TODO: add back `data-author_fields-target` %>
@@ -27,9 +27,7 @@
     <%= form.file_field :image, direct_upload: true,
           data: { 'direct-upload-target': 'input',
                   'action':              'change->direct-upload#uploadEarly
-                                          direct-upload:error->direct-upload#uploadError
-                                          direct-upload:end->direct-upload#uploadFinish
-                                          direct-uploads:end->direct-upload#uploadFinish'
+                                          direct-upload:error->direct-upload#uploadError'
                 } %>
     <progress class="opacity-0" aria-hidden="true" data-direct-upload-target="progress"></progress>
   </div>

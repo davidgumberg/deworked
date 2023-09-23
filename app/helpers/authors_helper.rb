@@ -1,7 +1,4 @@
 module AuthorsHelper
-  class FormHelperException < StandardError
-  end
-
   def author_image_url(author)
     unless author.is_a? Author
       raise Exception "author_image_url passed a bad cover!"

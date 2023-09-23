@@ -1,5 +1,5 @@
 <%= turbo_frame_tag work, class: 'work-container' do %>
-  <% form_with model: work do |form| %>
+  <% form_with class: 'work-inline-form', model: work do |form| %>
     <% if work.errors.any? %>
       <div class="text-red-400">
         <h2><%= pluralize(work.errors.count, "error") %> prohibited this work from being saved:</h2>
@@ -11,6 +11,7 @@
       </div>
     <% end %>
     <div class="work-card">
+
       <%= tag.div class: 'work-card-cover',
             style: "background-image: url('#{work_cover_url(work)}'),
                     url('#{image_path('papyrus.jpg')}');",
@@ -21,7 +22,7 @@
                   } do %>
         <%= render ImageEditComponent.new(form: form, model: work, image_attr: :cover_image,
                                           image_url_attr: :cover_url) %>
-      <% end %>
+      <% end %><%# .work-card %>
                          
       <div class="work-card-details">
         <div class="work-card-details-title">
@@ -31,14 +32,12 @@
 
         <div>
           <%= form.label :original_publication %>
-          <%= render partial: 'shared/datepicker',
-                     locals: { form: form, datename: :original_publication } %>
+          <%= render DatePickerComponent.new(form: form, date_attr: :original_publication) %>
         </div>
 
         <div>
           <%= form.label :edition_publication, style: "display: block" %>
-          <%= render partial: 'shared/datepicker',
-                     locals: { form: form, datename: :edition_publication } %>
+          <%= render DatePickerComponent.new(form: form, date_attr: :edition_publication) %>
         </div>
 
         <div>
@@ -48,8 +47,15 @@
       </div>
 
       <div class="work-card-authors">
-        <%= render AuthorInlineFormComponent.with_collection(work.authors, form: form) %>
+          <%= turbo_frame_tag form.field_id(:voices) do %>
+            <%= form.fields_for :voices do |voice_form| %>
+              <%= render VoiceInlineFormComponent.new(voice: voice_form.object,  form: voice_form) %>
+            <% end %>
+          <% end %>
+        <%# render AuthorInlineFormComponent.with_collection(work.authors, form: form) %>
       </div>
+
+    </div>
 
     <% unless work.new_record? %>
       <nav class="work-nav">

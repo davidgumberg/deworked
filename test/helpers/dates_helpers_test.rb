@@ -1,7 +1,7 @@
 require "test_helper"
 
 class DateStringSafeTest < ActiveSupport::TestCase
-  include DateHelper
+  include DatesHelper
   test "returns N/A when date is nil" do
     assert_equal('N/A', date_string_safe(nil))
   end

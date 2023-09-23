@@ -2,7 +2,7 @@
 
 class AuthorInlineFormComponent < ViewComponent::Base
   include AuthorsHelper
-  include DateHelper
+  include DatesHelper
 
   with_collection_parameter :author
 

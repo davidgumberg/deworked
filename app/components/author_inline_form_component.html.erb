@@ -1,19 +1,33 @@
-<%= tag.a href: url_for(@author), data: {turbo_frame: '_top'}  do %>
-
-  <%= tag.div class: 'author-card', id: dom_id(@author) do %>
-    <%= tag.div class: 'author-card-avatar bg-white',
-                style: "background-image: url(#{author_image_url(@author)})",
-                role: 'image', alt: "Link to #{@author.name}'s page" do %>
-      <%= render ImageEditComponent.new(form: @form, model: @author, image_attr: :image,
-                                        image_url_attr: :image_url) %>
-    <% end %>
-   <div class="author-card-plaque flex flex-col items-center rounded-b-[inherit]">
-      <strong><%= @author.name %></strong>
-      <p>Birth: <%= helpers.date_string_safe @author.birth %></p>
-      <% if @author.death.present? %>
-        <p>Death: <%= helpers.date_string_safe @author.death %></p>
-      <% end %>
-   </div>
+<%= tag.div class: 'author-card', id: dom_id(@author),
+            data: { 'controller': 'author-fields' } do %>
+  <%= tag.div class: 'author-card-avatar bg-white',
+              style: "background-image: url(#{author_image_url(@author)})",
+              data: { 'controller': 'direct-upload',
+                      'direct-upload-target': 'preview'
+                    } do %>
+    <%= render ImageEditComponent.new(form: @form, model: @author, image_attr: :image,
+                                      image_url_attr: :image_url) %>
   <% end %>
+ <div class="author-card-plaque flex flex-col">
+   <div class="author_search_field" data-controller="combobox">
+    <%= @form.label :name %>
+    <%= @form.text_field :name, {'required': true,
+                                'class': 'author_search_query',
+                                'pattern': '.*\w+.*',
+                                'autocomplete': 'off',
+                                'data-author_fields-target': 'nameField',
+                                'data-action': 'input->author_fields#autocomplete focus->combobox#start focusout->combobox#stop',
+                                'data-combobox-target': 'input'} %>
+    <ul class="search_authors_results typeahead" role="listbox" data-combobox-target="list"></ul>
+  </div>
 
+  <div>
+    <%= @form.label :birth %>
+    <%= render DatePickerComponent.new(form: @form, date_attr: :birth) %>
+  </div>
+  <div>
+    <%= @form.label :death %>
+    <%= render DatePickerComponent.new(form: @form, date_attr: :death) %>
+  </div>
+ </div>
 <% end %>
