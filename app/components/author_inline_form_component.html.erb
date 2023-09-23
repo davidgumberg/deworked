@@ -1,1 +1,19 @@
-<div>Add AuthorInlineForm template here</div>
+<%= tag.a href: url_for(@author), data: {turbo_frame: '_top'}  do %>
+
+  <%= tag.div class: 'author-card', id: dom_id(@author) do %>
+    <%= tag.div class: 'author-card-avatar bg-white',
+                style: "background-image: url(#{author_image_url(@author)})",
+                role: 'image', alt: "Link to #{@author.name}'s page" do %>
+      <%= render ImageEditComponent.new(form: @form, model: @author, image_attr: :image,
+                                        image_url_attr: :image_url) %>
+    <% end %>
+   <div class="author-card-plaque flex flex-col items-center rounded-b-[inherit]">
+      <strong><%= @author.name %></strong>
+      <p>Birth: <%= helpers.date_string_safe @author.birth %></p>
+      <% if @author.death.present? %>
+        <p>Death: <%= helpers.date_string_safe @author.death %></p>
+      <% end %>
+   </div>
+  <% end %>
+
+<% end %>

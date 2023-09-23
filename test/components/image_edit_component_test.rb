@@ -2,7 +2,7 @@
 
 require "test_helper"
 
-class WorkCoverFormComponentTest < ViewComponent::TestCase
+class ImageEditComponentTest < ViewComponent::TestCase
   def test_component_renders_something_useful
     # assert_equal(
     #   %(<span>Hello, components!</span>),

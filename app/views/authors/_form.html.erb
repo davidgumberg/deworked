@@ -22,15 +22,15 @@
     <%= render partial: 'shared/datepicker', locals: {form: form, datename: :death} %>
     <%# TODO: add back `data-author_fields-target` %>
   </div>
-  <div data-controller="image-upload">
+  <div data-controller="direct-upload">
     <%= form.label :image, style: "display: block" %>
     <%= form.file_field :image, direct_upload: true,
-          data: { 'image-upload-target': 'input',
-                  'action':              'change->image-upload#uploadEarly
-                                          direct-upload:error->image-upload#uploadError
-                                          direct-upload:end->image-upload#uploadFinish
-                                          direct-uploads:end->image-upload#uploadFinish'
+          data: { 'direct-upload-target': 'input',
+                  'action':              'change->direct-upload#uploadEarly
+                                          direct-upload:error->direct-upload#uploadError
+                                          direct-upload:end->direct-upload#uploadFinish
+                                          direct-uploads:end->direct-upload#uploadFinish'
                 } %>
-    <progress class="opacity-0" aria-hidden="true" data-image-upload-target="progress"></progress>
+    <progress class="opacity-0" aria-hidden="true" data-direct-upload-target="progress"></progress>
   </div>
 </div>

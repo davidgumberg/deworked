@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import { DirectUpload } from "@rails/activestorage"
 
-// Connects to data-controller="image-upload"
+// Connects to data-controller="direct-upload"
 export default class extends Controller {
   static targets = ['input', 'progress', 'preview'];
 

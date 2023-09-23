@@ -11,8 +11,17 @@
       </div>
     <% end %>
     <div class="work-card">
-    
-      <%= render(WorkCoverFormComponent.new(work: work, form: form)) %>
+      <%= tag.div class: 'work-card-cover',
+            style: "background-image: url('#{work_cover_url(work)}'),
+                    url('#{image_path('papyrus.jpg')}');",
+            data: {'controller': 'direct-upload',
+                   'direct-upload-target': 'preview',
+                   'role': 'presentation',
+                   'alt': ''
+                  } do %>
+        <%= render ImageEditComponent.new(form: form, model: work, image_attr: :cover_image,
+                                          image_url_attr: :cover_url) %>
+      <% end %>
                          
       <div class="work-card-details">
         <div class="work-card-details-title">
@@ -39,10 +48,8 @@
       </div>
 
       <div class="work-card-authors">
-        <%= render partial: 'authors/author',
-                   collection: work.authors %>
+        <%= render AuthorInlineFormComponent.with_collection(work.authors, form: form) %>
       </div>
-    </div>
 
     <% unless work.new_record? %>
       <nav class="work-nav">

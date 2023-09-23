@@ -14,8 +14,8 @@
 
 .work-card-cover {
     flex: 1 0 25%;
-    min-width: 10em;
-    min-height:23em;
+    min-width: 13em;
+    min-height: 23em;
     border: 1px solid black;
     background-size: cover;
     background-repeat: no-repeat;

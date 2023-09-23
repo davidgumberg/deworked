@@ -1,0 +1,44 @@
+.image-edit-component {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    height:100%;
+    background-color: rgb(0 0 0 / 0.05);
+}
+
+.image-edit-choice-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    padding: .5em;
+    background-color: rgb(4 40 60 / 0.7);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    border-radius: 8% 8% 0% 0%;
+    border: solid black 1px;
+}
+
+.image-edit-choice-button {
+    height: 2.8em;
+    margin: .1em;
+    border-radius: 85%;
+    background-color: #AAA555;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.image-edit-choice-button img{
+    height: 100%;
+    padding: .8em;
+}
+.image-edit-choice-tooltip {
+    display: none;
+    position: absolute;
+     
+    background: #152044;
+    color: white;
+    font-weight: bold;
+    padding: .7em;
+    border-radius: 4px;
+    font-size: 80%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

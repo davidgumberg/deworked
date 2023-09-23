@@ -55,6 +55,16 @@ class Author < ApplicationRecord
     self.death_day = date.day
   end
 
+  # TODO : drop this method, it's expected by EditImageComponent
+  def image_url
+    nil
+  end
+
+  def image_url=(url)
+    # We don't store image url's, assign a job to grab the image
+    StoreImageJob.perform_now(image, url)
+  end
+
   scope :containing, (lambda do |query|
     where("name LIKE ?", "%#{sanitize_sql_like(query)}%")
   end)
