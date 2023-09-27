@@ -53,7 +53,7 @@
 	font-weight: bold;
 }
 
-.work-nav-btn {
+.work-nav .work-nav-btn {
     display: block;
     max-width: fit-content;
     font-weight: bold;
@@ -88,18 +88,18 @@
 }
 
 .work-nav-btn-destroy {
-    background-color: #AA4422
+    background-color: #AA4422;
 }
 
 .work-nav-btn-destroy:hover {
-    background-color: #BA5432
+    background-color: #BA5432;
 }
 
-.work-nav-btn-edit-save {
+.work-nav .work-nav-btn-edit-save {
     background-color: #1F7730;
 }
 
-.work-nav-btn-edit-save:hover {
+.work-nav .work-nav-btn-edit-save:hover {
     background-color: #2F8740;
 }
 

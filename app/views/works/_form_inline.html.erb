@@ -46,14 +46,12 @@
         </div>
       </div>
 
-      <div class="work-card-authors">
-          <%= turbo_frame_tag form.field_id(:voices) do %>
-            <%= form.fields_for :voices do |voice_form| %>
-              <%= render VoiceInlineFormComponent.new(voice: voice_form.object,  form: voice_form) %>
-            <% end %>
-          <% end %>
-        <%# render AuthorInlineFormComponent.with_collection(work.authors, form: form) %>
-      </div>
+      <%# tag.turbo_frame is a workaround for ViewComponent bug @ GH issue #1099 %>
+      <%= turbo_frame_tag form.field_id(:voices), class: 'work-card-authors' do %>
+        <%= form.fields_for :voices do |voice_form| %>
+          <%= render VoiceInlineFormComponent.new(voice: voice_form.object,  form: voice_form) %>
+        <% end %>
+      <% end %>
 
     </div>
 
