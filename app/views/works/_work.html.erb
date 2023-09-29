@@ -1,7 +1,6 @@
 <%= turbo_frame_tag work, class: 'work-container' do %>
 <%# tag.div class: 'work-container', id: dom_id(work) do %>
   <div class="work-card">
-
     <% work_cover = work.cover_image.present? ? url_for(work.cover_image)
                                               : image_path('unknowncover.svg') %>
       <%= tag.div class: 'work-card-cover',

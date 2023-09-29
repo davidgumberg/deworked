@@ -12,6 +12,7 @@
     <% end %>
     <div class="work-card">
 
+      <i></i>
       <%= tag.div class: 'work-card-cover',
             style: "background-image: url('#{work_cover_url(work)}'),
                     url('#{image_path('papyrus.jpg')}');",
@@ -31,12 +32,10 @@
         </div>
 
         <div>
-          <%= form.label :original_publication %>
           <%= render DatePickerComponent.new(form: form, date_attr: :original_publication) %>
         </div>
 
         <div>
-          <%= form.label :edition_publication, style: "display: block" %>
           <%= render DatePickerComponent.new(form: form, date_attr: :edition_publication) %>
         </div>
 

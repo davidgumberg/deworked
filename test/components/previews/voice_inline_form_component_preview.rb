@@ -2,6 +2,10 @@
 
 class VoiceInlineFormComponentPreview < ViewComponent::Preview
   def default
-    render(VoiceInlineFormComponent.new(form: "form", voice: "voice"))
+    voice = Voice.first
+    object_name = :voice
+    view = ActionView::Base.empty
+    form = ActionView::Helpers::FormBuilder.new(object_name, voice, view, {})
+    render VoiceInlineFormComponent.new(form:, voice:)
   end
 end
