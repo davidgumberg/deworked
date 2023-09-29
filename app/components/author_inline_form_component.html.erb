@@ -21,11 +21,9 @@
   </div>
 
   <div>
-    <%= @form.label :birth %>
     <%= render DatePickerComponent.new(form: @form, date_attr: :birth) %>
   </div>
   <div>
-    <%= @form.label :death %>
     <%= render DatePickerComponent.new(form: @form, date_attr: :death) %>
   </div>
 </div>

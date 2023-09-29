@@ -1,3 +1,23 @@
+.date-picker-component {
+	display: flex;
+	flex-flow: row nowrap;
+	gap: 1em;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+
+.date-picker-component-attr {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+}
+
+.date-picker-component h3  {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
 .date-picker-component input {
     font-size: inherit;
 }
