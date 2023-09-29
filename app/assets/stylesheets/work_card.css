@@ -45,6 +45,7 @@
 }
 
 .work-card-authors .author-card {
+    max-width: 25em;
     flex: 1;
 }
 
