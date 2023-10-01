@@ -15,6 +15,38 @@ class Work < ApplicationRecord
   accepts_nested_attributes_for :voices, reject_if: :all_blank,
                                          allow_destroy: true
 
+  def original_publication_era
+    if original_publication_year.blank?
+      nil
+    elsif original_publication_year.positive?
+      "AD"
+    else
+      "BC"
+    end
+  end
+
+  def edition_publication_era
+    if original_publication_year.blank?
+      nil
+    elsif original_publication_year.positive?
+      "AD"
+    else
+      "BC"
+    end
+  end
+
+  def original_publication_era=(value)
+    if value == 'BC'
+      self.original_publication_year = -self.original_publication_year
+    end
+  end
+
+  def edition_publication_era=(value)
+    if value == 'BC'
+      self.edition_publication_year = -self.edition_publication_year
+    end
+  end
+
   def original_publication
     if original_publication_year == nil
       return nil
@@ -44,6 +76,7 @@ class Work < ApplicationRecord
       raise StandardError
     end
 
+    self.original_publication_era = date.year.positive? ? "AD" : "BC"
     self.original_publication_year = date.year
     self.original_publication_month = date.month
     self.original_publication_day = date.day
@@ -58,6 +91,7 @@ class Work < ApplicationRecord
       raise StandardError
     end
 
+    self.edition_publication_era = date.year.positive? ? "AD" : "BC"
     self.edition_publication_year = date.year
     self.edition_publication_month = date.month
     self.edition_publication_day = date.day

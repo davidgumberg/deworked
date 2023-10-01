@@ -11,6 +11,14 @@ class DatePickerComponent < ViewComponent::Base
     end
   end
 
+  def era_options
+    options_for_select(["BC", "AD"], "AD") 
+  end
+
+  def era_attr
+    "#{@date_attr}_era".to_sym
+  end
+
   def year_attr
     "#{@date_attr}_year".to_sym
   end

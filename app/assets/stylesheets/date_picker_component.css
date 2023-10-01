@@ -1,11 +1,10 @@
 .date-picker-component {
 	display: flex;
 	flex-flow: row nowrap;
-	gap: 1em;
+	gap: .8em;
 	justify-content: center;
 	align-items: flex-end;
 }
-
 
 .date-picker-component-attr {
 	display: flex;
@@ -18,6 +17,22 @@
 	font-weight: bold;
 }
 
-.date-picker-component input {
+.date-picker-component input,
+.date-picker-component select {
     font-size: inherit;
+    padding: .4rem .4rem;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(50, 0, 100, 0.2) 0px -2px 0px inset;
+}
+
+.date-picker-component select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
+    background-position: right .5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(155, 0, 0, 0.2) 0px -3px 0px inset;
 }

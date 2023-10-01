@@ -55,6 +55,38 @@ class Author < ApplicationRecord
     self.death_day = date.day
   end
 
+  def birth_era
+    if birth_year.blank?
+      nil
+    elsif birth_year.positive?
+      "AD"
+    else
+      "BC"
+    end
+  end
+
+  def birth_era=(value)
+    if value == 'BC'
+      self.birth_year = -self.birth_year
+    end
+  end
+
+  def death_era
+    if death_year.blank?
+      nil
+    elsif death_year.positive?
+      "AD"
+    else
+      "BC"
+    end
+  end
+
+  def death_era=(value)
+    if value == 'BC'
+      self.death_year = -self.death_year
+    end
+  end
+
   # TODO : drop this method, it's expected by EditImageComponent
   def image_url
     nil
