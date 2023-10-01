@@ -1,6 +1,8 @@
-<%= turbo_frame_tag work, class: 'work-container' do %>
-<%# tag.div class: 'work-container', id: dom_id(work) do %>
-  <div class="work-card">
+<%= turbo_frame_tag work, class: 'work-container', 
+                    data: {'controller': 'work-card-animations'} do %>
+  <%= tag.div class: 'work-card',
+              data: { 'work-card-animations-target': 'workCard'
+                    } do %>
     <% work_cover = work.cover_image.present? ? url_for(work.cover_image)
                                               : image_path('unknowncover.svg') %>
       <%= tag.div class: 'work-card-cover',
@@ -35,7 +37,7 @@
       <%= render partial: 'authors/author',
                  collection: work.authors %>
     </div>
-  </div>
+  <% end %>
 
   <% unless work.new_record? %>
     <nav class="work-nav">
@@ -44,7 +46,11 @@
           <li><%= render partial: 'possessions/addremove', locals: { work: work } %>
         <% end %>
         <li><%= link_to "Show this work", work, class: 'work-nav-btn work-nav-btn-show', data: { turbo_frame: '_top' } %></li>
-        <li><%= link_to "Edit this work", edit_work_path(work), class: 'work-nav-btn work-nav-btn-edit' %></li>
+        <li><%= link_to "Edit this work", edit_work_path(work),
+                        class: 'work-nav-btn work-nav-btn-edit',
+                        data: { 'action': 'click->work-card-animations#editClicked' }
+            %>
+        </li>
         <li><%= button_to "Destroy this work", work, method: :delete, class: 'work-nav-btn work-nav-btn-destroy' %></li>
       </ul>
     </nav>

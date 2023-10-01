@@ -3,13 +3,13 @@
     flex-flow: column nowrap;
     justify-content: flex-end;
     height:100%;
-    background-color: rgb(0 0 0 / 0.05);
 }
 
 .image-edit-choice-container {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 1.2em;
     padding: .5em;
     background-color: rgb(4 40 60 / 0.7);
     -webkit-backdrop-filter: blur(2px);
@@ -28,7 +28,7 @@
 
 .image-edit-choice-button img{
     height: 100%;
-    padding: .8em;
+    padding: .4em;
 }
 .image-edit-choice-tooltip {
     display: none;

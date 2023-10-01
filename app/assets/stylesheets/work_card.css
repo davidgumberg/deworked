@@ -29,7 +29,7 @@
 }
 
 .work-card-details {
-    flex: 1 0 50%;
+    flex: 1 0 25%;
     word-break: break-word;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .work-card-authors .author-card {
-    max-width: 30em;
+    max-width: 18em;
     flex: 1;
 }
 
