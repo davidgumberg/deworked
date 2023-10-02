@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :works do
     collection do
+      get 'new/import', to: 'works#import'
+      get 'new/cancel', to: 'works#new_cancel'
       get 'new/ext', to: 'works#ext', constraints: { isbn: /\d{10}(\d{3})?/ }
       post 'new/ext', to: 'works#ext', constraints: { isbn: /\d{10}(\d{3})?/ }
       post :add_author

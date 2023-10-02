@@ -1,5 +1,7 @@
 <h2>Works</h2>
-<%= link_to "Add new work", new_work_path, class: 'block max-w-fit rounded bg-green-400 hover:bg-green-300 py-2 px-4 my-3'  %>
+<%= turbo_frame_tag 'work_new' do %>
+  <%= render NewWorkBtnComponent.new %>
+<% end %>
 <div class='works-index-container'>
   <%= render partial: 'works/work', collection: @works %>
 </div>

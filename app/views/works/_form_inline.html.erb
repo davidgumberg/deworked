@@ -59,7 +59,15 @@
           <li><%= link_to "Cancel", work, class: 'work-nav-btn work-nav-btn-edit-cancel' %></li>
         </ul>
       </nav>
+    <% else %>
+      <nav class="work-nav">
+        <ul class="flex flex-row justify-end space-x-3 mb-6">
+          <li><%= form.submit "Add new work", class: 'work-nav-btn work-nav-btn-edit-save' %></li>
+          <li><%= tag.a "Cancel", href: new_cancel_works_path,
+                                  data: { 'turbo-stream': '' },
+                                  class: 'work-nav-btn work-nav-btn-edit-cancel' %></li>
+        </ul>
+      </nav>
     <% end %>
-
   <% end %>
 <% end #turbo_frame_tag%>

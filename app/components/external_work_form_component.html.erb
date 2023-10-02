@@ -1,0 +1,11 @@
+<%= helpers.turbo_frame_tag "work_new" do %>
+  <h3> Importing work from ISBN</h3>
+  <div class="external-work-form">
+    <%= form_with url: new_ext_works_path, method: :get,
+                  class: 'work-card work-inline-form' do |form| %>
+      <%= form.label :isbn, "ISBN" %>  
+      <%= form.text_field :isbn %>
+      <%= form.submit "Import from ISBN"  %>
+    <% end %>
+  </div>
+<% end %>

@@ -34,7 +34,7 @@ class WorksController < ApplicationController
     respond_to do |format|
       if @work.save
         format.html { redirect_to work_url(@work), notice: "Work was successfully created." }
-        format.turbo_stream 
+        format.turbo_stream
         format.json { render :show, status: :created, location: @work }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -72,6 +72,19 @@ class WorksController < ApplicationController
     @work.voices.build.build_author
 
     render :new
+  end
+
+  def import
+    respond_to do |format|
+      format.html { render ExternalWorkFormComponent.new }
+    end
+  end
+
+  def new_cancel
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to works_url }
+    end
   end
 
   private

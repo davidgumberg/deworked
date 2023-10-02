@@ -1,5 +1,5 @@
 .author-inline-form {
-    animation: radeIn .4s forwards;
+    animation: radeIn 180ms ease-in forwards;
 }
 
 .work-card-form-loading .author-card-avatar {
