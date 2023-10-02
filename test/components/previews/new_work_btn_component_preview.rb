@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class NewWorkButtonComponentPreview < ViewComponent::Preview
+class NewWorkBtnComponentPreview < ViewComponent::Preview
   def default
-    render(NewWorkButtonComponent.new)
+    render(NewWorkBtnComponent.new)
   end
 end
