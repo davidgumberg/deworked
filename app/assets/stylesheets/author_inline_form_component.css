@@ -3,7 +3,7 @@
 }
 
 .work-card-form-loading .author-card-avatar {
-    max-height: 15em;
+    max-height: 6em;
 }
 
 @keyframes radeIn {
@@ -13,7 +13,4 @@
     to {
         border-radius: 10%;
     }
-}
-
-.animation-target {
 }

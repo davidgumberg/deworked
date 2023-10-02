@@ -41,3 +41,12 @@
     background-repeat: no-repeat;
     background-size: 1.5em 1.5em;
 }
+
+.date-picker-component-year input{
+    width: 4em;
+}
+
+.date-picker-component-month input,
+.date-picker-component-day input {
+    width: 3em;
+}

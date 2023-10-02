@@ -1,18 +1,18 @@
 <div class="date-picker-component">
   <h3><%= @date_attr.to_s.titleize %></h3>
-  <div class="date-picker-component-attr">
+  <div class="date-picker-component-attr date-picker-component-era">
     <%= @form.label era_attr, "Era" %>
     <%= @form.select era_attr, era_options %>
   </div>
-  <div class="date-picker-component-attr">
+  <div class="date-picker-component-attr date-picker-component-year">
     <%= @form.label year_attr, "Year" %>
     <%= @form.number_field year_attr, size: 4 %>
   </div>
-  <div class="date-picker-component-attr">
+  <div class="date-picker-component-attr date-picker-component-month">
     <%= @form.label month_attr, "Month" %>
     <%= @form.number_field month_attr, size: 2, min: 1, max: 12 %>
   </div>
-  <div class="date-picker-component-attr">
+  <div class="date-picker-component-attr date-picker-component-day">
     <%= @form.label day_attr, "Day" %>
     <%= @form.number_field day_attr, size: 2, min: 1, max: 31 %>
   </div>

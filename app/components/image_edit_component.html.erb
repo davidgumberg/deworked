@@ -1,51 +1,51 @@
-  <%= tag.div class: 'image-edit-component',
-              data: { 'controller': 'image-edit' } do %>
+<%= tag.div class: 'image-edit-component',
+            data: { 'controller': 'image-edit' } do %>
+    <%= tag.span class: 'hidden', data: {'direct-upload-target': 'progress'} %>
+    <%= @form.text_field @image_url_attr, class: 'hidden' %>
+  <%= tag.div class: 'image-edit-choice-container' do %>
+
+    <%= tag.div class: 'image-edit-choice-button',
+                data: { 'controller': 'tooltip',
+                        'tooltip-placement-value': 'top'
+                      } do %>
+
       <%= @form.file_field @image_attr, class: 'hidden', direct_upload: true,
-                          data: { 'direct-upload-target': 'input', 
-                                  'image-edit-target': 'fileField',
-                                  'action': 'change->direct-upload#uploadEarly
-                                             direct-upload:error->direct-upload#uploadError'
-                                } %> 
-      <%= tag.span class: 'hidden', data: {'direct-upload-target': 'progress'} %>
-      <%= @form.text_field @image_url_attr, class: 'hidden' %>
-    <%= tag.div class: 'image-edit-choice-container' do %>
+                           data: { 'direct-upload-target': 'input', 
+                                   'image-edit-target': 'fileField',
+                                   'action': 'change->direct-upload#uploadEarly
+                                              direct-upload:error->direct-upload#uploadError'
+                                 } %> 
+      <%= @form.label @image_attr, data: { 'tooltip-target': 'tool',
+                                           'action': 'click->image-edit#uploadCover
+                                                      mouseover->tooltip#show
+                                                      mouseout->tooltip#hide'
+                                         } do %>
+        <img alt="Upload an image from your device"
+             src="<%= image_path('icons/attachment.svg') %>" />
+      <% end # tag.a %>
+      <%= tag.div role: 'tooltip', class: "image-edit-choice-tooltip",
+                  data: { 'tooltip-target': 'tip'} do %>
+        Upload an image from your device
+      <% end #.image-edit-choice-tooltip %>
+    <% end #.image-edit-choice-button %>
 
-      <%= tag.div class: 'image-edit-choice-button',
-                  data: { 'controller': 'tooltip',
-                          'tooltip-placement-value': 'top'
-                        } do %>
+    <%= tag.div class: 'image-edit-choice-button',
+                data: { 'controller': 'tooltip',
+                        'tooltip-placement-value': 'top' } do %>
 
-        <%= tag.a href: '#', data: { 'work-cover-field-target': 'fileButton',
-                                     'tooltip-target': 'tool',
-                                     'action': 'click->image-edit#uploadCover
-                                                mouseover->tooltip#show
-                                                mouseout->tooltip#hide'} do %>
-          <img alt="Upload an image from your device"
-               src="<%= image_path('icons/attachment.svg') %>" />
-        <% end # tag.a %>
-        <%= tag.div role: 'tooltip', class: "image-edit-choice-tooltip",
-                    data: { 'tooltip-target': 'tip'} do %>
-          Upload an image from your device
-        <% end #.image-edit-choice-tooltip %>
-      <% end #.image-edit-choice-button %>
+      <%= tag.a href: '#', data: { 'action': 'mouseover->tooltip#show
+                                              mouseout->tooltip#hide',
+                                             'tooltip-target': 'tool' } do %>
+        <img alt="Provide a url for this image"
+             src="<%= image_path('icons/link.svg') %>" />
+      <% end # tag.a %>
 
-      <%= tag.div class: 'image-edit-choice-button',
-                  data: { 'controller': 'tooltip',
-                          'tooltip-placement-value': 'top' } do %>
+      <%= tag.div role: 'tooltip', class: "image-edit-choice-tooltip",
+                  data: { 'tooltip-target': 'tip'} do %>
+        Link to an image on the web
+      <% end #.image-edit-choice-tooltip %>
 
-        <%= tag.a href: '#', data: { 'action': 'mouseover->tooltip#show
-                                                mouseout->tooltip#hide',
-                                               'tooltip-target': 'tool' } do %>
-          <img alt="Provide a url for this image"
-               src="<%= image_path('icons/link.svg') %>" />
-        <% end # tag.a %>
+    <% end #.image-edit-choice-button %>
 
-        <%= tag.div role: 'tooltip', class: "image-edit-choice-tooltip",
-                    data: { 'tooltip-target': 'tip'} do %>
-          Link to an image on the web
-        <% end #.image-edit-choice-tooltip %>
-
-      <% end #.image-edit-choice-button %>
-
-    <% end #.image-edit-choice %>
-  <% end #.image-edit-component %>
+  <% end #.image-edit-choice %>
+<% end #.image-edit-component %>

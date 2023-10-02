@@ -1,4 +1,5 @@
 .work-card {
+    --height: 30em;
 	display: flex;
     flex-flow: row wrap;
 	align-items: stretch;
@@ -6,7 +7,6 @@
 	background-color: rgba(37, 71, 117, 0.7);
 	border-radius: 1em;
     width: 100%;
-	min-height: 25em;
 	padding: 2em;
     margin: .5em;
     gap: 1em;
@@ -14,12 +14,11 @@
 
 .work-card-cover {
     flex: 1 0 25%;
-    min-width: 13em;
-    min-height: 23em;
     border: 1px solid black;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    height: var(--height);
 }
 
 .work-card-cover > img {
@@ -42,9 +41,12 @@
     flex: 1 0 20%;
     display: flex;
     gap: 1.5em;
+    height: var(--height);
+    max-height: var(--height);
 }
 
 .work-card-authors .author-card {
+    max-height: 100%;
     max-width: 18em;
     flex: 1;
 }

@@ -26,10 +26,15 @@
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
+.image-edit-choice-button label {
+    cursor: pointer;
+}
+
 .image-edit-choice-button img{
     height: 100%;
     padding: .4em;
 }
+
 .image-edit-choice-tooltip {
     display: none;
     position: absolute;
@@ -41,4 +46,9 @@
     border-radius: 4px;
     font-size: 80%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* Hover rule will be overridden by JS */
+.image-edit-choice-button:hover .image-edit-choice-tooltip {
+    display: inline;
 }
