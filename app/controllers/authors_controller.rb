@@ -72,8 +72,8 @@ class AuthorsController < ApplicationController
     def author_params
       author_params = params.require(:author).permit(
         :name, :image,
-        :birth_year, :birth_month, :birth_day,
-        :death_year, :death_month, :death_day
+        :birth_era, :birth_year, :birth_month, :birth_day,
+        :death_era, :death_year, :death_month, :death_day
       )
     end
 

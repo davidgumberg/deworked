@@ -1,9 +1,11 @@
 .authors-index {
     display: flex;
     flex-flow: row wrap;
+    gap: 2.3em
 }
 
 .authors-index .author-card {
-    flex-basis: 20%;
-    height: 30vh;
+    flex: 1 10%;
+    height: 30em;
+    width: 15em;
 }

@@ -8,16 +8,28 @@
 <% end %>
 
 <div class="author-card-plaque flex flex-col">
-   <div class="author_search_field" data-controller="combobox">
-    <%= @form.label :name %>
-    <%= @form.text_field :name, {'required': true,
-                                'class': 'author_search_query',
-                                'pattern': '.*\w+.*',
-                                'autocomplete': 'off',
-                                'data-author_fields-target': 'nameField',
-                                'data-action': 'input->author_fields#autocomplete focus->combobox#start focusout->combobox#stop',
-                                'data-combobox-target': 'input'} %>
-    <ul class="search_authors_results typeahead" role="listbox" data-combobox-target="list"></ul>
+   <div class="author_search_component" data-controller="author-search combobox">
+      <%= @form.label :name %>
+      `
+      <%= @form.text_field :name, { 'required': true,
+                                    'class': 'author_search_query',
+                                    'pattern': '.*\w+.*',
+                                    'autocomplete': 'off',
+                                    'data-author-search-target': 'nameField',
+                                    'data-action': 'input->author-search#autocomplete focus->combobox#start focusout->combobox#stop',
+                                    'data-combobox-target': 'input'
+                                  }
+      %>
+
+      <% unique_id = "testid" %>
+      <%= tag.ul class: 'author_search_results',
+                 role: 'listbox',
+                 id: unique_id,
+                 data: {
+                   'combobox-target': 'list',
+                   'author-search-target': 'results'
+                 }
+      %>
   </div>
 
   <div>

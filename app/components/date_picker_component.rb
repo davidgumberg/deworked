@@ -3,6 +3,7 @@
 class DatePickerComponent < ViewComponent::Base
   def initialize(form:, date_attr:)
     @form = form
+    @object = @form.object
 
     if date_attr.is_a?(Symbol) && @form.object.respond_to?(date_attr)
       @date_attr = date_attr
@@ -12,7 +13,11 @@ class DatePickerComponent < ViewComponent::Base
   end
 
   def era_options
-    options_for_select(["BC", "AD"], "AD") 
+    return unless @object.respond_to?(era_attr)
+
+    selected = (@object[era_attr].present? ? @object[era_attr] : 'AD' )
+
+    options_for_select(["BC", "AD"], selected)
   end
 
   def era_attr

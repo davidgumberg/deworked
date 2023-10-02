@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_13_235605) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_02_225542) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -49,6 +49,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_13_235605) do
     t.integer "death_year", limit: 3
     t.integer "death_month", limit: 1
     t.integer "death_day", limit: 1
+    t.integer "birth_era", default: 1
+    t.integer "death_era", default: 1
   end
 
   create_table "possessions", force: :cascade do |t|
@@ -96,6 +98,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_13_235605) do
     t.integer "original_publication_year", limit: 3
     t.integer "original_publication_month", limit: 1
     t.integer "original_publication_day", limit: 1
+    t.integer "original_publication_era", default: 1
+    t.integer "edition_publication_era", default: 1
   end
 
   add_foreign_key "possessions", "users"

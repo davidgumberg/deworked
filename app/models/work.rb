@@ -2,6 +2,9 @@ require 'fetchworks'
 require 'timeliness'
 
 class Work < ApplicationRecord
+  enum original_publication_era: { 'BC': -1, 'AD': 1 }, _prefix: true
+  enum edition_publication_era:  { 'BC': -1, 'AD': 1 }, _prefix: true
+
   has_many :voices, inverse_of: :work, dependent: :delete_all
   has_many :authors, through: :voices
 
@@ -15,43 +18,17 @@ class Work < ApplicationRecord
   accepts_nested_attributes_for :voices, reject_if: :all_blank,
                                          allow_destroy: true
 
-  def original_publication_era
-    if original_publication_year.blank?
-      nil
-    elsif original_publication_year.positive?
-      "AD"
-    else
-      "BC"
-    end
-  end
-
-  def edition_publication_era
-    if original_publication_year.blank?
-      nil
-    elsif original_publication_year.positive?
-      "AD"
-    else
-      "BC"
-    end
-  end
-
-  def original_publication_era=(value)
-    if value == 'BC'
-      self.original_publication_year = -self.original_publication_year
-    end
-  end
-
-  def edition_publication_era=(value)
-    if value == 'BC'
-      self.edition_publication_year = -self.edition_publication_year
-    end
-  end
-
   def original_publication
     if original_publication_year == nil
       return nil
     else
-      Date.new(original_publication_year,
+      true_year =
+        if original_publication_era_BC?
+          -original_publication_year
+        else
+          original_publication_year
+        end
+      Date.new(true_year,
                original_publication_month || 1,
                original_publication_day || 1)
     end
@@ -61,7 +38,13 @@ class Work < ApplicationRecord
     if edition_publication_year == nil
       return nil
     else
-      Date.new(edition_publication_year,
+      true_year =
+        if edition_publication_era_BC?
+          -edition_publication_year
+        else
+          edition_publication_year
+        end
+      Date.new(true_year,
                edition_publication_month || 1,
                edition_publication_day || 1)
     end
@@ -76,7 +59,7 @@ class Work < ApplicationRecord
       raise StandardError
     end
 
-    self.original_publication_era = date.year.positive? ? "AD" : "BC"
+    #self.original_publication_era = date.year.positive? ? "AD" : "BC"
     self.original_publication_year = date.year
     self.original_publication_month = date.month
     self.original_publication_day = date.day
@@ -91,7 +74,7 @@ class Work < ApplicationRecord
       raise StandardError
     end
 
-    self.edition_publication_era = date.year.positive? ? "AD" : "BC"
+    #self.edition_publication_era = date.year.positive? ? "AD" : "BC"
     self.edition_publication_year = date.year
     self.edition_publication_month = date.month
     self.edition_publication_day = date.day

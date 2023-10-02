@@ -1,4 +1,6 @@
 class Author < ApplicationRecord
+  enum birth_era: { 'BC': -1, 'AD': 1 }, _prefix: true
+  enum death_era:  { 'BC': -1, 'AD': 1 }, _prefix: true
   has_many :voices, inverse_of: :author, dependent: :delete_all
   has_many :books, through: :voices
 
@@ -11,7 +13,13 @@ class Author < ApplicationRecord
     if birth_year == nil
       return nil
     else
-      Date.new(birth_year,
+      true_year =
+        if birth_era_BC?
+          -birth_year
+        else
+          birth_year
+        end
+      Date.new(true_year,
                birth_month || 1,
                birth_day || 1)
     end
@@ -21,7 +29,13 @@ class Author < ApplicationRecord
     if death_year == nil
       return nil
     else
-      Date.new(death_year,
+      true_year =
+        if death_era_BC?
+          -death_year
+        else
+          death_year
+        end
+      Date.new(true_year,
                death_month || 1,
                death_day || 1)
     end
@@ -55,39 +69,7 @@ class Author < ApplicationRecord
     self.death_day = date.day
   end
 
-  def birth_era
-    if birth_year.blank?
-      nil
-    elsif birth_year.positive?
-      "AD"
-    else
-      "BC"
-    end
-  end
-
-  def birth_era=(value)
-    if value == 'BC'
-      self.birth_year = -self.birth_year
-    end
-  end
-
-  def death_era
-    if death_year.blank?
-      nil
-    elsif death_year.positive?
-      "AD"
-    else
-      "BC"
-    end
-  end
-
-  def death_era=(value)
-    if value == 'BC'
-      self.death_year = -self.death_year
-    end
-  end
-
-  # TODO : drop this method, it's expected by EditImageComponent
+  # TODO: drop this method, it's expected by EditImageComponent
   def image_url
     nil
   end

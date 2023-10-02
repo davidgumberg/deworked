@@ -16,6 +16,9 @@ export default class extends ApplicationController {
         responseKind: 'turbo-stream'
       })
     }
+    else {
+      return;
+    }
   }
 
   select(event) {

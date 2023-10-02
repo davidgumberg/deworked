@@ -13,7 +13,9 @@
           'autocomplete': 'off',
           'data-author-search-target': 'nameField',
           'data-action': 'input->author-search#autocomplete focus->combobox#start focusout->combobox#stop',
-          'data-combobox-target': 'input'} %>
+          'data-combobox-target': 'input'
+        }
+    %>
     <%= tag.ul class: 'author_search_results',
                role: 'listbox',
                id: unique_id,
@@ -24,5 +26,3 @@
     %>
   </div>
 </div>
-
-

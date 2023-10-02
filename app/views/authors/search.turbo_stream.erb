@@ -2,7 +2,7 @@
     <% @authors.each do |author| %>
       <button type="button" id="<%= dom_id(author) %>" role="option" class="author_search_result"
           data-action="click->author-search#select"
-          data-author-search-id-param="<%= author.id %>"
+          data-author-search-id-param="<%= author.id %>">
           <%= highlight(author.name, params[:query]) %>
       </button>
     <% end %>

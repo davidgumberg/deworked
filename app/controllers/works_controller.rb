@@ -97,14 +97,14 @@ class WorksController < ApplicationController
     def work_params
       params.require(:work).permit(
         :title, :ISBN, :cover_url, :cover_image,
-        :edition_publication_year, :edition_publication_month, :edition_publication_day,
-        :original_publication_year, :original_publication_month, :original_publication_day,
+        :edition_publication_era, :edition_publication_year, :edition_publication_month, :edition_publication_day,
+        :original_publication_era, :original_publication_year, :original_publication_month, :original_publication_day,
         voices_attributes: [
           :id, :style,
           author_attributes: [
-            :id, :name, :image,
-            :birth_year, :birth_month, :birth_day,
-            :death_year, :death_month, :death_day 
+            :id, :name, :image, :image_url,
+            :birth_era, :birth_year, :birth_month, :birth_day,
+            :death_era, :death_year, :death_month, :death_day,
           ]
         ]
       )

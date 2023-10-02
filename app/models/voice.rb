@@ -32,13 +32,18 @@ class Voice < ApplicationRecord
       hash.delete(:death)
     end
 
-    self.author = Author.find_or_initialize_by(name: hash[:name],
-                                               birth_year: hash[:birth_year],
-                                               birth_month: hash[:birth_month],
-                                               birth_day: hash[:birth_day],
-                                               death_year: hash[:death_year],
-                                               death_month: hash[:death_month],
-                                               death_day: hash[:death_day])
+    if new_record?
+      self.author = Author.find_or_initialize_by name: hash[:name],
+                                                 birth_era: hash[:birth_era],
+                                                 birth_year: hash[:birth_year],
+                                                 birth_month: hash[:birth_month],
+                                                 birth_day: hash[:birth_day],
+                                                 death_era: hash[:death_era],
+                                                 death_year: hash[:death_year],
+                                                 death_month: hash[:death_month],
+                                                 death_day: hash[:death_day]
+    end
+
     self.author.attributes = hash
   end
 end
