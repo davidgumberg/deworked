@@ -7,11 +7,4 @@ export default class extends Controller {
   connect() {
   }
 
-  uploadCover(event) {
-    event.preventDefault();
-
-    if(this.hasFileFieldTarget){
-      this.fileFieldTarget.click()
-    }
-  }
 }

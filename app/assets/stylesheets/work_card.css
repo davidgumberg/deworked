@@ -1,5 +1,5 @@
 .work-card {
-    --height: 30em;
+    --height: 28em;
 	display: flex;
     flex-flow: row wrap;
 	align-items: stretch;
@@ -14,11 +14,14 @@
 
 .work-card-cover {
     flex: 1 0 25%;
+    height: var(--height);
     border: 1px solid black;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: var(--height);
+
+    overflow: hidden;
+    overflow: clip;
 }
 
 .work-card-cover > img {
@@ -29,6 +32,13 @@
 
 .work-card-details {
     flex: 1 0 25%;
+
+    display: flex;
+    flex-flow: column nowrap;
+
+
+    font-size: 1.2rem;
+    gap: 1em;
     word-break: break-word;
 }
 
@@ -37,12 +47,13 @@
 }
 
 .work-card-authors {
+    display: flex;
     flex-flow: row wrap;
     flex: 1 0 20%;
-    display: flex;
-    gap: 1.5em;
     height: var(--height);
     max-height: var(--height);
+
+    gap: 1.5em;
 }
 
 .work-card-authors .author-card {

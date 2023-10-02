@@ -1,8 +1,11 @@
+
 .image-edit-component {
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-end;
-    height:100%;
+    height: 100%;
+
+    animation: 150ms ease-in image-edit-slideup;
 }
 
 .image-edit-choice-container {
@@ -51,4 +54,14 @@
 /* Hover rule will be overridden by JS */
 .image-edit-choice-button:hover .image-edit-choice-tooltip {
     display: inline;
+}
+
+@keyframes image-edit-slideup {
+    from {
+        transform: translateY(4em);
+    }
+
+    to {
+        transform: translateY(0);
+    }
 }

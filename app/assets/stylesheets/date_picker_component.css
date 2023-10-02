@@ -9,7 +9,6 @@
 .date-picker-component-attr {
 	display: flex;
 	flex-flow: column nowrap;
-	align-items: center;
 }
 
 .date-picker-component h3  {
@@ -28,11 +27,11 @@
 }
 
 
-.date-picker-component select {
+.date-picker-component .date-picker-component-era-select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(155, 0, 0, 0.2) 0px -3px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(155, 2, 3, 0.4) 0px -3px 0px inset;
 
     /* drop down arrow styling */
     padding-right: 1.8rem;
@@ -40,6 +39,10 @@
     background-position: right .5rem center;
     background-repeat: no-repeat;
     background-size: 1.5em 1.5em;
+}
+
+.date-picker-component .date-picker-component-era-select:focus {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 5px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(165, 4, 6, 0.45) 0px -4px 1px inset;
 }
 
 .date-picker-component-year input{

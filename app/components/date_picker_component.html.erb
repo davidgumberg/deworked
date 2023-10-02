@@ -2,7 +2,9 @@
   <h3><%= @date_attr.to_s.titleize %></h3>
   <div class="date-picker-component-attr date-picker-component-era">
     <%= @form.label era_attr, "Era" %>
-    <%= @form.select era_attr, era_options %>
+    <%= @form.select era_attr, era_options, {},
+                     { class: 'date-picker-component-era-select'
+                     } %>
   </div>
   <div class="date-picker-component-attr date-picker-component-year">
     <%= @form.label year_attr, "Year" %>

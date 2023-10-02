@@ -24,21 +24,21 @@
       <% end %><%# .work-card %>
                          
       <div class="work-card-details">
-        <div class="work-card-details-title">
+        <div class="work-card-details-attr work-card-details-title">
           <%= form.label :title %>
           <%= form.text_field :title %>
         </div>
 
-        <div>
+        <div class="work-card-details-attr">
           <%= render DatePickerComponent.new(form: form, date_attr: :original_publication) %>
         </div>
 
-        <div>
+        <div class="work-card-details-attr">
           <%= render DatePickerComponent.new(form: form, date_attr: :edition_publication) %>
         </div>
 
-        <div>
-          <%= form.label :isbn %>
+        <div class="work-card-details-attr">
+          <%= form.label :isbn, "ISBN" %>
           <%= form.text_field :isbn %>
         </div>
       </div>
