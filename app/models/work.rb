@@ -18,8 +18,19 @@ class Work < ApplicationRecord
   accepts_nested_attributes_for :voices, reject_if: :all_blank,
                                          allow_destroy: true
 
+  # Generate array of options for sorting selector
+  def options_for_sort_select
+    [
+      ['Default', :default],
+      ['Original Publication Date', :original_publication],
+      ['Edition Publication Date', :edition_publication],
+      ['Title', :title]
+    ]
+  end
+
+  # Gets Date object from seperate columns
   def original_publication
-    if original_publication_year == nil
+    if original_publication_year.nil?
       return nil
     else
       true_year =
@@ -34,8 +45,9 @@ class Work < ApplicationRecord
     end
   end
 
+  # Gets Date object from seperate columns
   def edition_publication
-    if edition_publication_year == nil
+    if edition_publication_year.nil?
       return nil
     else
       true_year =
@@ -59,7 +71,6 @@ class Work < ApplicationRecord
       raise StandardError
     end
 
-    #self.original_publication_era = date.year.positive? ? "AD" : "BC"
     self.original_publication_year = date.year
     self.original_publication_month = date.month
     self.original_publication_day = date.day
@@ -74,7 +85,6 @@ class Work < ApplicationRecord
       raise StandardError
     end
 
-    #self.edition_publication_era = date.year.positive? ? "AD" : "BC"
     self.edition_publication_year = date.year
     self.edition_publication_month = date.month
     self.edition_publication_day = date.day
@@ -97,8 +107,9 @@ class Work < ApplicationRecord
       { style: :author,
         author_attributes: { name: author.dig('personal_name'),
                              birth: date_from_ol_str(author.dig('birth_date')),
-                             death: date_from_ol_str(author.dig('death_date'))}
-        }
+                             death: date_from_ol_str(author.dig('death_date'))
+                           }
+      }
     end
 
     date = date_from_ol_str(ext_data.dig('publish_date'))
@@ -110,6 +121,7 @@ class Work < ApplicationRecord
   end
 
   private
+
     # Timeliness formats initialized in config/initializer/timeliness.rb
     # E.g. '2010-11-12 or 2010-11'
     def self.date_from_ol_str(string)
