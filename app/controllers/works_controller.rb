@@ -13,6 +13,7 @@ class WorksController < ApplicationController
   def ext
     @ext_params = Work.new_from_isbn(params[:isbn])
     @work = Work.new(@ext_params)
+    debugger
   end
 
   # GET /works/new
@@ -97,13 +98,17 @@ class WorksController < ApplicationController
     def work_params
       params.require(:work).permit(
         :title, :ISBN, :cover_url, :cover_image,
+        :edition_publication,
         :edition_publication_era, :edition_publication_year, :edition_publication_month, :edition_publication_day,
+        :original_publication,
         :original_publication_era, :original_publication_year, :original_publication_month, :original_publication_day,
         voices_attributes: [
           :id, :style,
           author_attributes: [
             :id, :name, :image, :image_url,
+            :birth,
             :birth_era, :birth_year, :birth_month, :birth_day,
+            :death,
             :death_era, :death_year, :death_month, :death_day,
           ]
         ]

@@ -116,6 +116,7 @@ class Work < ApplicationRecord
 
     date = date_from_ol_str(ext_data.dig("publish_date"))
 
+    debugger
     params = { title: ext_data.dig("title"), ISBN: isbn,
                edition_publication: date,
                cover_url: ext_data.dig("cover", "large"),
