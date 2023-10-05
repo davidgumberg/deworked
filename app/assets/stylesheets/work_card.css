@@ -20,6 +20,8 @@
     background-repeat: no-repeat;
     background-position: center;
 
+    min-width: 18em;
+
     overflow: hidden;
     overflow: clip;
 }
