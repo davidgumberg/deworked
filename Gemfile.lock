@@ -124,6 +124,7 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.12.0)
+    execjs (2.9.1)
     ffi (1.16.2)
     foreman (0.87.2)
     globalid (1.2.1)
@@ -306,6 +307,8 @@ GEM
     stringio (3.0.8)
     tailwindcss-rails (2.0.30-x86_64-linux)
       railties (>= 6.0.0)
+    terser (1.1.18)
+      execjs (>= 0.3.0, < 3)
     thor (1.2.2)
     time (0.2.2)
       date
@@ -368,6 +371,7 @@ DEPENDENCIES
   standard-rails
   stimulus-rails
   tailwindcss-rails (~> 2.0)
+  terser (~> 1.1)
   timeliness
   turbo-rails
   tzinfo-data
