@@ -19,23 +19,22 @@ class StoreImageJob < ApplicationJob
   private
 
   def get_content_type(url)
-    ext = File.extname(url).delete('.')
+    ext = File.extname(url).delete(".")
 
-    unless PERMITTED_IMAGE_FORMATS.include?(ext)
-      return nil
-    else
+    if PERMITTED_IMAGE_FORMATS.include?(ext)
       "image/#{ext}"
+    else
+      nil
     end
-       
   end
 
   # From ancient attachment_fu gem
   def sanitize_filename(filename)
     filename.strip.tap do |name|
       # Filter leading directory /'s and \'s
-      name.sub! (/\A.*(\\|\/)/), ''
-      # Anything that isn't alphanumeric, 
-      name.gsub! (/[^A-Za-z0-9\.\_]/), '_'
+      name.sub! (/\A.*(\\|\/)/), ""
+      # Anything that isn't alphanumeric,
+      name.gsub! (/[^A-Za-z0-9\.\_]/), "_"
     end
   end
 end

@@ -12,7 +12,6 @@ class Voice < ApplicationRecord
   accepts_nested_attributes_for :author
 
   def voice_attributes=(array)
-    debugger
     array.each do |author|
       voice.build(author)
     end

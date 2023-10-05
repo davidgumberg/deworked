@@ -90,9 +90,11 @@ class Work < ApplicationRecord
     self.edition_publication_day = date.day
   end
 
+  # Enqueue a job to grab the image from url, hotlink in the meantime.
   def cover_url=(url)
-    # We don't store cover url's, assign a job to grab the image
     StoreImageJob.perform_now(cover_image, url)
+
+    super
   end
 
   def self.new_from_isbn(isbn)

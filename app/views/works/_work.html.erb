@@ -3,8 +3,18 @@
   <%= tag.div class: 'work-card',
               data: { 'work-card-animations-target': 'workCard'
                     } do %>
-    <% work_cover = work.cover_image.present? ? url_for(work.cover_image)
-                                              : image_path('unknowncover.svg') %>
+    <% work_cover =
+        if work.new_record?
+          if work.cover_url.present?
+            work.cover_url
+          end
+        elsif work.cover_image.representable?
+          url_for work.cover_image
+        else
+          image_path "unknowncover.svg"
+        end
+    %>
+
       <%= tag.div class: 'work-card-cover',
                   style: "background-image: url('#{work_cover}'), 
                           url('#{image_path('papyrus.jpg')}');",

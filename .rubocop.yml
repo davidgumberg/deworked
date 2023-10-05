@@ -25,11 +25,14 @@ AllCops:
   Exclude:
     - 'db/**/*'
 
-Style/RedundantReturn:
-  Enabled: false
-
 Layout/ArgumentAlignment:
   EnforcedStyle: with_first_argument
 
 Layout/AccessModifierIndentation:
   Enabled: true
+
+Style/EmptyElse:
+  EnforcedStyle: empty
+
+Style/RedundantReturn:
+  Enabled: false
