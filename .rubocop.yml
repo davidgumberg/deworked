@@ -9,6 +9,8 @@ require:
   - rubocop-performance
   - rubocop-rails
 
+
+
 inherit_gem:
   standard: config/base.yml
   standard-performance: config/base.yml
@@ -17,8 +19,17 @@ inherit_gem:
 
 
 AllCops:
-  SuggestExtensions: false
   TargetRubyVersion: 3.2
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude:
+    - 'db/**/*'
 
 Style/RedundantReturn:
   Enabled: false
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_first_argument
+
+Layout/AccessModifierIndentation:
+  Enabled: true

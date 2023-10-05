@@ -7,38 +7,45 @@
 
 SEED_WORKS = [
   {
-    title: "Adventures of Huckleberry Finn",
-    original_publication_year: 1884,
-    original_publication_month: 12,
-    original_publication_day: 10,
-    cover_url: "https://upload.wikimedia.org/wikipedia/commons/6/61/Huckleberry_Finn_book.JPG",
+    title: "Difficult Loves",
+    ISBN: "0156260557",
+    original_publication_year: 1970,
+    edition_publication_year: 1985,
+    cover_url: "https://pictures.abebooks.com/isbn/9780151256105-es.jpg",
     voices_attributes: [{
       style: :author,
-      author_attributes: { name: "Mark Twain",
-                           birth_year: 1835, birth_month: 11, birth_day: 30,
-                           death_year: 1910, death_month:  4, death_day: 21 },
+      author_attributes: { name: "Italo Calvino",
+                           image_url: "https://upload.wikimedia.org/wikipedia/commons/9/97/Italo-Calvino.jpg",
+                           birth_year: 1923, birth_month: 10, birth_day: 15,
+                           death_year: 1985, death_month:  9, death_day: 19 },
     }],
   },
   {
-    title: "The Adventures of Tom Sawyer",
-    original_publication_year: 1876,
-    cover_url: "https://m.media-amazon.com/images/I/51BHNYajx8L.jpg",
+    title: "Another Country",
+    ISBN: "9780679744719",
+    original_publication_year: 1962,
+    edition_publication_year: 1992, edition_publication_month: 12, edition_publication_day: 1,
+    cover_url: "https://ia800604.us.archive.org/view_archive.php?archive=/1/items/olcovers42/olcovers42-L.zip&file=420618-L.jpg",
     voices_attributes: [{
       style: :author,
-      author_attributes: { name: "Mark Twain",
-                           birth_year: 1835, birth_month: 11, birth_day: 30,
-                           death_year: 1910, death_month:  4, death_day: 21 }
+      author_attributes: { name: "James Baldwin",
+                           image_url: "https://upload.wikimedia.org/wikipedia/commons/f/f3/James_Baldwin_37_Allan_Warren_%28cropped%29.jpg",
+                           birth_year: 1924, birth_month: 8, birth_day: 2,
+                           death_year: 1987, death_month:  12, death_day: 1 }
     }],
   },
   {
-    title: "Anna Karenina",
-    original_publication_year: 1878,
-    cover_url: "https://i0.wp.com/www.raptisrarebooks.com/images/126515/anna-karenina-leo-tolstoy-first-edition-rare-russian.jpg",
+    title: "Canterbury Tales",
+    ISBN: "9780679409892",
+    original_publication_year: 1400,
+    edition_publication_year: 1992, edition_publication_month: 6, edition_publication_day: 30,
+    cover_url: "https://m.media-amazon.com/images/I/A1dB5MSocdL._SL1500_.jpg",
     voices_attributes: [{
       style: :author,
-      author_attributes: { name: "Leo Tolstoy",
-                           birth_year: 1828, birth_month:  9, birth_day: 9,
-                           death_year: 1910, death_month: 11, death_day: 20 }
+      author_attributes: { name: "Geoffrey Chaucer",
+                           image_url: "https://upload.wikimedia.org/wikipedia/commons/5/57/Chaucer_manuscrit_portrait_%28d%C3%A9tail%29.jpeg",
+                           birth_year: 1340,
+                           death_year: 1400, death_month: 10, death_day: 25 }
     }],
   },
 ].freeze

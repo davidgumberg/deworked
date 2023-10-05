@@ -5,9 +5,8 @@ class PossessionsController < ApplicationController
   def create
     @possession = Possession.create(possession_params)
     respond_to do |format|
-      format.html {render partial: 'addremove', locals: { work: @possession.work }}
+      format.html {render partial: "addremove", locals: {work: @possession.work}}
     end
-
   end
 
   def destroy
@@ -17,9 +16,10 @@ class PossessionsController < ApplicationController
     respond_to do |format|
       format.html {render partial: 'addremove', locals: { work: work }}
     end
-  end 
+  end
 
   private
+
     def set_possession
       @possession = Possession.find(params[:id])
     end

@@ -2,8 +2,8 @@ require 'fetchworks'
 require 'timeliness'
 
 class Work < ApplicationRecord
-  enum original_publication_era: { 'BC': -1, 'AD': 1 }, _prefix: true
-  enum edition_publication_era:  { 'BC': -1, 'AD': 1 }, _prefix: true
+  enum :original_publication_era, {BC: -1, AD: 1}, prefix: true
+  enum :edition_publication_era, {BC: -1, AD: 1}, prefix: true
 
   has_many :voices, inverse_of: :work, dependent: :delete_all
   has_many :authors, through: :voices
@@ -21,10 +21,10 @@ class Work < ApplicationRecord
   # Generate array of options for sorting selector
   def options_for_sort_select
     [
-      ['Default', :default],
-      ['Original Publication Date', :original_publication],
-      ['Edition Publication Date', :edition_publication],
-      ['Title', :title]
+      ["Default", :default],
+      ["Original Publication Date", :original_publication],
+      ["Edition Publication Date", :edition_publication],
+      ["Title", :title]
     ]
   end
 
@@ -98,25 +98,25 @@ class Work < ApplicationRecord
   def self.new_from_isbn(isbn)
     ext_work = OpenLibraryBook.new(isbn.strip)
     return nil unless ext_work
-    
+
     ext_data = ext_work.data
 
     ext_authors = ext_work.authors_details
 
     voices = ext_authors.map do |author|
       { style: :author,
-        author_attributes: { name: author.dig('personal_name'),
-                             birth: date_from_ol_str(author.dig('birth_date')),
-                             death: date_from_ol_str(author.dig('death_date'))
+        author_attributes: { name: author.dig("personal_name"),
+                             birth: date_from_ol_str(author.dig("birth_date")),
+                             death: date_from_ol_str(author.dig("death_date"))
                            }
       }
     end
 
-    date = date_from_ol_str(ext_data.dig('publish_date'))
+    date = date_from_ol_str(ext_data.dig("publish_date"))
 
-    params = { title: ext_data.dig('title'), ISBN: isbn,
+    params = { title: ext_data.dig("title"), ISBN: isbn,
                edition_publication: date,
-               cover_url: ext_data.dig('cover', 'large'),
+               cover_url: ext_data.dig("cover", "large"),
                voices_attributes: voices }
   end
 

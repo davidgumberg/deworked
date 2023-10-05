@@ -1,6 +1,6 @@
 class Author < ApplicationRecord
-  enum birth_era: { 'BC': -1, 'AD': 1 }, _prefix: true
-  enum death_era:  { 'BC': -1, 'AD': 1 }, _prefix: true
+  enum :birth_era, {BC: -1, AD: 1}, prefix: true
+  enum :death_era, {BC: -1, AD: 1}, prefix: true
   has_many :voices, inverse_of: :author, dependent: :delete_all
   has_many :books, through: :voices
 
@@ -10,7 +10,7 @@ class Author < ApplicationRecord
   validates_with AuthorValidator
 
   def birth
-    if birth_year == nil
+    if birth_year.nil?
       return nil
     else
       true_year =
@@ -26,7 +26,7 @@ class Author < ApplicationRecord
   end
 
   def death
-    if death_year == nil
+    if death_year.nil?
       return nil
     else
       true_year =

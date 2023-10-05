@@ -12,6 +12,7 @@ class Voice < ApplicationRecord
   accepts_nested_attributes_for :author
 
   def voice_attributes=(array)
+    debugger
     array.each do |author|
       voice.build(author)
     end
@@ -33,7 +34,7 @@ class Voice < ApplicationRecord
     end
 
     if new_record?
-      self.author = Author.find_or_initialize_by name: hash[:name],
+      self.author = Author.find_or_initialize_by(name: hash[:name],
                                                  birth_era: hash[:birth_era],
                                                  birth_year: hash[:birth_year],
                                                  birth_month: hash[:birth_month],
@@ -41,7 +42,7 @@ class Voice < ApplicationRecord
                                                  death_era: hash[:death_era],
                                                  death_year: hash[:death_year],
                                                  death_month: hash[:death_month],
-                                                 death_day: hash[:death_day]
+                                                 death_day: hash[:death_day])
     end
 
     self.author.attributes = hash
