@@ -1,5 +1,5 @@
 <%= tag.div class: 'author-card-avatar bg-white',
-            style: "background-image: url(#{author_image_url(@author)})",
+            style: "background-image: url('#{author_image_url(@author)}')",
             data: { 'controller': 'direct-upload',
                     'direct-upload-target': 'preview'
                   } do %>
