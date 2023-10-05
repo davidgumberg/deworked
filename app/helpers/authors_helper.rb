@@ -7,7 +7,7 @@ module AuthorsHelper
     if author.image.representable?
       url_for author.image.representation(resize_to_limit: [450, 450])
     else
-      image_path('unknowndrinker.svg')
+      image_path("unknownthinker.svg")
     end
   end
 end

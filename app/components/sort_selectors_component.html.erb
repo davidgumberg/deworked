@@ -1,4 +1,4 @@
-<%= form_with class: 'sort-selectors-form' url: works_path do |form| %>
+<%= form_with class: 'sort-selectors-form', url: works_path do |form| %>
   <%= form.select :sort, @model.options_for_sort_select %>
-  <%= form.select :order, [:
+  <%# form.select :order %>
 <% end %>
