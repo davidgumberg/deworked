@@ -68,7 +68,7 @@ class Work < ApplicationRecord
     elsif value.is_a? String
       date = Date.parse(value)
     else
-      raise StandardError
+      return
     end
 
     self.original_publication_year = date.year
@@ -82,7 +82,7 @@ class Work < ApplicationRecord
     elsif value.is_a? String
       date = Date.parse(value)
     else
-      raise StandardError
+      return
     end
 
     self.edition_publication_year = date.year

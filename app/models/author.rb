@@ -47,7 +47,7 @@ class Author < ApplicationRecord
     elsif value.is_a? String
       date = Date.parse(value)
     else
-      raise Exception
+      return
     end
 
     self.birth_year = date.year
@@ -61,7 +61,7 @@ class Author < ApplicationRecord
     elsif value.is_a? String
       date = Date.parse(value)
     else
-      raise Exception
+      return
     end
 
     self.death_year = date.year
