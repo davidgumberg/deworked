@@ -1,0 +1,27 @@
+.about-page {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 7.5em auto;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-page-text {
+    flex: 1 40%;
+    min-width: 25em;
+    line-height: 2.2em;
+}
+
+.about-page-image {
+    flex: 1 40%;
+}
+
+.about-inline-link {
+    color: rgb(10 8 60);
+    font-weight: 650;
+}
+
+.about-inline-link:hover {
+    text-decoration: underline;
+}

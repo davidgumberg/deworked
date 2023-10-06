@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  get 'about', to: 'statics#about'
+
   resources :users do
     scope module: :users, path: '' do
       resources :possessions

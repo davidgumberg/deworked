@@ -36,10 +36,11 @@
       <%= yield %>
     </main>
     <footer>
-      <ul class="application-footer">
-        <li>Thanks for visiting!</li>
-        <li>Contact us via carefully crafted google search queries!</li>
-      </ul>
+      <nav class="application-footer">
+        <a class="footer-gh-link" href="https://github.com/davidgumberg/book">
+          <img src="<%= image_path("icons/gh.svg")%>">
+        </a>
+      </nav>
     </footer>
   </body>
 </html>

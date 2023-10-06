@@ -1,6 +1,7 @@
 .new-work-btn {
     background-color: #339863;
     display: block;
+    cursor: pointer;
     max-width: fit-content;
     font-weight: bold;
     padding: .5em;
