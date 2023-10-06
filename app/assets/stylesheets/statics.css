@@ -5,16 +5,18 @@
     gap: 1em;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .about-page-text {
     flex: 1 40%;
-    min-width: 25em;
+    font-size: 1.6rem;
     line-height: 2.2em;
 }
 
 .about-page-image {
     flex: 1 40%;
+    min-width: 30em;
 }
 
 .about-inline-link {

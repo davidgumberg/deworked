@@ -89,8 +89,16 @@
     background-color: #9D2248;
 }
 
+.work-nav-btn-remove:hover {
+    background-color: #AD3258;
+}
+
 .work-nav-btn-add {
-    background-color: #228833;
+    background-color: #106a4a;
+}
+
+.work-nav-btn-add:hover {
+    background-color: #207a5a;
 }
 
 

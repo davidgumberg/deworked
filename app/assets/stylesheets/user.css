@@ -1,0 +1,33 @@
+form#new_user {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: .5em;
+    margin-left: 1em;
+    margin-bottom: .5em;
+}
+
+form#new_user input {
+    border-radius: 1px;
+    background: rgb(20 15 2 / 0.2);
+    border: .16rem solid rgb(110 20 40 / 0.8);
+}
+
+form#new_user input[type='submit'] {
+    padding: .3rem;
+    border: .10rem solid black;
+    border-radius: 3px;
+    background: rgb(20 180 120 / 0.5);
+    cursor: pointer;
+}
+
+form#new_user ~ a {
+    display: block;
+    width: 10em;
+    margin-left: 1em;
+    border: .10rem solid black;
+    border-radius: 3px;
+    padding: .4rem;
+    background: rgb(20 180 170 / 0.5);
+    margin-bottom: 0em;
+
+}

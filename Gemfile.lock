@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/davidgumberg/fetchworks.git
-  revision: 19703661b9a05e0dcfb9a8e6d1f22daf0e56f660
+  revision: 40af596c87c9e09de5e8a7d52893ff40456a3b8b
   branch: master
   specs:
     fetchworks (0.1.0)
@@ -380,4 +380,4 @@ RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.4.17
+   2.4.20

@@ -1,7 +1,16 @@
 <h2>My Works</h2>
-<%= link_to "Add new work", new_work_path, class: 'block max-w-fit rounded bg-green-400 hover:bg-green-300 py-2 px-4 my-3'  %>
-<div class='flex flex-wrap'>
-  <%= render partial: 'works/work', collection: @works %>
+<div class="flex flex-wrap my-10">
+  <% if @works.size == 0 %>
+    <h3>It looks like you haven't added any works to your collection yet!</h3>
+    <p>Try adding some works from the
+       <a class="font-semibold hover:underline text-blue-900" href="<%= works_path %>">
+        works index
+       </a>
+      to populate this page.
+    </p>
+  <% else %>
+    <%= render partial: 'works/work', collection: @works %>
+  <% end %>
 </div>
 
 <%== pagy_nav(@pagy) %>

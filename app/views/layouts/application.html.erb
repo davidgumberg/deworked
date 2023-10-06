@@ -27,8 +27,11 @@
           <li><%= link_to_unless_current "Works", works_path %></li>
           <li><%= link_to_unless_current "Authors", authors_path %></li>
           <% if user_signed_in? %>
-            <li><%= link_to_unless_current "My Works", user_possessions_path(current_user.id) %></li>
+            <li><%= link_to_unless_current "Collection", user_possessions_path(current_user.id) %></li>
+          <% else %>
+            <li><%= link_to_unless_current "Collection", new_user_session_path %></li>
           <% end %>
+          <li><%= link_to_unless_current "About", about_path %></li>
         </ul>
       </nav>
     </header>
