@@ -13,7 +13,6 @@ class WorksController < ApplicationController
   def ext
     @ext_params = Work.new_from_isbn(params[:isbn])
     @work = Work.new(@ext_params)
-    debugger
   end
 
   # GET /works/new

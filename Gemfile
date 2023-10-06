@@ -3,9 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.2"
 
-gem "timeliness"
-
-gem "fetchworks", :github => "davidgumberg/fetchworks", :branch => "master"
+gem "fetchworks", github: "davidgumberg/fetchworks", branch: "master"
 
 gem "rails", "~> 7.0.6"
 
@@ -62,7 +60,6 @@ gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing"
-
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

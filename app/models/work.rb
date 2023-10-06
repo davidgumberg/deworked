@@ -1,5 +1,4 @@
 require 'fetchworks'
-require 'timeliness'
 
 class Work < ApplicationRecord
   enum :original_publication_era, {BC: -1, AD: 1}, prefix: true
@@ -28,7 +27,7 @@ class Work < ApplicationRecord
     ]
   end
 
-  # Gets Date object from seperate columns
+  # Gets Date object from separate columns
   def original_publication
     if original_publication_year.nil?
       return nil
@@ -45,7 +44,7 @@ class Work < ApplicationRecord
     end
   end
 
-  # Gets Date object from seperate columns
+  # Gets Date object from separate columns
   def edition_publication
     if edition_publication_year.nil?
       return nil
@@ -101,33 +100,43 @@ class Work < ApplicationRecord
     ext_work = OpenLibraryBook.new(isbn.strip)
     return nil unless ext_work
 
-    ext_data = ext_work.data
-
     ext_authors = ext_work.authors_details
 
     voices = ext_authors.map do |author|
+      begin
+        ext_birth = author.birth_date
+      rescue OpenLibrary::OLDateStrUnparseable
+        ext_birth = nil
+      end
+      begin
+        ext_death = author.death_date
+      rescue OpenLibrary::OLDateStrUnparseable
+        ext_death = nil
+      end
       { style: :author,
-        author_attributes: { name: author.dig("personal_name"),
-                             birth: date_from_ol_str(author.dig("birth_date")),
-                             death: date_from_ol_str(author.dig("death_date"))
+        author_attributes: { name: author.personal_name,
+                             birth_year: ext_birth&.year,
+                             birth_month: ext_birth&.month,
+                             birth_day: ext_birth&.day,
+
+                             death_year: ext_death&.year,
+                             death_month: ext_death&.month,
+                             death_day: ext_death&.day
                            }
       }
     end
 
-    date = date_from_ol_str(ext_data.dig("publish_date"))
+    begin
+      ext_publish_date = ext_work.publish_date
+    rescue OpenLibrary::OLDateStrUnparseable
+      ext_publish_date = nil
+    end
 
-    debugger
-    params = { title: ext_data.dig("title"), ISBN: isbn,
-               edition_publication: date,
-               cover_url: ext_data.dig("cover", "large"),
+    params = { title: ext_work.title, ISBN: isbn,
+               edition_publication_year: ext_publish_date&.year,
+               edition_publication_month: ext_publish_date&.month,
+               edition_publication_day: ext_publish_date&.day,
+               cover_url: ext_work.cover["large"],
                voices_attributes: voices }
   end
-
-  private
-
-    # Timeliness formats initialized in config/initializer/timeliness.rb
-    # E.g. '2010-11-12 or 2010-11'
-    def self.date_from_ol_str(string)
-      Timeliness.parse(string)&.to_date
-    end
 end
