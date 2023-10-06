@@ -102,17 +102,22 @@ class Work < ApplicationRecord
 
     ext_authors = ext_work.authors_details
 
-    voices = ext_authors.map do |author|
-      begin
-        ext_birth = author.birth_date
-      rescue OpenLibrary::OLDateStrUnparseable
-        ext_birth = nil
-      end
-      begin
-        ext_death = author.death_date
-      rescue OpenLibrary::OLDateStrUnparseable
-        ext_death = nil
-      end
+    # we should iterate through all the authors on a work,
+    # but there is an ongoing bug with openlibrary where
+    # dozens of irrelevant authors are listed for one work
+    # voices = ext_authors.map do |author|
+    author = ext_authors.first
+    begin
+      ext_birth = author.birth_date
+    rescue OpenLibrary::OLDateStrUnparseable
+      ext_birth = nil
+    end
+    begin
+      ext_death = author.death_date
+    rescue OpenLibrary::OLDateStrUnparseable
+      ext_death = nil
+    end
+    voices = [
       { style: :author,
         author_attributes: { name: author.personal_name,
                              birth_year: ext_birth&.year,
@@ -124,7 +129,7 @@ class Work < ApplicationRecord
                              death_day: ext_death&.day
                            }
       }
-    end
+    ]
 
     begin
       ext_publish_date = ext_work.publish_date
@@ -132,11 +137,11 @@ class Work < ApplicationRecord
       ext_publish_date = nil
     end
 
-    params = { title: ext_work.title, ISBN: isbn,
-               edition_publication_year: ext_publish_date&.year,
-               edition_publication_month: ext_publish_date&.month,
-               edition_publication_day: ext_publish_date&.day,
-               cover_url: ext_work.cover["large"],
-               voices_attributes: voices }
+    { title: ext_work.title, ISBN: isbn,
+      edition_publication_year: ext_publish_date&.year,
+      edition_publication_month: ext_publish_date&.month,
+      edition_publication_day: ext_publish_date&.day,
+      cover_url: ext_work.cover["large"],
+      voices_attributes: voices }
   end
 end
