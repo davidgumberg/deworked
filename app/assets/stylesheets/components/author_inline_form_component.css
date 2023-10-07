@@ -2,6 +2,20 @@
     animation: radeIn 180ms ease-in forwards;
 }
 
+.author-inline-form .author_search_component .author_search_component {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.author-inline-form .author_search_component .author_search_query {
+    width: 100%;
+    margin-bottom: 0.3em;
+}
+
+.author-inline-form{
+    min-width: 18rem;
+}
+
 .work-card-form-loading .author-card-avatar {
     max-height: 6em;
 }

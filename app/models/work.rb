@@ -18,11 +18,11 @@ class Work < ApplicationRecord
                                          allow_destroy: true
 
   # Generate array of options for sorting selector
-  def options_for_sort_select
+  def self.options_for_sort_select
     [
       ["Default", :default],
-      ["Original Publication Date", :original_publication],
-      ["Edition Publication Date", :edition_publication],
+      ["Original Publication Date", :original_publication_date],
+      ["Edition Publication Date", :edition_publication_date],
       ["Title", :title]
     ]
   end
@@ -94,6 +94,23 @@ class Work < ApplicationRecord
     StoreImageJob.perform_now(cover_image, url)
 
     super
+  end
+
+  def self.sort(params)
+    case params[:sort]
+    when "original_publication_date"
+      Work.order(original_publication_year: (params[:order] || :asc),
+                 original_publication_month: (params[:order] || :asc),
+                 original_publication_day: (params[:order] || asc))
+    when "edition_publication_date"
+      Work.order(edition_publication_year: (params[:order] || :asc),
+                 edition_publication_month: (params[:order] || :asc),
+                 edition_publication_day: (params[:order] || asc))
+    when "title"
+      Work.order(title: (params[:order] || :asc))
+    else
+      Work.all
+    end
   end
 
   def self.new_from_isbn(isbn)

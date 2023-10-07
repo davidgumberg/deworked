@@ -1,10 +1,19 @@
 <h2>Works</h2>
-<%= turbo_frame_tag 'work_new' do %>
-  <%= render NewWorkBtnComponent.new %>
+<nav class="works-index-nav">
+  <ul class="works-index-nav-start">
+    <li>
+      <%= render NewWorkBtnComponent.new %>
+    </li>
+  </ul>
+  <ul class="works-index-nav-end">
+    <li>
+      <%= render SortSelectorsComponent.new(model: Work, sort: @sort, order: @order) %>
+    </li>
+  </ul>
+</nav>
+<%= turbo_frame_tag "works-index-frame", class: "works-index-container" do %>
+  <%= render partial: "works/work", collection: @works %>
 <% end %>
-<div class='works-index-container'>
-  <%= render partial: 'works/work', collection: @works %>
-</div>
 
 <%== pagy_nav(@pagy) %>
 

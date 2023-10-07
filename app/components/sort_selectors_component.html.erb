@@ -1,4 +1,16 @@
-<%= form_with class: 'sort-selectors-form', url: works_path do |form| %>
-  <%= form.select :sort, @model.options_for_sort_select %>
-  <%# form.select :order %>
+<%= form_with class: "sort-selectors-form", url: works_path,
+              method: :get,
+              data: {
+                "controller": "submit-on-change",
+                "action": "change->submit-on-change#change",
+                "submit-on-change-target": "form"
+              } do |form| %>
+  <%= tag.section class: "sort-selectors-form-section" do %>
+    <%= form.label :sort, "Sort by" %>
+    <%= form.select :sort, options_for_sort_select %>
+  <% end %>
+  <%= tag.section class: "sort-selectors-form-section" do %>
+    <%= form.label :sort, "Direction" %>
+    <%= form.select :order, options_for_sort_order %>
+  <% end %>
 <% end %>

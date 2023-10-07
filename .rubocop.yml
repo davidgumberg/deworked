@@ -31,6 +31,12 @@ Layout/ArgumentAlignment:
 Layout/AccessModifierIndentation:
   Enabled: true
 
+Layout/ArrayAlignment:
+  EnforcedStyle: with_first_element
+
+# Layout/MultiLineArrayBraceLayout
+# EnforcedStyle:
+
 Style/EmptyElse:
   EnforcedStyle: empty
 

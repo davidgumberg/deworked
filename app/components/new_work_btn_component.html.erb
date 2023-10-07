@@ -1,31 +1,35 @@
-<%= tag.div data: { 'controller': 'popover',
-                    'popover-target': 'container'
-                  } do %>
-  <%= tag.div href: new_work_path, class: 'new-work-btn',
-              tabindex: '0',
-              data: { 'popover-target': 'button',
-                    'action': 'focus->popover#show
-                               focusin->popover#show
-                               click->popover#show
+<%= helpers.turbo_frame_tag "new-work-btn-component" do %>
+  <%= tag.div data: { 'controller': 'popover',
+                      'popover-target': 'container'
+                    } do %>
+    <%= tag.div href: new_work_path, class: 'new-work-btn',
+                tabindex: '0',
+                data: { 'popover-target': 'button',
+                      'action': 'focus->popover#show
+                                 focusin->popover#show
+                                 click->popover#show
 
-                               focusout->popover#hide'
-                  } do %>
-    Add new work
-  <% end %>
-  <%= tag.div class:"floating-popover",
-              data: { 'popover-target': 'popover' } do %>
-
-    <%= tag.div class: "floating-popover-arrow",
-             data: { 'popover-target': 'arrow' } do %>
+                                 focusout->popover#hide'
+                    } do %>
+      Add new work
     <% end %>
+    <%# tag.div class:"floating-popover",
+                data: { 'popover-target': 'popover' } do %>
+    <%= helpers.turbo_frame_tag "work_new", class: "floating-popover",
+                        data: { "popover-target": "popover" } do %>
 
-    <nav class="floating-popover-nav">
-      <%= tag.a href: new_work_path, tabindex: '0', class: 'new-work-btn' do %>
-        Manually input a new work
+      <%= tag.div class: "floating-popover-arrow",
+                  data: { 'popover-target': 'arrow' } do %>
       <% end %>
-      <%= tag.a href: new_import_works_path, tabindex: '0', class: 'new-work-btn' do %>
-        Import a new work from an ISBN
-      <% end %>
-    </nav>
+
+      <nav class="floating-popover-nav">
+        <%= tag.a href: new_work_path, tabindex: '0', class: 'new-work-btn' do %>
+          Manually input a new work
+        <% end %>
+        <%= tag.a href: new_import_works_path, tabindex: '0', class: 'new-work-btn' do %>
+          Import a new work from an ISBN
+        <% end %>
+      </nav>
+    <% end %>
   <% end %>
 <% end %>

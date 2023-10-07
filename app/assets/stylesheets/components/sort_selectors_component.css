@@ -1,0 +1,10 @@
+.sort-selectors-form {
+    display: flex;
+    flex-flow: row;
+    gap: 1em;
+}
+.sort-selectors-form-section {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: .1em;
+}

@@ -3,7 +3,9 @@ class WorksController < ApplicationController
 
   # GET /works or /works.json
   def index
-    @pagy, @works = pagy(Work.all, items: 100)
+    @sort = params[:sort] || :default
+    @order = params[:order] || :asc
+    @pagy, @works = pagy(Work.sort(params), items: 20)
   end
 
   # GET /works/1 or /works/1.json

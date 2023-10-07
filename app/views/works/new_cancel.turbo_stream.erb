@@ -1,5 +1,3 @@
-<%= turbo_stream.replace "work_new" do %>
-  <%= turbo_frame_tag "work_new" do %>
-    <%= render NewWorkBtnComponent.new %>
-  <% end %>
+<%= turbo_stream.replace "new-work-btn-component" do %>
+  <%= render NewWorkBtnComponent.new %>
 <% end %>

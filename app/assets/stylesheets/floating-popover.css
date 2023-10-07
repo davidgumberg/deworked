@@ -2,9 +2,13 @@
     display: none;
     position: absolute;
      
-    background: rgb(25 60 134 / 0.7);
-    -webkit-backdrop-filter: blur(3px);
-    backdrop-filter: blur(3px);
+    background: rgb(25 60 134 / 0.75);
+
+    -webkit-backdrop-filter: blur(9px);
+    backdrop-filter: blur(9px);
+
+    z-index: 3;
+
     color: white;
     font-weight: bold;
     padding: 1.1em;
