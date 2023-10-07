@@ -99,11 +99,13 @@ class Work < ApplicationRecord
   def self.sort(params)
     case params[:sort]
     when "original_publication_date"
-      Work.order(original_publication_year: (params[:order] || :asc),
+      Work.order(original_publication_era: (params[:order] || :asc),
+                 original_publication_year: (params[:order] || :asc),
                  original_publication_month: (params[:order] || :asc),
                  original_publication_day: (params[:order] || asc))
     when "edition_publication_date"
-      Work.order(edition_publication_year: (params[:order] || :asc),
+      Work.order(edition_publication_era: (params[:order] || :asc),
+                 edition_publication_year: (params[:order] || :asc),
                  edition_publication_month: (params[:order] || :asc),
                  edition_publication_day: (params[:order] || asc))
     when "title"
