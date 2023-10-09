@@ -97,19 +97,38 @@ class Work < ApplicationRecord
   end
 
   def self.sort(params)
+    order =
+      if params[:order] == :desc || params[:order] == "desc"
+        :desc
+      else
+        :asc
+      end
+    
+    original_publication_era_attr = Work.arel_table[:original_publication_era]
+    original_publication_year_attr = Work.arel_table[:original_publication_year]
+    original_publication_month_attr = Work.arel_table[:original_publication_month]
+    original_publication_day_attr = Work.arel_table[:original_publication_day]
+
+    edition_publication_era_attr = Work.arel_table[:edition_publication_era]
+    edition_publication_year_attr = Work.arel_table[:edition_publication_year]
+    edition_publication_month_attr = Work.arel_table[:edition_publication_month]
+    edition_publication_day_attr = Work.arel_table[:edition_publication_day]
+
     case params[:sort]
+    when "default"
+      Work.all
     when "original_publication_date"
-      Work.order(original_publication_era: (params[:order] || :asc),
-                 original_publication_year: (params[:order] || :asc),
-                 original_publication_month: (params[:order] || :asc),
-                 original_publication_day: (params[:order] || asc))
+      Work.order(original_publication_era_attr * original_publication_year_attr
+                  .send(order).nulls_last,
+                 original_publication_month_attr.send(order).nulls_last,
+                 original_publication_day_attr.send(order).nulls_last)
     when "edition_publication_date"
-      Work.order(edition_publication_era: (params[:order] || :asc),
-                 edition_publication_year: (params[:order] || :asc),
-                 edition_publication_month: (params[:order] || :asc),
-                 edition_publication_day: (params[:order] || asc))
+      Work.order(edition_publication_era_attr * edition_publication_year_attr
+                  .send(order).nulls_last,
+                 edition_publication_month_attr.send(order).nulls_last,
+                 edition_publication_day_attr.send(order).nulls_last)
     when "title"
-      Work.order(title: (params[:order] || :asc))
+      Work.order(title: order)
     else
       Work.all
     end
