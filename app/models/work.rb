@@ -138,7 +138,7 @@ class Work < ApplicationRecord
     ext_work = OpenLibraryBook.new(isbn.strip)
     return nil unless ext_work
 
-    ext_authors = ext_work.authors_details
+    ext_authors = ext_work.fetch_authors
 
     # we should iterate through all the authors on a work,
     # but there is an ongoing bug with openlibrary where
