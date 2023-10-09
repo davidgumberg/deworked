@@ -118,12 +118,12 @@ class Work < ApplicationRecord
     when "default"
       Work.all
     when "original_publication_date"
-      Work.order(original_publication_era_attr * original_publication_year_attr
+      Work.order((original_publication_era_attr * original_publication_year_attr)
                   .send(order).nulls_last,
                  original_publication_month_attr.send(order).nulls_last,
                  original_publication_day_attr.send(order).nulls_last)
     when "edition_publication_date"
-      Work.order(edition_publication_era_attr * edition_publication_year_attr
+      Work.order((edition_publication_era_attr * edition_publication_year_attr)
                   .send(order).nulls_last,
                  edition_publication_month_attr.send(order).nulls_last,
                  edition_publication_day_attr.send(order).nulls_last)
