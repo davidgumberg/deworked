@@ -210,7 +210,7 @@ GEM
     psych (5.1.0)
       stringio
     public_suffix (5.0.3)
-    puma (5.6.7)
+    puma (6.4.0)
       nio4r (~> 2.0)
     racc (1.7.1)
     rack (3.0.8)
@@ -393,7 +393,7 @@ DEPENDENCIES
   lookbook
   pagy (~> 6.0)
   pg (~> 1.5)
-  puma (~> 5.0)
+  puma (~> 6.4)
   rails (~> 7.1)
   rspec
   rspec-rails
