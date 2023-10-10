@@ -115,8 +115,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.5.0)
     erubi (1.12.0)
-    execjs (2.9.1)
     fetchworks (0.1.1)
       open-uri
     ffi (1.16.3)
@@ -236,7 +236,7 @@ GEM
     rdoc (6.5.0)
       psych (>= 4.0.0)
     redcarpet (3.6.0)
-    regexp_parser (2.8.1)
+    regexp_parser (2.8.2)
     reline (0.3.9)
       io-console (~> 0.5)
     responders (3.1.0)
@@ -244,6 +244,27 @@ GEM
       railties (>= 5.2)
     rexml (3.2.6)
     rouge (4.1.3)
+    rspec (3.12.0)
+      rspec-core (~> 3.12.0)
+      rspec-expectations (~> 3.12.0)
+      rspec-mocks (~> 3.12.0)
+    rspec-core (3.12.2)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.6)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-rails (6.0.3)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.12)
+      rspec-expectations (~> 3.12)
+      rspec-mocks (~> 3.12)
+      rspec-support (~> 3.12)
+    rspec-support (3.12.1)
     rubocop (1.56.4)
       base64 (~> 0.1.1)
       json (~> 2.3)
@@ -269,7 +290,7 @@ GEM
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     rubyzip (2.3.2)
-    selenium-webdriver (4.13.1)
+    selenium-webdriver (4.14.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
@@ -301,8 +322,6 @@ GEM
     stringio (3.0.8)
     tailwindcss-rails (2.0.30-x86_64-linux)
       railties (>= 6.0.0)
-    terser (1.1.18)
-      execjs (>= 0.3.0, < 3)
     thor (1.2.2)
     time (0.2.2)
       date
@@ -339,22 +358,24 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  aws-sdk-s3
+  aws-sdk-s3 (~> 1.136)
   bootsnap
   brakeman
   capybara
   debug
   devise
   fetchworks (~> 0.1)
-  foreman
+  foreman (~> 0.87)
   image_processing
   importmap-rails
   jbuilder
   lookbook
   pagy (~> 6.0)
-  pg
+  pg (~> 1.5)
   puma (~> 5.0)
   rails (~> 7.0.6)
+  rspec
+  rspec-rails
   rubocop
   rubocop-rails
   selenium-webdriver
@@ -364,7 +385,6 @@ DEPENDENCIES
   standard-rails
   stimulus-rails
   tailwindcss-rails (~> 2.0)
-  terser (~> 1.1)
   turbo-rails
   tzinfo-data
   view_component

@@ -9,8 +9,6 @@ require:
   - rubocop-performance
   - rubocop-rails
 
-
-
 inherit_gem:
   standard: config/base.yml
   standard-performance: config/base.yml

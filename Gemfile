@@ -1,69 +1,55 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+# Versions of our main deps
 ruby "3.2.2"
-
-gem "fetchworks", "~> 0.1"
-
 gem "rails", "~> 7.0.6"
-
-gem "tailwindcss-rails", "~> 2.0"
-
-gem "foreman"
-
-gem "devise"
-
-gem "pagy", "~> 6.0"
-
-# Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.6"
-gem "pg"
-
-# Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+# Rails default gems and asset pipeline
+#
+# Asset Pipeline
 gem "sprockets-rails"
-
-# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+# Build ActiveStorage variants
+gem "image_processing"
+# tailwindcss
+gem "tailwindcss-rails", "~> 2.0"
+# JS importmaps
 gem "importmap-rails"
-
-# Hotwire"s SPA-like page accelerator [https://turbo.hotwired.dev]
+# Hotwire's turbolinks and turboframes
 gem "turbo-rails"
-
-# Hotwire"s modest JavaScript framework [https://stimulus.hotwired.dev]
+# Hotwire's stimulus
 gem "stimulus-rails"
-
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
+# JSON API builder
 gem "jbuilder"
-
-# Reusable view components with
-gem "view_component"
-
-# Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
-
-# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
-# gem "kredis"
-
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
-
+# Procfile runner
+gem "foreman", "~> 0.87"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
-# Use Sass to process CSS
-# gem "sassc-rails"
+# Gems that extend the Rails default
+#
+# authentication
+gem "devise"
+# pagination
+gem "pagy", "~> 6.0"
+# View Compenentization
+gem "view_component"
 
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-gem "image_processing"
+# Ruby utility gems
+#
+# Fetch works data from API's
+gem "fetchworks", "~> 0.1"
+
 
 group :development, :test do
+  # Sqlite DB for dev and test
+  gem "sqlite3", "~> 1.6"
+
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "brakeman"
 
   # ViewComponent Previews
@@ -74,6 +60,10 @@ group :development, :test do
   gem "rubocop-rails"
   gem "standard"
   gem "standard-rails"
+
+  # rspec
+  gem "rspec"
+  gem "rspec-rails"
 end
 
 group :development do
@@ -94,8 +84,8 @@ group :test do
 end
 
 group :production do
-  gem "aws-sdk-s3", require: false
-  gem "terser", "~> 1.1"
+  # PostgreSQL in prod
+  gem "pg", "~>1.5"
+  # S3 for ActiveStorage blobs
+  gem "aws-sdk-s3", "~> 1.136"
 end
-
-
