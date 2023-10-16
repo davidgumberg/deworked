@@ -13,6 +13,7 @@ class WorksTest < ApplicationSystemTestCase
   test "should create work" do
     visit works_url
     click_on "New work"
+    click_on "Manually input a new work"
 
     fill_in "work[ISBN]", with: @work.ISBN
     fill_in "work[edition_publication_year]", with: @work.edition_publication_year
@@ -26,7 +27,7 @@ class WorksTest < ApplicationSystemTestCase
     fill_in "Title", with: @work.title
     click_on "Create Work"
 
-    assert_text "Work was successfully created"
+    assert_text @work.title
     click_on "Back"
   end
 
