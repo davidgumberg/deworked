@@ -3,11 +3,13 @@
 
 <%= @form.fields_for :author do |author_form| %>
   <% author = author_form.object %>
-
   <%# deliberately obtuse setup that chains together dom_id's, read from RTL %>
   <% unique_id = dom_id(author, dom_id(@voice, dom_id(@voice.work, :form))) %>
   <%= tag.div class: 'author-card author-inline-form', id: unique_id,
               data: { 'controller': 'author-fields' } do %>
+    <%# tag.section class: 'voice-inline-form-choice' do %>
+      <a href="#">
+    <%# end %>
     <%= render AuthorInlineFormComponent.new(author: author,  form: author_form) %>
   <% end %>
 <% end %>

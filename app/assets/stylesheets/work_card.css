@@ -7,7 +7,7 @@
 	background-color: rgba(37, 71, 117, 0.7);
 	border-radius: 1em;
     width: 100%;
-	padding: 2em;
+	padding: 1.8em;
     margin: .5em;
     gap: 1em;
 }
@@ -33,7 +33,7 @@
 }
 
 .work-card-details {
-    flex: 1 0 25%;
+    flex: 1 0 22%;
 
     display: flex;
     flex-flow: column nowrap;

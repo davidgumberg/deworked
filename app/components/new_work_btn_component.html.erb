@@ -13,9 +13,7 @@
                     } do %>
       Add new work
     <% end %>
-    <%# tag.div class:"floating-popover",
-                data: { 'popover-target': 'popover' } do %>
-    <%= helpers.turbo_frame_tag "work_new", class: "floating-popover",
+   <%= helpers.turbo_frame_tag "work_new", class: "floating-popover",
                         data: { "popover-target": "popover" } do %>
 
       <%= tag.div class: "floating-popover-arrow",

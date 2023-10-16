@@ -9,10 +9,11 @@
 .date-picker-component-attr {
 	display: flex;
 	flex-flow: column nowrap;
+    align-items: center;
 }
 
 .date-picker-component h3  {
-	font-size: 1.01em;
+	font-size: 1.05rem;
 	font-weight: bold;
 }
 
@@ -24,6 +25,10 @@
 
 .date-picker-component input {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(50, 0, 100, 0.2) 0px -2px 0px inset;
+}
+
+.date-picker-component-field-label {
+    font-size: 0.89em;
 }
 
 
@@ -46,10 +51,13 @@
 }
 
 .date-picker-component-year input{
-    width: 4em;
+    width: 3em;
 }
 
-.date-picker-component-month input,
+.date-picker-component-month input {
+    width: 2.5em;
+}
+
 .date-picker-component-day input {
-    width: 3em;
+    width: 2.5em;
 }
