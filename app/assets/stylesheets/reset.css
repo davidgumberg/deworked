@@ -1,0 +1,35 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+h1 {
+    font-size: 64pt;
+}
+
+h2 {
+    font-size: 42pt;
+}
+
+h3 {
+    font-size: 1.35rem;
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none; 
+  margin: 0;
+  opacity: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
