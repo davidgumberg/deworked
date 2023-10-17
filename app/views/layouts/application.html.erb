@@ -22,8 +22,8 @@
         <p class="header-notification notification-alert"><%= alert %></p>
       <% end %>
       <h1>Deworked</h1>
-      <nav class="application-header-nav">
-        <ul class="flex flex-row space-x-3">
+      <nav>
+        <ul class="header-nav">
           <li><%= link_to_unless_current "Works", works_path %></li>
           <li><%= link_to_unless_current "Authors", authors_path %></li>
           <% if user_signed_in? %>
@@ -39,7 +39,7 @@
       <%= yield %>
     </main>
     <footer>
-      <nav class="application-footer">
+      <nav class="footer-nav">
         <a class="footer-gh-link" href="https://github.com/davidgumberg/deworked">
           <img src="<%= image_path("icons/gh.svg")%>">
         </a>

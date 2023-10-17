@@ -23,6 +23,10 @@ ul {
     list-style-type: none;
 }
 
+input {
+    font-size: inherit;
+}
+
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
