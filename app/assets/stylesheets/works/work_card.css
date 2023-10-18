@@ -1,45 +1,40 @@
 .work-card {
-    --height: 28em;
+    --height: 28rem;
 	display: flex;
     flex-flow: row wrap;
-	align-items: stretch;
-    justify-content: space-around;
-	background-color: rgba(37, 71, 117, 0.7);
-	border-radius: 1em;
+    justify-content: space-evenly;
     width: 100%;
-	padding: 1.8em;
-    margin: .5em;
+
+	padding: 1.65rem;
+    margin: .5rem;
+
+	background-color: rgb(37 71 117 / 0.7);
+	border-radius: 1em;
     gap: 1em;
 }
 
 .work-card-cover {
-    flex: 1 0 25%;
+    flex-grow: 1;
+    flex-shrink: 0;
     height: var(--height);
     border: 1px solid black;
+    min-width: 18em;
+
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-
-    min-width: 18em;
-
     overflow: hidden;
     overflow: clip;
 }
 
-.work-card-cover > img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
-
 .work-card-details {
-    flex: 1 0 22%;
+    flex: 1;
 
     display: flex;
     flex-flow: column nowrap;
+    gap: 1em;
 
     font-size: 1.2rem;
-    gap: 1em;
     word-break: break-word;
 }
 
@@ -48,19 +43,18 @@
 }
 
 .work-card-authors {
+    flex: 1;
+    height: var(--height);
+
     display: flex;
     flex-flow: row wrap;
-    flex: 1 0 20%;
-    height: var(--height);
-    max-height: var(--height);
-
-    gap: 1.5em;
+    gap: 1.5rem;
 }
 
 .work-card-authors .author-card {
     max-height: 100%;
     flex: 1;
-    max-width:21rem;
+    max-width: 20.5rem;
 }
 
 .work-card-details-title {
@@ -69,12 +63,7 @@
 }
 
 .work-nav .work-nav-btn {
-    display: block;
-    max-width: fit-content;
-    font-weight: bold;
-    padding: .5em;
-    border-radius: 4px;
-    border: black 3px solid;
+    box-shadow: var(--box-shadow-btn-primary), var(--box-shadow-btn-secondary);
 }
 
 .work-nav-btn-show {
@@ -100,7 +89,6 @@
 .work-nav-btn-add:hover {
     background-color: #207a5a;
 }
-
 
 .work-nav-btn-edit {
     background-color: #AAA555;

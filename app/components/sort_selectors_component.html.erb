@@ -7,10 +7,10 @@
               } do |form| %>
   <%= tag.section class: "sort-selectors-form-section" do %>
     <%= form.label :sort, "Sort by" %>
-    <%= form.select :sort, options_for_sort_select %>
+    <%= form.select :sort, options_for_sort_select, {}, {class: "basic-select"} %>
   <% end %>
   <%= tag.section class: "sort-selectors-form-section" do %>
     <%= form.label :sort, "Direction" %>
-    <%= form.select :order, options_for_sort_order %>
+    <%= form.select :order, options_for_sort_order, {}, {class: "basic-select"} %>
   <% end %>
 <% end %>

@@ -7,7 +7,7 @@ nav.works-index-nav {
 
 ul.works-index-nav-start,
 ul.works-index-nav-end {
-    flex: 1 50%;
+    flex: 1;
     display: flex;
     flex-flow: row nowrap;
 }

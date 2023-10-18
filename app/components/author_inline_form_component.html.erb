@@ -11,7 +11,7 @@
    <div class="author_search_component" data-controller="author-search combobox">
       <%= @form.label :name %>
       <%= @form.text_field :name, { 'required': true,
-                                    'class': 'author_search_query',
+                                    'class': "author_search_query basic-input",
                                     'pattern': '.*\w+.*',
                                     'autocomplete': 'off',
                                     'data-author-search-target': 'nameField',

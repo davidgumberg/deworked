@@ -1,0 +1,2 @@
+module AnimateLoadHelper
+end

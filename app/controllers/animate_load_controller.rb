@@ -1,0 +1,2 @@
+class AnimateLoadController < ApplicationController
+end
