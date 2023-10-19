@@ -1,7 +1,8 @@
 <%= tag.div class: 'image-edit-component',
             data: { 'controller': 'image-edit' } do %>
-    <%= tag.span class: 'hidden', data: {'direct-upload-target': 'progress'} %>
-    <%= @form.text_field @image_url_attr, class: 'hidden' %>
+  <%= tag.span class: 'hidden', data: {'direct-upload-target': 'progress'} %>
+  <%= @form.text_field @image_url_attr, class: 'hidden' %>
+
   <%= tag.div class: 'image-edit-choice-container' do %>
 
     <%= tag.div class: 'image-edit-choice-button',
@@ -10,14 +11,12 @@
                       } do %>
 
       <%= @form.file_field @image_attr, class: 'hidden', direct_upload: true,
-                           data: { 'direct-upload-target': 'input', 
-                                   'image-edit-target': 'fileField',
+                           data: { 'image-edit-target': 'fileField',
                                    'action': 'change->direct-upload#uploadEarly
                                               direct-upload:error->direct-upload#uploadError'
                                  } %> 
       <%= @form.label @image_attr, data: { 'tooltip-target': 'tool',
-                                           'action': 'click->image-edit#uploadCover
-                                                      mouseover->tooltip#show
+                                           'action': 'mouseover->tooltip#show
                                                       mouseout->tooltip#hide'
                                          } do %>
         <img alt="Upload an image from your device"
@@ -33,7 +32,7 @@
                 data: { 'controller': 'tooltip',
                         'tooltip-placement-value': 'top' } do %>
 
-      <%= tag.a href: '#', data: { 'action': 'mouseover->tooltip#show
+      <% tag.a href: '#', data: { 'action': 'mouseover->tooltip#show
                                               mouseout->tooltip#hide',
                                              'tooltip-target': 'tool' } do %>
         <img alt="Provide a url for this image"
