@@ -3,20 +3,20 @@
   <div class="date-picker-component-attr date-picker-component-era">
     <%= @form.label era_attr, "Era", class: 'date-picker-component-field-label' %>
     <%= @form.select era_attr, era_options, {},
-                     { class: 'date-picker-component-era-select'
+                     { class: 'basic-select date-picker-component-era-select'
                      } %>
   </div>
   <div class="date-picker-component-attr date-picker-component-year">
     <%= @form.label year_attr, "Year", class: 'date-picker-component-field-label' %>
-    <%= @form.number_field year_attr, size: 4 %>
+    <%= @form.number_field year_attr, size: 4, class: 'basic-input' %>
   </div>
   <div class="date-picker-component-attr date-picker-component-month">
-    <%= @form.label month_attr, "Month", class: 'date-picker-component-field-label' %>
-    <%= @form.number_field month_attr, size: 2, min: 1, max: 12 %>
+    <%= @form.label month_attr, "Month", class: "date-picker-component-field-label" %>
+    <%= @form.number_field month_attr, size: 2, min: 1, max: 12, class: 'basic-input' %>
   </div>
   <div class="date-picker-component-attr date-picker-component-day">
-    <%= @form.label day_attr, "Day", class: 'date-picker-component-field-label' %>
-    <%= @form.number_field day_attr, size: 2, min: 1, max: 31 %>
+    <%= @form.label day_attr, "Day", class: "date-picker-component-field-label" %>
+    <%= @form.number_field day_attr, size: 2, min: 1, max: 31, class: "basic-input" %>
   </div>
 </div>
 

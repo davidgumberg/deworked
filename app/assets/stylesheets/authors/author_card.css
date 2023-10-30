@@ -35,14 +35,15 @@
     flex-flow: column nowrap;
     align-items: center;
 
-    line-height: 1.8;
+    line-height: 1.6;
 	flex: 1;
 	font-family: 'Vollkorn-Black';
-	font-size: .9rem;
+    font-weight: bold;
+	font-size: 0.98rem;
     color: rgb(0, 0, 0);
 	text-align: center;
-	padding: .25em .5em 1em;
-	margin: .25em .5em 1em;
+	padding: .25em .55em .6em;
+	margin: .25em .55em .6em;
 }
 
 .author-card-avatar {

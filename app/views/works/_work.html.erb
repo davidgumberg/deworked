@@ -1,5 +1,4 @@
-<%= turbo_frame_tag work, class: 'work-container', 
-                    data: {'controller': 'work-card-animations'} do %>
+<%= turbo_frame_tag work, data: {'controller': 'work-card-animations'} do %>
   <%= tag.div class: 'work-card',
               data: { 'work-card-animations-target': 'workCard'
                     } do %>
@@ -55,13 +54,13 @@
         <% if user_signed_in? %>
           <li><%= render partial: 'possessions/addremove', locals: { work: work } %>
         <% end %>
-        <li><%= link_to "Show this work", work, class: 'work-nav-btn work-nav-btn-show', data: { turbo_frame: '_top' } %></li>
+        <li><%= link_to "Show this work", work, class: 'basic-btn work-nav-btn work-nav-btn-show', data: { turbo_frame: '_top' } %></li>
         <li><%= link_to "Edit this work", edit_work_path(work),
-                        class: 'work-nav-btn work-nav-btn-edit',
+                        class: 'basic-btn work-nav-btn work-nav-btn-edit',
                         data: { 'action': 'click->work-card-animations#editClicked' }
             %>
         </li>
-        <li><%= button_to "Destroy this work", work, method: :delete, class: 'work-nav-btn work-nav-btn-destroy' %></li>
+        <li><%= button_to "Destroy this work", work, method: :delete, class: 'basic-btn work-nav-btn work-nav-btn-destroy' %></li>
       </ul>
     </nav>
   <% end %>

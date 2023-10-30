@@ -1,3 +1,13 @@
+form#search_authors {
+    max-width: 50em;
+    background: #BBBBDD;
+    padding-top: .5em;
+    padding-bottom: 4em;
+    margin: 1em auto 0;
+    border-radius: 2em;
+    border-style: groove;
+}
+
 .author_search_query {
     margin-bottom: 0;
 }

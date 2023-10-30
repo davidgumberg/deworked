@@ -1,19 +1,24 @@
 <%= helpers.turbo_frame_tag "work_new" do %>
   <h3> Importing work from ISBN</h3>
-  <div class="external-work-form">
+  <%= tag.div class: "external-work-form",
+              data: {
+                controller: "shower"
+              } do %>
+    <div class="loader"></div>
     <%= form_with url: new_ext_works_path, method: :get,
                   class: 'work-card work-inline-form' do |form| %>
       <%= form.label :isbn, "ISBN" %>  
-      <%= form.text_field :isbn %>
-      <%= form.submit "Import from ISBN"  %>
+      <%= form.text_field :isbn, class: "basic-input" %>
+      <%= form.submit "Import from ISBN", class: "basic-btn" %>
     <% end %>
-  </div>
-   <nav class="work-nav">
-     <ul class="flex flex-row justify-end space-x-3 mb-6">
-       <li><%= tag.a "Cancel", href: new_cancel_works_path,
-                               data: { 'turbo-stream': '' },
-                               class: 'work-nav-btn work-nav-btn-edit-cancel' %>
-       </li>
-     </ul>
-   </nav>
+  <% end %>
+  
+  <nav class="work-nav">
+    <ul class="flex flex-row justify-end space-x-3 mb-6">
+      <li><%= tag.a "Cancel", href: new_cancel_works_path,
+                              data: { 'turbo-stream': '' },
+                              class: 'basic-btn work-nav-btn work-nav-btn-edit-cancel' %>
+      </li>
+    </ul>
+  </nav>
 <% end %>

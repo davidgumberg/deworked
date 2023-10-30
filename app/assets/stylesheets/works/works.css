@@ -1,0 +1,26 @@
+nav.works-index-nav {
+   display: flex;
+   flex-flow: row wrap;
+   margin: .5em 1em;
+   align-items: flex-end;
+}
+
+ul.works-index-nav-start,
+ul.works-index-nav-end {
+    flex: 1;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+ul.works-index-nav-start {
+    justify-content: flex-start;
+}
+
+ul.works-index-nav-end {
+    justify-content: flex-end;
+}
+
+.works-index-container {
+    display: flex;
+    flex-flow: column nowrap;
+}
