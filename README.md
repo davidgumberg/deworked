@@ -1,6 +1,6 @@
 # Deworked
 
- Deworked is an open-source web application for cataloguing written works and their authors that can be self-hosted.
+ Deworked is a self-hosted web application for cataloguing collections of written works.
 
 At present, we support automatically gathering works data from the OpenLibrary archive. In the future, this application will support collections that are a mixture of physical and digital works.
 
